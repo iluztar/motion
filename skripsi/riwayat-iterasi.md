@@ -1,18 +1,19 @@
-# Riwayat Iterasi Motion Reel
+# Motion Reel iteration history
 
-Ekspor dari riwayat Git repositori `iluztar/iluztar.github.io` (tempat Motion Reel semula dikembangkan) sebelum repositori itu dibuat ulang tanpa riwayat lama untuk membersihkan data yang tidak lagi dipakai. Sejak 8 November 2026 proyek ini dipindah ke repositori `iluztar/motion`. Waktu dalam WIB (UTC+7).
+Exported from the Git history of `iluztar/iluztar.github.io`, where the reel was first developed, before that repository
+was recreated without history to remove data that was no longer used. Since 8 Nov 2026 the project lives in
+`iluztar/motion`. Times are WIB (UTC+7). This file is the evidence for the iteration table in the thesis.
 
-Berkas ini menjadi bukti urutan iterasi pada Tabel 4.8 naskah skripsi.
+## Summary
 
-## Ringkasan
+- Prototype uploaded on 29 Sep 2026 at 00:09; 25 pull requests (34 development commits) merged from 00:25 to 10:02.
+- Each pull request was merged only after the studio owner reviewed the result.
+- Later steps (moving the data to PHP + MySQL on the afternoon of 29 Sep, and the `?intro=1` opening animation on 8 Nov)
+  were done on the Iluztar server and added to this repository on 8 Nov 2026.
 
-- Pengembangan Motion Reel: **29 September 2026**, unggahan prototipe awal pukul 00.09 WIB, lalu **25 pull request** (berisi 34 commit pengembangan) digabungkan antara pukul 00.25 dan 10.02 WIB.
-- Setiap pull request baru digabungkan setelah hasilnya ditinjau (human-in-the-loop).
-- Tahap sesudahnya (pemindahan data ke PHP dan MySQL pada 29 September 2026 siang, dan mode animasi pembuka `?intro=1` pada 8 November 2026) dikerjakan di server ILUZTAR, lalu dimasukkan ke repositori pada 8 November 2026.
+## Merged pull requests (29 Sep 2026)
 
-## Pull request yang digabungkan (29 September 2026)
-
-| PR | Digabung (WIB) | Commit di dalamnya |
+| PR | Merged (WIB) | Commits |
 |---|---|---|
 | #1 | 00.25 | • Add motion review and visual development plan<br>• Refine reel motion: easing tokens, calmer rhythm, directional cuts, logo lock-up<br>• Add README for the motion reel |
 | #2 | 01.06 | • Show live Instagram profile counts in scene 8<br>• Rebuild reel motion to match the reference cut; add gradient canvas and dark/light theme |
@@ -40,9 +41,9 @@ Berkas ini menjadi bukti urutan iterasi pada Tabel 4.8 naskah skripsi.
 | #24 | 09.50 | • Instagram cover-flow: keep cards on their own layer, depth instead of scale for side cards |
 | #25 | 10.02 | • Separate soundtrack for the Cut version |
 
-## Seluruh commit pengembangan (29 September – 8 November 2026)
+## All development commits
 
-| Waktu (WIB) | Commit |
+| Time (WIB) | Commit |
 |---|---|
 | 29-09 00.07 | Delete css directory |
 | 29-09 00.07 | Delete img directory |
@@ -90,11 +91,11 @@ Berkas ini menjadi bukti urutan iterasi pada Tabel 4.8 naskah skripsi.
 | 08-11 11.51 | README: animasi kode responsif terhadap ukuran layar |
 | 08-11 11.56 | Hapus workflow dan data statistik Instagram versi lama |
 
-## Riwayat sebelumnya: website statis di GitHub Pages
+## Earlier history: the static GitHub Pages site
 
-Sebelum menjadi Motion Reel, repositori ini menampung *website* statis ILUZTAR (Gambar 4.7a). Jumlah commit per bulan:
+Before the reel, this repository hosted the static Iluztar website. Commits per month:
 
-| Bulan | Commit |
+| Month | Commits |
 |---|---|
 | 2022-02 | 5 |
 | 2022-09 | 6 |
