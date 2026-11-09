@@ -293,6 +293,8 @@ body:not(.playing) .cf{opacity:1}
 /* same size and rhythm as the opening chat (scene 2): bubbles stack up from just above the input bar */
 .chat8 .bub{position:absolute;right:0}
 #r1{top:412px}#r2{top:486px}
+/* chat penutup tampil besar seperti di video (layar lebar); tampilan potret memakai skala sendiri */
+#s8a .chat8{scale:1.7;translate:0 -60px}
 .chat8 .bub.gray{right:auto;left:0;top:570px;margin:0}
 .prof{position:absolute;left:165px;top:105px;width:1270px;height:690px;border-radius:64px;background:var(--surface);border:2px solid var(--border);padding:64px 76px;overflow:hidden;box-shadow:0 1px 2px rgba(20,20,40,.06),0 14px 30px -10px var(--shadow),0 40px 70px -30px var(--shadow)}
 .ptop{display:flex;gap:40px;align-items:center}
@@ -678,7 +680,7 @@ body:not(.scrollmode) #stag,body:not(.scrollmode) #sgo,body:not(.scrollmode) #sp
     </div>
     <div class="layer" id="s6b">
       <div class="wheel">
-        <div class="wrow"><i></i>Sketch<em>.png</em></div><div class="wrow"><i class="b"></i>Draft<em>.psd</em></div><div class="wrow"><i></i>Lineart<em>.clip</em></div><div class="wrow"><i class="b"></i>Idea<em>.jpg</em></div><div class="wrow"><i></i>Color<em>.psd</em></div><div class="wrow"><i class="b"></i>Render<em>.psd</em></div><div class="wrow"><i></i>Final<em>.png</em></div>
+        <div class="wrow"><i></i>Base color</div><div class="wrow"><i class="b"></i>Lineart</div><div class="wrow"><i></i>Sketch</div><div class="wrow"><i class="b"></i>Work</div><div class="wrow"><i></i>Sketch</div><div class="wrow"><i class="b"></i>Lineart</div><div class="wrow"><i></i>Base color</div>
       </div>
     </div>
     <div class="layer" id="s6c"><div class="tog"><span class="tfill"></span><span class="knob"></span><span class="tlabel">Refine</span></div></div>
@@ -716,7 +718,7 @@ body:not(.scrollmode) #stag,body:not(.scrollmode) #sgo,body:not(.scrollmode) #sp
           <path id="ahead" d="M-22,-18 L2,0 L-22,18" fill="none" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </div>
-      <div class="own"><span class="ow1">Your</span> <b class="ow2">Ownership</b></div>
+      <div class="own"><span class="ow1">Your</span> <b class="ow2">ownership.</b></div>
     </div>
   </div></div>
   <p class="vo">And every piece stays true to your style, your direction, and most importantly, your ownership.</p>
@@ -1125,24 +1127,24 @@ function S1(tl) {
   show(tl, a, 0, 2.2, { in: 0, out: 0 });
   tl.fromTo(cell, { scale: 2.2 }, { scale: 1, duration: .3, ease: E.out }, 0);
   tl.fromTo($('.tex', a), { opacity: 0 }, { opacity: .3, duration: .4 }, .7);
-  typeChars(tl, $('.say', a), .62, .88, { keepCaret: true, pre: 5, preAt: 0 });
+  typeChars(tl, $('.say', a), .8, .7, { keepCaret: true, pre: 5, preAt: 0 });
   tl.to(cell, { scale: 3.4, x: -240, y: 110, opacity: 0, duration: .34, ease: E.in }, 1.88);
 
   // B — "A creative studio": the artwork rises into place around it, then everything drifts up
-  const b = $('#s1b'); show(tl, b, 2.2, 3.55, { in: .12, out: 0 });
+  const b = $('#s1b'); show(tl, b, 2.2, 3.35, { in: .12, out: 0 });
   tl.fromTo($('.say', b), { opacity: 0, y: 26 }, { opacity: 1, y: 0, duration: .5, ease: E.out }, 2.2);
   $$('.art', b).map(el => ({ el, d: parseFloat(el.dataset.d || 1) })).sort((p, q) => p.d - q.d).forEach((p, i) => {
     tl.fromTo(p.el, { x: -160 * p.d, y: 520 + 160 * (1 - p.d), opacity: 0 }, { x: 0, y: 0, opacity: p.d < .6 ? .6 : 1, duration: .9, ease: E.out }, 2.2 + i * .035);
   });
-  tl.fromTo(b, { y: 0 }, { y: -34, duration: 1.35, ease: bE(2.2, 1.35), immediateRender: false }, 2.2);
+  tl.fromTo(b, { y: 0 }, { y: -34, duration: 1.15, ease: bE(2.2, 1.15), immediateRender: false }, 2.2);
 
   // C — Bandar Lampung, then the Indonesia pill opens beside it (the line re-centres as it grows)
-  const c = $('#s1c'); show(tl, c, 3.55, 6.5, { in: .12, out: 0 });
+  const c = $('#s1c'); show(tl, c, 3.35, 5.72, { in: .12, out: 0 });
   const pill = $('.pill', c);
-  tl.fromTo($('.loc', c), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: .35, ease: E.out }, 3.55);
-  tl.fromTo(pill, { width: 0, marginLeft: 0 }, { width: 270, marginLeft: 16, duration: .35, ease: E.out }, 4.72);
-  tl.fromTo($('.comma', c), { opacity: 0 }, { opacity: 1, duration: .15 }, 4.7);
-  tl.fromTo($('.pt', c), { opacity: 0 }, { opacity: 1, duration: .2 }, 4.85);
+  tl.fromTo($('.loc', c), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: .35, ease: E.out }, 3.35);
+  tl.fromTo(pill, { width: 0, marginLeft: 0 }, { width: 270, marginLeft: 16, duration: .35, ease: E.out }, 4.5);
+  tl.fromTo($('.comma', c), { opacity: 0 }, { opacity: 1, duration: .15 }, 4.48);
+  tl.fromTo($('.pt', c), { opacity: 0 }, { opacity: 1, duration: .2 }, 4.63);
   tl.to([$('.pin', c), $('.lt', c), $('.comma', c)], { opacity: 0, duration: .12 }, 5.5);
   tl.to($('.pt', c), { opacity: 0, duration: .1 }, 5.5);
   // the pill leaves the line: a blob takes its exact place, slides to the centre and rounds into the
@@ -1154,54 +1156,48 @@ function S1(tl) {
   const unit = () => c.getBoundingClientRect().width / 1600;
   const pc = () => { const r = pill.getBoundingClientRect(), l = c.getBoundingClientRect(); return { x: (r.left + r.width / 2 - l.left - l.width / 2) / unit(), y: (r.top + r.height / 2 - l.top - l.height / 2) / unit() }; };
   gsap.set(blob, { xPercent: -50, yPercent: -50 });
-  tl.set(pill, { opacity: 0 }, 5.6);
+  tl.set(pill, { opacity: 0 }, 5.5);
   tl.fromTo(blob, { x: () => pc().x, y: () => pc().y, width: 270, height: 78, borderRadius: 39, opacity: 1 },
-    { x: 0, y: 0, width: DIA, height: DIA, borderRadius: () => DIA() / 2, duration: .26, ease: E.inOut, immediateRender: false }, 5.6);
-  tl.to(blob, { y: -120, duration: .2, ease: 'power2.out' }, 5.86);
-  tl.to(blob, { y: DROP, duration: .2, ease: 'power2.in' }, 6.06);
-  tl.to(blob, { scaleX: 1.12, scaleY: .86, duration: .06, ease: 'power1.out' }, 6.26);
-  tl.to(blob, { scaleX: 1, scaleY: 1, duration: .1, ease: 'power1.out' }, 6.32);
-  tl.to(blob, { y: () => DROP() - 26, duration: .1, ease: 'power2.out' }, 6.3);
-  tl.to(blob, { y: DROP, duration: .1, ease: 'power2.in' }, 6.4);
-  tl.set(blob, { opacity: 0 }, 6.5);
+    { x: 0, y: DROP, width: DIA, height: DIA, borderRadius: () => DIA() / 2, duration: .22, ease: E.inOut, immediateRender: false }, 5.5);
+  tl.set(blob, { opacity: 0 }, 5.72);
 
   // D — one artist, then the network: lines shoot out clockwise and the camera pulls back to all of them
   const d = $('#s1d'), net = $('.net', d);
-  show(tl, d, 6.5, 8.72, { in: 0 });
-  tl.set(net, { scale: 2.05, y: 110, transformOrigin: '50% 50%' }, 6.5);
+  show(tl, d, 5.72, 8.72, { in: 0 });
+  tl.set(net, { scale: 2.05, y: 110, transformOrigin: '50% 50%' }, 5.72);
   // the landed circle is the centre node: the mark pops out and the white shoulder rises into it
-  tl.fromTo($('.center use', d), { scale: 0, transformOrigin: '50% 50%' }, { scale: 1, duration: .3, ease: 'back.out(2)' }, 6.5);
-  tl.fromTo($('.center ellipse', d), { y: 46 }, { y: 0, duration: .32, ease: E.out }, 6.54);
-  tl.to(net, { y: 0, duration: .9, ease: E.soft }, 6.6);
+  tl.fromTo($('.center use', d), { scale: 0, transformOrigin: '50% 50%' }, { scale: 1, duration: .3, ease: 'back.out(2)' }, 5.72);
+  tl.fromTo($('.center ellipse', d), { y: 46 }, { y: 0, duration: .32, ease: E.out }, 5.76);
+  tl.to(net, { y: 0, duration: .45, ease: E.soft }, 7.2);
   const nds = $$('.nd', d);
   $$('.lines line', d).forEach((l, i) => {
     const len = +l.dataset.len;
     l.style.strokeDasharray = `${len} ${len + 6}`;
-    tl.fromTo(l, { strokeDashoffset: len + 3 }, { strokeDashoffset: 0, duration: .25, ease: 'power2.out' }, 7.16 + i * .035);
-    tl.fromTo(nds[i], { scale: 0, transformOrigin: '50% 50%' }, { scale: 1, duration: .28, ease: E.out }, 7.26 + i * .035);
+    tl.fromTo(l, { strokeDashoffset: len + 3 }, { strokeDashoffset: 0, duration: .25, ease: 'power2.out' }, 7.25 + i * .03);
+    tl.fromTo(nds[i], { scale: 0, transformOrigin: '50% 50%' }, { scale: 1, duration: .28, ease: E.out }, 7.33 + i * .03);
   });
-  tl.to(net, { scale: 1, duration: .4, ease: 'power2.inOut' }, 7.42);
-  tl.to(net, { scale: .95, y: -10, duration: .9, ease: bE(7.82, .9) }, 7.82);
+  tl.to(net, { scale: 1, duration: .35, ease: 'power2.inOut' }, 7.4);
+  tl.to(net, { scale: .95, y: -10, duration: .72, ease: bE(8.0, .72) }, 8.0);
 
   // E — the calendar rises huge and counts back: ‹ is pressed and a page turns 2026 → 2025 → 2024 → "Since 2023!"
   const e = $('#s1e'), calw = $('.calw', e);
   show(tl, e, 8.72, 10.72);
   tl.fromTo(calw, { scale: 2.2, y: 600 }, { scale: 1.8, y: 330, duration: .5, ease: E.out }, 8.72);
   [0, 1, 2].forEach(i => {
-    const L = $(`.half.L[data-p="${i}"]`, e), R = $(`.half.R[data-p="${i}"]`, e), t = 8.98 + i * .25;
+    const L = $(`.half.L[data-p="${i}"]`, e), R = $(`.half.R[data-p="${i}"]`, e), t = 8.8 + i * .25;
     tl.fromTo($('.cbtn', L), { scale: 1 }, { scale: .82, duration: .07, ease: 'power1.out', immediateRender: false }, t - .12);
     tl.to($('.cbtn', L), { scale: 1, duration: .1, ease: 'power1.out' }, t - .05);
     tl.fromTo(L, { rotationY: 0, transformOrigin: '50% 50%', transformPerspective: 2200 }, { rotationY: 180, duration: .25, ease: E.inOut }, t);
-    tl.fromTo($('.shade', L), { opacity: 0 }, { opacity: .4, duration: .125, immediateRender: false }, t);
-    tl.to($('.shade', L), { opacity: .2, duration: .125 }, t + .125);
+    tl.fromTo($('.shade', L), { opacity: 0 }, { opacity: .14, duration: .125, immediateRender: false }, t);
+    tl.to($('.shade', L), { opacity: .06, duration: .125 }, t + .125);
     tl.set(R, { opacity: 0 }, t + .125);
     // past 90° we see the back of the page: a plain sheet, not the front content mirrored
     tl.set($$(':scope > :not(.shade)', L), { visibility: 'hidden' }, t + .125);
     tl.set(L, { opacity: 0 }, t + .25);
   });
-  tl.fromTo($('.calF .on', e), { scale: 0 }, { scale: 1, duration: .25, ease: E.out }, 9.75);
-  tl.to(calw, { scale: .62, y: 10, duration: .5, ease: 'power3.inOut' }, 9.9);
-  tl.to(calw, { scale: .58, y: 0, duration: .3, ease: 'power1.out' }, 10.4);
+  tl.fromTo($('.calF .on', e), { scale: 0 }, { scale: 1, duration: .25, ease: E.out }, 9.5);
+  tl.to(calw, { scale: .62, y: 10, duration: .38, ease: 'power3.inOut' }, 9.5);
+  tl.to(calw, { scale: .58, y: 0, duration: .6, ease: 'power1.out' }, 9.88);
 }
 
 function S2(tl) {
@@ -1225,7 +1221,7 @@ function S2(tl) {
   tl.to('#s2a .chat', { scale: .95, y: -20, duration: .7, ease: E.soft }, 14.4);
 
   // B — the timer swings in tilted and straightens while the clock races down
-  const b = $('#s2b'); show(tl, b, 15.1, 16.0);
+  const b = $('#s2b'); show(tl, b, 15.1, 15.9);
   gsap.set($('.hz', b), { scale: 1.42 });
   tl.fromTo($('.timer', b), { rotation: -24, x: -300, y: -40, opacity: 0 }, { x: 0, y: 0, opacity: 1, duration: .32, ease: E.out }, 15.08);
   tl.to($('.timer', b), { rotation: 0, duration: .5, ease: 'power2.out' }, 15.08);
@@ -1234,22 +1230,22 @@ function S2(tl) {
   tl.fromTo(clock, { v: 23 * 3600 + 58 * 60 + 58 }, { v: 14 * 3600 + 37 * 60 + 37, duration: .9, ease: E.drift, onUpdate: () => dig.textContent = fmt(clock.v), immediateRender: false }, 15.1);
 
   // C — unfinished sketches pile up one by one; the pile keeps itself centred
-  const c = $('#s2c'), sheets = $('.sheets', c); show(tl, c, 16.08, 17.45);
+  const c = $('#s2c'), sheets = $('.sheets', c); show(tl, c, 15.88, 17.3);
   gsap.set($('.hz', c), { scale: .9 });
   const cx = [335, 210, 143, 2];
   $$('.sheet', c).forEach((s, i) => {
-    const t = 16.1 + i * .2;
+    const t = 15.9 + i * .2;
     tl.fromTo(s, { x: 130, rotation: 4, opacity: 0 }, { x: 0, rotation: 0, opacity: 1, duration: .38, ease: E.out }, t);
     if (i) tl.to(sheets, { x: cx[i], duration: .4, ease: E.inOut }, t); else tl.set(sheets, { x: cx[0] }, t);
   });
 
   // D — "Plate.file" swings in from the left, papers peek out, then the camera pushes in
-  const d = $('#s2d'), hz = $('.hz', d), pw = $('.pwrap', d); show(tl, d, 17.45, 19.95, { out: .1 });
+  const d = $('#s2d'), hz = $('.hz', d), pw = $('.pwrap', d); show(tl, d, 17.3, 19.95, { out: .1 });
   tl.fromTo(hz, { scale: .78 }, { scale: 1.2, duration: .6, ease: 'power2.inOut' }, 18.5);
   tl.to(hz, { scale: 1.28, duration: .8, ease: bE(19.02, .8) }, 19.02);
   tl.to(pw, { x: -260, y: 150, scale: 1.25, duration: .2, ease: E.in }, 19.8);
-  tl.fromTo(pw, { x: -420, y: 80, rotation: -32, opacity: 0 }, { x: 0, y: 0, rotation: 0, opacity: 1, duration: .32, ease: 'power1.inOut' }, 17.45);
-  $$('.psh', d).forEach((s, i) => tl.fromTo(s, { y: 70, opacity: 0 }, { y: 0, opacity: 1, duration: .25, ease: E.out }, 17.66 + i * .05));
+  tl.fromTo(pw, { x: -420, y: 80, rotation: -32, opacity: 0 }, { x: 0, y: 0, rotation: 0, opacity: 1, duration: .32, ease: 'power1.inOut' }, 17.3);
+  $$('.psh', d).forEach((s, i) => tl.fromTo(s, { y: 70, opacity: 0 }, { y: 0, opacity: 1, duration: .25, ease: E.out }, 17.5 + i * .05));
 }
 
 function S3(tl, end, cut) {
@@ -1259,7 +1255,7 @@ function S3(tl, end, cut) {
   tl.set($('.cur', a), { opacity: 1 }, 19.88);
   tl.fromTo(say, { x: 230, opacity: 0 }, { x: 0, opacity: 1, duration: .32, ease: E.out }, 19.9);
   tl.to(say, { x: -30, duration: end - 20.3, ease: bE(20.3, end - 20.3) }, 20.3);
-  if (!cut) bg(tl, true, 21.15, .7);
+  if (!cut) bg(tl, true, 21.45, .5);
 }
 
 function S4(tl) {
@@ -1268,14 +1264,14 @@ function S4(tl) {
   const a = $('#s4a'), fc = $('#fc'), ph = $('#ph'), hz = $('.hz', a);
   show(tl, a, 21.62, 26.05, { in: 0, out: 0 });
   gsap.set(hz, { scale: 1.2 });
-  tl.fromTo(fc, { x: -560, y: -30, rotationY: 65, transformPerspective: 1400 }, { x: 0, y: 0, rotationY: 0, duration: .4, ease: E.out }, 21.85);
-  tl.fromTo(fc, { opacity: 0 }, { opacity: 1, duration: .001, ease: 'none' }, 21.85);
-  cardFill(tl, fc, 22.05);
-  tl.to(fc, { y: 14, scale: .97, duration: 1.7, ease: bE(22.25, 1.7) }, 22.25);
-  tl.to(fc, { x: -100, y: 0, rotation: -14, scale: .72, duration: .3, ease: E.inOut }, 23.92);
-  tl.fromTo(ph, { x: 0, rotation: 0, scale: .72, opacity: 0 }, { x: 110, y: 8, rotation: 12, opacity: 1, duration: .3, ease: E.inOut }, 23.92);
-  cardFill(tl, ph, 24.05);
-  tl.to(hz, { rotation: -1.5, y: 10, duration: 1.6, ease: bE(24.22, 1.6) }, 24.22);
+  tl.fromTo(fc, { x: -560, y: -30, rotationY: 65, transformPerspective: 1400 }, { x: 0, y: 0, rotationY: 0, duration: .4, ease: E.out }, 21.75);
+  tl.fromTo(fc, { opacity: 0 }, { opacity: 1, duration: .001, ease: 'none' }, 21.75);
+  cardFill(tl, fc, 21.8);
+  tl.to(fc, { y: 14, scale: .97, duration: 1.65, ease: bE(22.15, 1.65) }, 22.15);
+  tl.to(fc, { x: -100, y: 0, rotation: -14, scale: .72, duration: .3, ease: E.inOut }, 23.8);
+  tl.fromTo(ph, { x: 0, rotation: 0, scale: .72, opacity: 0 }, { x: 110, y: 8, rotation: 12, opacity: 1, duration: .3, ease: E.inOut }, 23.8);
+  cardFill(tl, ph, 23.93);
+  tl.to(hz, { rotation: -1.5, y: 10, duration: 1.7, ease: bE(24.1, 1.7) }, 24.1);
   // shuffle: Pair of Hands slides out from behind, is laid on top, and the deck settles
   tl.set(fc, { zIndex: 2 }, 24.7); tl.set(ph, { zIndex: 1 }, 24.7);
   tl.to(ph, { x: 250, y: -24, rotation: 20, duration: .26, ease: 'power2.out' }, 24.72);
@@ -1326,7 +1322,7 @@ function S4(tl) {
   // C — "We got you covered!", then the blue wipes away
   const c = $('#s4c'); show(tl, c, 29.2, 31.25, { in: .12, out: .35 });
   tl.fromTo($('.cur', c), { opacity: 0, x: -140 }, { opacity: 1, x: 0, duration: .35, ease: E.out }, 29.2);
-  bg(tl, false, 30.8, .55);
+  bg(tl, false, 30.95, .5);
 }
 
 function S5(tl) {
@@ -1345,7 +1341,7 @@ function S5(tl) {
 
   // B — "we treat every" word by word, the papers slide in after it
   const b = $('#s5b'); show(tl, b, 33.6, 35.74, { out: .16 });
-  typeWords(tl, $('.say', b), 33.68, [0, .22, .95]);
+  typeWords(tl, $('.say', b), 33.68, [0, .22, .75]);
 
   // C — the checklist card grows out of a dot, then the camera slowly pulls back as each line is ticked
   const c = $('#s5c'), card = $('#dcard'); show(tl, c, 35.6, 39.46, { in: 0, out: 0 });
@@ -1354,7 +1350,7 @@ function S5(tl) {
   tl.to(card, { scale: .84, duration: 3.1, ease: bE(36.3, 3.1, { beats: [36.52, 37.58, 37.98], w: [.5, .44, .06] }) }, 36.3);
   tl.fromTo($('.dhead', card), { opacity: 0 }, { opacity: 1, duration: .15 }, 35.74);
   $$('.row', card).forEach((r, i) => {
-    const t = [35.82, 36.36, 37.45][i];
+    const t = [35.75, 36.25, 37.35][i];
     tl.fromTo(r, { opacity: 0 }, { opacity: .35, duration: .1, ease: 'none' }, t);
     tl.to(r, { opacity: 1, duration: .12 }, t + .2);
     tl.fromTo($('.tick', r), { strokeDashoffset: 44 }, { strokeDashoffset: 0, duration: .22, ease: E.out }, t + .2);
@@ -1371,20 +1367,20 @@ function S6(tl) {
     return line.offsetWidth / 2 - (L + R) / 2;
   };
   // the camera follows the typing: first word centred, then it eases over to centre the whole phrase + eye
-  tl.set(line, { x: pan(0, 0) }, 39.44);
-  tl.to(line, { x: pan(0, 3), duration: .5, ease: 'power2.out' }, 39.46);
+  tl.set(line, { x: pan(0, 0) }, 39.34);
+  tl.to(line, { x: pan(0, 3), duration: .5, ease: 'power2.out' }, 39.36);
   // "You keep the" is typed letter by letter; then the eye opens and glances around
-  tl.set(tk.slice(0, 3), { opacity: 1 }, 39.44);
-  $$('.tc', line).forEach((c, i) => tl.set(c, { visibility: 'visible' }, 39.45 + i * .011));
+  tl.set(tk.slice(0, 3), { opacity: 1 }, 39.34);
+  $$('.tc', line).forEach((c, i) => tl.set(c, { visibility: 'visible' }, 39.35 + i * .011));
   const pupil = $('.pupil', tk[3]);
-  tl.fromTo(tk[3], { opacity: 0, x: 0, scaleY: .12, transformOrigin: '50% 75%' }, { opacity: 1, x: 0, scaleY: 1, duration: .25, ease: E.out, immediateRender: false }, 39.58);
-  tl.fromTo(pupil, { x: -7, y: 3 }, { x: -7, y: 3, duration: .01, immediateRender: false }, 39.58);
+  tl.fromTo(tk[3], { opacity: 0, x: 0, scaleY: .12, transformOrigin: '50% 75%' }, { opacity: 1, x: 0, scaleY: 1, duration: .25, ease: E.out, immediateRender: false }, 39.48);
+  tl.fromTo(pupil, { x: -7, y: 3 }, { x: -7, y: 3, duration: .01, immediateRender: false }, 39.48);
   tl.to(pupil, { x: -1, y: 1, duration: .16, ease: E.out }, 39.95);
   tl.to(pupil, { x: 4, y: 0, duration: .16, ease: E.out }, 40.3);
-  tl.to(pupil, { x: 6, y: -1, duration: .14, ease: E.out }, 41.1);
-  tl.to(pupil, { x: -3, y: 1, duration: .16, ease: E.out }, 41.62);
-  tl.to(pupil, { x: 0, y: 0, duration: .18, ease: E.out }, 42.07);
-  [[41.1, 4, 0, 1], [41.6, 5, 1, 2], [41.85, 6, 2, 3], [42.0, 7, null, 3]].forEach(([t, add, drop, first]) => {
+  tl.to(pupil, { x: 6, y: -1, duration: .14, ease: E.out }, 40.9);
+  tl.to(pupil, { x: -3, y: 1, duration: .16, ease: E.out }, 41.42);
+  tl.to(pupil, { x: 0, y: 0, duration: .18, ease: E.out }, 41.87);
+  [[40.9, 4, 0, 1], [41.4, 5, 1, 2], [41.65, 6, 2, 3], [41.85, 7, null, 3]].forEach(([t, add, drop, first]) => {
     tl.fromTo(tk[add], { opacity: 0 }, { opacity: 1, duration: .2, immediateRender: false }, t);
     if (drop != null) tl.to(tk[drop], { opacity: 0, duration: .3 }, t);
     tl.to(line, { x: pan(first, add), duration: .4, ease: E.inOut }, t);
@@ -1442,21 +1438,21 @@ function S7(tl) {
   const a = $('#s7a'), w = $('#s7w'), say = $('.s7say', a), wave = $('#wave'), head = $('#ahead'), own = $('.own', a);
   show(tl, a, 49.45, 58.35, { in: .2, out: 0 });
   // A — typed; the folder flips in edge-on
-  typeChars(tl, say, 49.45, 2.25, { icon: (it, t) => tl.fromTo(it, { rotationY: 90, opacity: 0 }, { rotationY: 0, opacity: 1, duration: .32, ease: E.out, immediateRender: false }, t) });
+  typeChars(tl, say, 49.45, 2.4, { icon: (it, t) => tl.fromTo(it, { rotationY: 90, opacity: 0 }, { rotationY: 0, opacity: 1, duration: .32, ease: E.out, immediateRender: false }, t) });
   // B — the line shrinks aside and a wavy arrow draws out of its last word; the camera follows it,
   //     the wave straightens, and "Your Ownership" arrives at its tip
   const OWN_W = -1964; // camera x that puts the arrow tip 40px before the centred "Your Ownership"
   const STRAIGHT = 'M620,450 C900,450 1100,450 1250,450 C1450,450 1550,450 1680,450 C1790,450 1840,450 1900,450 C1950,450 1980,450 2020,450';
   const A = { d: 0 };
-  tl.to(w, { scale: .58, x: -350, duration: .4, ease: E.inOut }, 52.0);
-  tl.fromTo(A, { d: 0 }, { d: 1, duration: .42, ease: 'power1.inOut', immediateRender: false }, 52.1);
-  tl.to(w, { x: -400, duration: 1.1, ease: bE(52.5, 1.1) }, 52.5);
-  tl.to(w, { scale: 1.3, x: -1080, duration: .7, ease: E.inOut }, 53.6);
-  tl.to(wave, { attr: { d: STRAIGHT }, duration: .7, ease: E.inOut }, 54.3);
-  tl.to(w, { x: -1300, duration: .7, ease: bE(54.3, .7) }, 54.3);
+  tl.to(w, { scale: .58, x: -350, duration: .4, ease: E.inOut }, 51.9);
+  tl.fromTo(A, { d: 0 }, { d: 1, duration: .4, ease: 'power1.inOut', immediateRender: false }, 51.95);
+  tl.to(w, { x: -400, duration: 1.05, ease: bE(52.35, 1.05) }, 52.35);
+  tl.to(w, { scale: 1.3, x: -1080, duration: .7, ease: E.inOut }, 53.4);
+  tl.to(wave, { attr: { d: STRAIGHT }, duration: .65, ease: E.inOut }, 54.05);
+  tl.to(w, { x: -1300, duration: .65, ease: bE(54.05, .65) }, 54.05);
   // the camera follows the arrow to its final spot first; "Your Ownership" then slides in, stops centred on
   // screen just past the tip, and the two drift together — the arrow never pulls back
-  tl.to(w, { x: OWN_W, duration: .65, ease: E.inOut }, 54.95);
+  tl.to(w, { x: OWN_W, duration: .65, ease: E.inOut }, 54.75);
   tl.to(w, { x: OWN_W - 14, duration: 2.0, ease: bE(56.1, 2.0) }, 56.1);
   hooks.push(() => {
     const L = wave.getTotalLength(), e = L * A.d;
@@ -1466,8 +1462,8 @@ function S7(tl) {
     const p = wave.getPointAtLength(e), q = wave.getPointAtLength(Math.max(e - 12, 0));
     head.setAttribute('transform', `translate(${p.x.toFixed(2)} ${p.y.toFixed(2)}) rotate(${(Math.atan2(p.y - q.y, p.x - q.x) * 180 / Math.PI).toFixed(2)})`);
   });
-  tl.fromTo(own, { x: 1200, opacity: 1 }, { x: 0, duration: .5, ease: E.out }, 55.6);
-  tl.fromTo($('.ow2', own), { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: .35, ease: E.out, immediateRender: false }, 55.95);
+  tl.fromTo(own, { x: 1200, opacity: 1 }, { x: 0, duration: .5, ease: E.out }, 55.45);
+  tl.fromTo($('.ow2', own), { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: .35, ease: E.out, immediateRender: false }, 55.8);
   tl.to(own, { x: -14, duration: 2.0, ease: bE(56.1, 2.0) }, 56.1);
   tl.to(own, { opacity: 0, duration: .2 }, 58.15);
   tl.to([wave, head], { opacity: 0, duration: .2 }, 58.15);
@@ -1480,21 +1476,19 @@ function S8(tl, T) {
     // A — the closing chat, bigger this time
     const a = $('#s8a'); show(tl, a, T.a, T.b + .3, { in: 0, out: .2 });
     // the input bar rises, each line is typed and then sent as a bubble (as in the opening chat)
-    tl.fromTo('#in8', { y: 180, opacity: 0 }, { y: 0, opacity: 1, duration: .32, ease: E.out }, T.a);
-    [['#j1', '#r1', T.a + .12, T.a + .8], ['#j2', '#r2', T.a + .9, T.a + 1.7]].forEach(([i, b, t, send]) => {
-      typeChars(tl, $(i), t, send - t - .1);
-      tl.set($(i), { display: 'none' }, send);
-      tl.set(b, { display: 'block' }, send);
-      tl.fromTo(b, { scale: .08, opacity: 0, transformOrigin: '100% 100%' }, { scale: 1, opacity: 1, duration: .26, ease: E.out, immediateRender: false }, send);
-      tl.fromTo('#in8 .send', { scale: .85 }, { scale: 1, duration: .25, ease: E.out, immediateRender: false }, send);
+    tl.set(['#j1', '#j2'], { display: 'none' }, T.a);
+    [['#r1', T.a], ['#r2', T.a + .65]].forEach(([b, t]) => {
+      tl.set(b, { display: 'block' }, t);
+      tl.fromTo(b, { scale: .08, opacity: 0, transformOrigin: '100% 100%' }, { scale: 1, opacity: 1, duration: .26, ease: E.out, immediateRender: false }, t);
     });
+    tl.fromTo('#in8', { y: 180, opacity: 0 }, { y: 0, opacity: 1, duration: .32, ease: E.out }, T.a + .9);
     tl.set('#r3', { display: 'block' }, T.a + 2.22);
     tl.fromTo('#r3', { scale: .2, opacity: 0, transformOrigin: '0% 100%' }, { scale: 1, opacity: 1, duration: .3, ease: 'power2.out', immediateRender: false }, T.a + 2.22);
     tl.set('#in8', { opacity: 0 }, T.b);
   }
   // B — the input bar grows into the Instagram profile, which fills in and then settles back
   const b = $('#s8b'), prof = $('#prof'); show(tl, b, T.b, T.c, { in: 0 });
-  tl.fromTo(prof, { left: 460, width: 680, top: 650, height: 72, borderRadius: 36, opacity: T.a != null ? 1 : 0 }, { left: 165, width: 1270, top: 105, height: 690, borderRadius: 64, opacity: 1, duration: .3, ease: E.out }, T.b);
+  tl.fromTo(prof, { left: 222, width: 1156, top: 730, height: 122, borderRadius: 61, opacity: T.a != null ? 1 : 0 }, { left: 165, width: 1270, top: 105, height: 690, borderRadius: 64, opacity: 1, duration: .3, ease: E.out }, T.b);
   tl.fromTo('#prof .pav', { opacity: 0, scale: .85 }, { opacity: 1, scale: 1, duration: .25, ease: E.out }, T.b + .2);
   tl.fromTo($$('#prof .pname, #prof .pstats > div, #prof .pbio'), { opacity: 0 }, { opacity: 1, duration: .15, stagger: .1 }, T.b + .3);
   tl.fromTo($$('#prof .pgrid i'), { opacity: 0, scale: .9 }, { opacity: 1, scale: 1, duration: .25, stagger: .05, ease: E.out }, T.b + .45);
@@ -1522,7 +1516,7 @@ const runHooks = () => hooks.forEach(f => f());
 function build() {
   labels = []; hooks = [];
   const t = gsap.timeline({ paused: true, onUpdate: tick, onComplete: finished });
-  const end = mode === 'full' ? 71.5 : 30.5;
+  const end = mode === 'full' ? 71.5 : 32.15;
   gsap.set('.scene', { autoAlpha: 0 });
   gsap.set('.layer', { autoAlpha: 0 });
   gsap.set('#gbg .gw', { autoAlpha: 0, yPercent: 0 }); gsap.set('#gbg .gw .gblue', { yPercent: 0 });
@@ -1531,8 +1525,8 @@ function build() {
     S1(t); S2(t); S3(t, 21.62, false); S4(t); S5(t); S6(t); S7(t);
     S8(t, { start: 58.3, a: 58.35, b: 61.35, c: 64.85, d: 67.6, end });
   } else {
-    S1(t); S2(t); S3(t, 24.0, true);
-    S8(t, { start: 24.0, b: 24.0, c: 27.1, d: 28.8, end });
+    S1(t); S2(t); S3(t, 21.5, true);
+    S8(t, { start: 21.5, b: 21.5, c: 25.0, d: 27.75, end });
   }
   t.to({}, { duration: .01 }, end);
   runHooks();
@@ -1560,7 +1554,7 @@ function start(at = 0) {
   ensureAudio();
   // autoplay bersuara diblokir browser: timeline berjalan sendiri tanpa suara; suara baru diputar bila
   // pengunjung menekan tombol suara di halaman induk (pesan 'suara', lihat di bawah)
-  if (INTRO) { introAudio = audio; audio = null; }
+  if (INTRO && !introPenuh) { introAudio = audio; audio = null; }
   $('#ctrl').hidden = false; uiHidden = false; wake();
   if (!INTRO) try { if (!document.fullscreenElement && root.requestFullscreen) root.requestFullscreen().catch(() => {}); } catch (e) {}
   playingNow = true; setPlayIcon(true);
@@ -1573,13 +1567,24 @@ function start(at = 0) {
 function finished() { playingNow = false; setPlayIcon(false); if (audio) audio.pause(); if (introAudio) introAudio.pause(); wake(); if (INTRO) kabariInduk('selesai'); }
 // Mode intro: halaman induk (beranda) mengirim 'suara' / 'bisu' saat pengunjung menekan tombol suara.
 // Suara mengikuti posisi timeline yang sedang berjalan; iframe memakai allow="autoplay" agar klik di induk berlaku.
-let introAudio = null;
+// 'penuh': versi lengkap 71 detik diputar di iframe yang sama (tombol "Watch full reel" di beranda), bersuara.
+let introAudio = null, introPenuh = false;
 if (INTRO) addEventListener('message', e => {
-  if (e.source !== window.parent || !e.data || !introAudio || !tl) return;
-  if (e.data.iluztarReel === 'suara') {
+  if (e.source !== window.parent || !e.data) return;
+  const m = e.data.iluztarReel;
+  if (m === 'penuh') {
+    if (introAudio) introAudio.pause();
+    introPenuh = true; setMode('full'); start(0);
+    if (audio) audio.play().catch(() => kabariInduk('suara-gagal'));
+    return;
+  }
+  if (!tl) return;
+  if (introPenuh) { if (audio) audio.muted = m === 'bisu'; return; }
+  if (!introAudio) return;
+  if (m === 'suara') {
     try { introAudio.currentTime = tl.time(); } catch (er) {}
     introAudio.play().catch(() => kabariInduk('suara-gagal'));
-  } else if (e.data.iluztarReel === 'bisu') introAudio.pause();
+  } else if (m === 'bisu') introAudio.pause();
 });
 function toggle() {
   if (!tl) return;
