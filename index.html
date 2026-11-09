@@ -1554,7 +1554,12 @@ function start(at = 0) {
   ensureAudio();
   // autoplay bersuara diblokir browser: timeline berjalan sendiri tanpa suara; suara baru diputar bila
   // pengunjung menekan tombol suara di halaman induk (pesan 'suara', lihat di bawah)
-  if (INTRO && !introPenuh) { introAudio = audio; audio = null; }
+  if (INTRO && !introPenuh) {
+    // suara dicoba langsung bersama animasi; bila peramban menolak autoplay bersuara, halaman induk
+    // menyalakannya pada interaksi pertama pengunjung (pesan 'suara-ditolak' → 'suara')
+    introAudio = audio; audio = null;
+    if (introAudio) { try { introAudio.currentTime = at; } catch (er) {} introAudio.play().then(() => kabariInduk('suara-jalan'), () => kabariInduk('suara-ditolak')); }
+  }
   $('#ctrl').hidden = false; uiHidden = false; wake();
   if (!INTRO) try { if (!document.fullscreenElement && root.requestFullscreen) root.requestFullscreen().catch(() => {}); } catch (e) {}
   playingNow = true; setPlayIcon(true);
