@@ -1,7 +1,7 @@
 {
   "alur_penuh": {
-    "reel_siap_detik": 4.6,
-    "tertutup_otomatis_detik": 35.1,
+    "reel_siap_detik": 2.8,
+    "tertutup_otomatis_detik": 35,
     "sessionStorage": "1",
     "halaman_bisa_digulir": true,
     "kunjungan_ulang_tanpa_intro": true,
@@ -9,13 +9,32 @@
   },
   "lewati": {
     "fokus_awal": "ilz-intro__lewati",
-    "tertutup_ms": 1385,
+    "tertutup_ms": 706,
     "galat": []
   },
   "esc": "tertutup",
   "reduced_motion_tanpa_intro": true,
   "intro_0_tanpa_intro": true,
   "hp": {
+    "galat": []
+  },
+  "suara": {
+    "tombol_aktif": "true",
+    "audio_dimuat": [
+      "Soundtrack_30s.m4a"
+    ],
+    "putar_gagal": false,
+    "galat": []
+  },
+  "versi_lengkap": {
+    "tab_baru": 0,
+    "audio_dimuat": [
+      "Soundtrack_30s.m4a",
+      "Soundtrack_71s.m4a"
+    ],
+    "posisi_detik_setelah_48s": 48.9,
+    "lapisan_masih_tampil": true,
+    "reel_aktif": true,
     "galat": []
   }
 }

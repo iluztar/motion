@@ -6,7 +6,8 @@ const RILIS = 'D:/uji-claude/rilis/intro-beranda';
 const SKR = 'D:/01_Kuliah_TI/01_Skripsi/00_Revisi_Pasca_Semhas_Website_Motion_ILUZTAR/03_Gambar';
 fs.mkdirSync(RILIS, { recursive: true });
 const tunggu = ms => new Promise(r => setTimeout(r, ms));
-const b = await chromium.launch({ executablePath: CHROMIUM });
+// kebijakan autoplay peramban biasa: suara hanya boleh diputar setelah ada interaksi pengguna
+const b = await chromium.launch({ executablePath: CHROMIUM, args: ['--autoplay-policy=user-gesture-required'] });
 const hasil = {};
 async function konteks(opsi = {}) {
   const ctx = await b.newContext({ viewport: { width: 1440, height: 900 }, ...opsi });
@@ -76,6 +77,33 @@ const ada = pg => pg.evaluate(() => !!document.getElementById('ilz-intro') && do
   await pg.tap('.ilz-intro__lewati'); await pg.waitForFunction(() => !document.getElementById('ilz-intro'), null, { timeout: 3000 }); await tunggu(400);
   await pg.screenshot({ path: `${RILIS}/7-halaman-utama-390.png` });
   hasil.hp = { galat };
+  await ctx.close();
+}
+// 7. tombol Sound: soundtrack versi pendek diputar setelah ditekan, tanpa laporan gagal dari reel
+{
+  const { ctx, pg, galat } = await konteks(); const audio = [], pesan = [];
+  pg.on('request', r => { if (/Soundtrack/.test(r.url())) audio.push(r.url().split('/').pop()); });
+  await pg.exposeFunction('catatPesan', d => pesan.push(d));
+  await pg.addInitScript(() => addEventListener('message', e => { try { window.catatPesan(JSON.stringify(e.data)); } catch (_) {} }));
+  await pg.goto(URL, { waitUntil: 'domcontentloaded' });
+  await pg.waitForFunction(() => document.querySelector('#ilz-intro.is-siap'), null, { timeout: 15000 }); await tunggu(800);
+  await pg.click('.ilz-intro__suara'); await tunggu(2000);
+  hasil.suara = { tombol_aktif: await pg.getAttribute('.ilz-intro__suara', 'aria-pressed'), audio_dimuat: audio, putar_gagal: pesan.some(m => m.includes('suara-gagal')), galat };
+  await ctx.close();
+}
+// 8. "Watch full reel": versi lengkap 71 detik diputar di lapisan yang sama (tanpa tab baru), lapisan tidak tertutup batas 45 detik
+{
+  const { ctx, pg, galat } = await konteks(); const audio = [], tab = [];
+  pg.on('request', r => { if (/Soundtrack/.test(r.url())) audio.push(r.url().split('/').pop()); });
+  ctx.on('page', x => tab.push(x.url()));
+  await pg.goto(URL, { waitUntil: 'domcontentloaded' });
+  await pg.waitForFunction(() => document.querySelector('#ilz-intro.is-siap'), null, { timeout: 15000 }); await tunggu(800);
+  await pg.click('.ilz-intro__penuh'); await tunggu(3000);
+  const f = pg.frames().find(x => /intro=1/.test(x.url()));
+  const durasi = await f.evaluate(() => window.__reel && window.__reel.time ? 1 : 0);
+  await pg.screenshot({ path: `${RILIS}/8-reel-lengkap-1440.png` });
+  await tunggu(45000);
+  hasil.versi_lengkap = { tab_baru: tab.length, audio_dimuat: audio, posisi_detik_setelah_48s: +(await f.evaluate(() => window.__reel.time())).toFixed(1), lapisan_masih_tampil: !!(await pg.$('#ilz-intro')), reel_aktif: !!durasi, galat };
   await ctx.close();
 }
 await b.close();
