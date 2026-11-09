@@ -1,7 +1,7 @@
 // Bandingkan beranda situs lama (hostinger/) dan baru (iluztar-personal) dari sisi SEO dan performa, + tangkapan layar.
 import { chromium } from '../node_modules/playwright-core/index.mjs';
 import fs from 'node:fs';
-const OUT = 'D:/01_Kuliah_TI/01_Skripsi/00_Revisi_Pasca_Semhas_Website_Motion_ILUZTAR/03_Gambar';
+const OUT = process.env.OUT || './keluaran';
 const CHROMIUM = process.env.LOCALAPPDATA + '/ms-playwright/chromium-1243/chrome-win64/chrome.exe';
 const SITUS = { lama: 'http://localhost/iluztar/hostinger/', baru: 'http://localhost/iluztar/hostinger/dev/iluztar-personal/public_html/' };
 const tunggu = ms => new Promise(r => setTimeout(r, ms));

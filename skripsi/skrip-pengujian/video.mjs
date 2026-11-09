@@ -1,9 +1,9 @@
 ﻿import { chromium } from '../node_modules/playwright-core/index.mjs';
 import fs from 'node:fs';
 
-const OUT = 'D:/01_Kuliah_TI/01_Skripsi/00_Revisi_Pasca_Semhas_Website_Motion_ILUZTAR/03_Gambar';
-const VBARU = 'D:/01_Kuliah_TI/01_Skripsi/05_Aset_Video_Audio/Video/ILUZTAR_Video_Explainer_Referensi_2026-09-26.mp4';
-const VLAMA = 'D:/01_Kuliah_TI/01_Skripsi/05_Aset_Video_Audio/Video/ILUZTAR_Brand_Anthem_2026-07-11.mp4';
+const OUT = process.env.OUT || './keluaran';
+const VBARU = process.env.VIDEO_BARU || '../../aset/video/ILUZTAR_Video_Explainer_Referensi_2026-09-26.mp4';
+const VLAMA = process.env.VIDEO_LAMA || './video-versi-sebelumnya.mp4';
 const URL_REEL = 'http://localhost/iluztar/hostinger/dev/motion/';
 const CHROMIUM = process.env.LOCALAPPDATA + '/ms-playwright/chromium-1243/chrome-win64/chrome.exe';
 const EDGE = 'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe';
@@ -51,7 +51,7 @@ const fileUrl = p => 'file:///' + p.replace(/\\/g, '/').split('/').map(encodeURI
 }
 
 // ---------- B. frame video (Edge) ----------
-const PLAYER = 'D:/uji-claude/kh/skripsi/player.html';
+const PLAYER = process.env.PLAYER || './player.html';
 async function ambilFrame(pg, videoPath, titik, awalan) {
   fs.writeFileSync(PLAYER, `<!doctype html><html><body style="margin:0;background:#000"><video id="v" src="${fileUrl(videoPath)}" muted preload="auto" style="width:1440px;height:810px;object-fit:contain;display:block"></video></body></html>`);
   await pg.goto(fileUrl(PLAYER));

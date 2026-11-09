@@ -2,8 +2,8 @@ import { chromium } from '../node_modules/playwright-core/index.mjs';
 import fs from 'node:fs';
 const CHROMIUM = process.env.LOCALAPPDATA + '/ms-playwright/chromium-1243/chrome-win64/chrome.exe';
 const URL = 'http://localhost/iluztar/hostinger/dev/iluztar-personal/public_html/';
-const RILIS = 'D:/uji-claude/rilis/intro-beranda';
-const SKR = 'D:/01_Kuliah_TI/01_Skripsi/00_Revisi_Pasca_Semhas_Website_Motion_ILUZTAR/03_Gambar';
+const RILIS = (process.env.OUT || './keluaran') + '/tangkapan';
+const SKR = process.env.OUT || './keluaran';
 fs.mkdirSync(RILIS, { recursive: true });
 const tunggu = ms => new Promise(r => setTimeout(r, ms));
 // kebijakan autoplay peramban biasa: suara hanya boleh diputar setelah ada interaksi pengguna

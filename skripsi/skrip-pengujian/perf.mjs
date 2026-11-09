@@ -1,7 +1,7 @@
 // Ukur FCP, LCP, CLS, TBT (perkiraan dari long task), waktu load, dan ukuran transfer. 5x per profil, cold cache.
 import { chromium } from '../node_modules/playwright-core/index.mjs';
 import fs from 'node:fs';
-const OUT = 'D:/01_Kuliah_TI/01_Skripsi/00_Revisi_Pasca_Semhas_Website_Motion_ILUZTAR/03_Gambar';
+const OUT = process.env.OUT || './keluaran';
 const URL = 'http://localhost/iluztar/hostinger/dev/motion/';
 const CHROMIUM = process.env.LOCALAPPDATA + '/ms-playwright/chromium-1243/chrome-win64/chrome.exe';
 const PROFIL = {
