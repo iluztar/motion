@@ -1558,7 +1558,9 @@ function start(at = 0) {
   fit();
   tl = build();
   ensureAudio();
-  if (INTRO) audio = null; // autoplay bersuara diblokir browser; tanpa audio timeline berjalan sendiri
+  // autoplay bersuara diblokir browser: timeline berjalan sendiri tanpa suara; suara baru diputar bila
+  // pengunjung menekan tombol suara di halaman induk (pesan 'suara', lihat di bawah)
+  if (INTRO) { introAudio = audio; audio = null; }
   $('#ctrl').hidden = false; uiHidden = false; wake();
   if (!INTRO) try { if (!document.fullscreenElement && root.requestFullscreen) root.requestFullscreen().catch(() => {}); } catch (e) {}
   playingNow = true; setPlayIcon(true);
@@ -1568,7 +1570,17 @@ function start(at = 0) {
     gsap.ticker.add(syncAudio);
   } else tl.play(at);
 }
-function finished() { playingNow = false; setPlayIcon(false); if (audio) audio.pause(); wake(); if (INTRO) kabariInduk('selesai'); }
+function finished() { playingNow = false; setPlayIcon(false); if (audio) audio.pause(); if (introAudio) introAudio.pause(); wake(); if (INTRO) kabariInduk('selesai'); }
+// Mode intro: halaman induk (beranda) mengirim 'suara' / 'bisu' saat pengunjung menekan tombol suara.
+// Suara mengikuti posisi timeline yang sedang berjalan; iframe memakai allow="autoplay" agar klik di induk berlaku.
+let introAudio = null;
+if (INTRO) addEventListener('message', e => {
+  if (e.source !== window.parent || !e.data || !introAudio || !tl) return;
+  if (e.data.iluztarReel === 'suara') {
+    try { introAudio.currentTime = tl.time(); } catch (er) {}
+    introAudio.play().catch(() => kabariInduk('suara-gagal'));
+  } else if (e.data.iluztarReel === 'bisu') introAudio.pause();
+});
 function toggle() {
   if (!tl) return;
   if (playingNow) { playingNow = false; audio ? audio.pause() : tl.pause(); }
@@ -1693,12 +1705,15 @@ function applySlots(rootEl) {
     if (want && img.getAttribute('src') !== want) { img.setAttribute('src', want); try { img.decode().catch(() => {}); } catch (e) {} }
   });
 }
-// each cut has its own soundtrack: Full plays AUDIO, Cut plays AUDIO_CUT (silent until one is uploaded)
+// each cut has its own soundtrack: Full plays AUDIO, Cut plays AUDIO_CUT. Without an uploaded slot the bundled mix
+// (music + effects + narration, as in the explainer video) is used, so the reel is never silent.
 let audioKey = null;
 const trackKey = () => mode === 'cut' ? 'AUDIO_CUT' : 'AUDIO';
+const DEFAULT_AUDIO = { AUDIO: 'aset/audio/Soundtrack_71s.m4a', AUDIO_CUT: 'aset/audio/Soundtrack_30s.m4a' };
+const defaultAudio = key => DEFAULT_AUDIO[key] ? new URL(DEFAULT_AUDIO[key], location.href).href : null;
 function ensureAudio() {
   if (audioURL) return;                                   // a local file picked by hand wins
-  const key = trackKey(), url = slotMap[key] || null;
+  const key = trackKey(), url = slotMap[key] || defaultAudio(key);
   if (audioKey === key && (audio ? audio.src === url : !url)) return;
   setAudio(url); audioKey = key;
 }

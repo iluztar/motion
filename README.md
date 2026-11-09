@@ -41,7 +41,7 @@ motion/
 ├── favicon.*, apple-touch-icon.png
 ├── aset/
 │   ├── video/                   # 540p copy of the reference explainer video
-│   ├── audio/                   # final voice-over (71 s and 40 s cuts)
+│   ├── audio/                   # final voice-over (71 s, 40 s) and the mixed soundtracks the reel plays (Soundtrack_71s, Soundtrack_30s)
 │   ├── gambar/                  # artwork, logo and icons used in the Alight Motion project
 │   └── voiceover/               # script + every ElevenLabs voice test
 └── skripsi/
@@ -51,8 +51,9 @@ motion/
     └── riwayat-iterasi.md       # export of the 25 merged pull requests and all commits
 ```
 
-Background music and sound effects are not included because their third-party licences (Pixabay, MusicGPT,
-Alight Motion library) do not allow redistribution as loose files. The original 2560×1440 export (~68 MB) is also
+Background music and sound effects are not included as separate files because their third-party licences (Pixabay,
+MusicGPT, Alight Motion library) do not allow redistribution as loose files. They are only present inside finished
+mixes (the explainer video and the two soundtracks the reel plays when no audio slot is uploaded). The original 2560×1440 export (~68 MB) is also
 left out to keep the repository light; the 540p copy is enough for frame comparison.
 
 ## Why code instead of an embedded video
