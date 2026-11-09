@@ -3,6 +3,7 @@
    admin: where the person button / "?admin" leads (Admin › Motion Reel, login required)
    Paths are relative to this folder: dev/motion/ → the site root is ../../ */
 window.ILUZTAR_MOTION = {
-  api: '../../api/motion.php',
+  // GitHub Pages tidak punya API ILUZTAR: reel memakai isi bawaan (tanpa permintaan yang pasti 404)
+  api: location.hostname.endsWith('github.io') ? '' : '../../api/motion.php',
   admin: '../../admin/motion/',
 };
