@@ -1554,12 +1554,9 @@ function start(at = 0) {
   ensureAudio();
   // autoplay bersuara diblokir browser: timeline berjalan sendiri tanpa suara; suara baru diputar bila
   // pengunjung menekan tombol suara di halaman induk (pesan 'suara', lihat di bawah)
-  if (INTRO && !introPenuh) {
-    // suara dicoba langsung bersama animasi; bila peramban menolak autoplay bersuara, halaman induk
-    // menyalakannya pada interaksi pertama pengunjung (pesan 'suara-ditolak' → 'suara')
-    introAudio = audio; audio = null;
-    if (introAudio) { try { introAudio.currentTime = at; } catch (er) {} introAudio.play().then(() => kabariInduk('suara-jalan'), () => kabariInduk('suara-ditolak')); }
-  }
+  // Mode intro: reel disiapkan di detik 0 dan MENUNGGU pesan 'mulai' dari halaman induk (tombol "Buka website").
+  // Satu klik itu = interaksi pengguna, jadi audio boleh bersuara; animasi lalu mengikuti audio (audio = jam utama).
+  if (INTRO && !introPenuh && !introMulai) { introAudio = audio; audio = null; }
   $('#ctrl').hidden = false; uiHidden = false; wake();
   if (!INTRO) try { if (!document.fullscreenElement && root.requestFullscreen) root.requestFullscreen().catch(() => {}); } catch (e) {}
   playingNow = true; setPlayIcon(true);
@@ -1567,16 +1564,25 @@ function start(at = 0) {
     audio.currentTime = at; tl.time(at);
     audio.play().catch(() => {});
     gsap.ticker.add(syncAudio);
-  } else tl.play(at);
+  } else if (INTRO && !introPenuh && !introMulai) { playingNow = false; tl.pause(); tl.time(0); runHooks(); }
+  else tl.play(at);
 }
 function finished() { playingNow = false; setPlayIcon(false); if (audio) audio.pause(); if (introAudio) introAudio.pause(); wake(); if (INTRO) kabariInduk('selesai'); }
 // Mode intro: halaman induk (beranda) mengirim 'suara' / 'bisu' saat pengunjung menekan tombol suara.
 // Suara mengikuti posisi timeline yang sedang berjalan; iframe memakai allow="autoplay" agar klik di induk berlaku.
 // 'penuh': versi lengkap 71 detik diputar di iframe yang sama (tombol "Watch full reel" di beranda), bersuara.
-let introAudio = null, introPenuh = false;
+let introAudio = null, introPenuh = false, introMulai = false;
+// audio sebagai jam utama: animasi dibaca dari posisi audio tiap frame, jadi keduanya tidak bisa lepas sinkron
+function mulaiBersuara(a) {
+  playingNow = true; setPlayIcon(true);
+  if (!a) { tl.play(0); return; }
+  audio = a; try { audio.currentTime = 0; } catch (er) {} tl.time(0);
+  audio.play().then(() => { gsap.ticker.add(syncAudio); }, () => { audio = null; tl.play(0); kabariInduk('suara-gagal'); });
+}
 if (INTRO) addEventListener('message', e => {
   if (e.source !== window.parent || !e.data) return;
   const m = e.data.iluztarReel;
+  if (m === 'mulai') { if (introMulai) return; introMulai = true; const a = introAudio; introAudio = null; mulaiBersuara(a); return; }
   if (m === 'penuh') {
     if (introAudio) introAudio.pause();
     introPenuh = true; setMode('full'); start(0);
@@ -1584,7 +1590,7 @@ if (INTRO) addEventListener('message', e => {
     return;
   }
   if (!tl) return;
-  if (introPenuh) { if (audio) audio.muted = m === 'bisu'; return; }
+  if (audio) { audio.muted = m === 'bisu'; return; }   // suara diatur dengan muted, bukan pause → posisi tetap sinkron
   if (!introAudio) return;
   if (m === 'suara') {
     try { introAudio.currentTime = tl.time(); } catch (er) {}
@@ -1901,6 +1907,42 @@ const predecode = () => $$('#film img').forEach(i => { try { i.decode && i.decod
 window.__audioSrc = () => audio ? audio.src : 'none';
 window.__reel = { time: () => tl && tl.time(), seek: t => { if (tl) { playingNow = false; tl.pause(); tl.time(t); runHooks(); } }, theme: t => setTheme(t, false) };
 document.addEventListener('fullscreenchange', () => { fit(); });
+})();
+</script>
+<!-- Kursor bermerek ILUZTAR (sama dengan iluztar.com): biru polos; membesar & terbelah di atas tombol/tautan.
+     Hanya mouse di desktop; tidak dipakai di mode intro (iframe beranda memakai kursor halaman induk). -->
+<style>
+.ilz-kursor{position:fixed;top:0;left:0;z-index:2147483647;width:24px;height:24px;pointer-events:none;opacity:0;transform:translate3d(-100px,-100px,0);transition:opacity .15s ease}
+.ilz-kursor.is-tampil{opacity:1}
+.ilz-kursor svg{display:block;width:100%;height:100%;overflow:visible;fill:#0047FF;transition:transform .35s cubic-bezier(.16,1,.3,1)}
+.ilz-kursor g{transition:transform .45s cubic-bezier(.16,1,.3,1),opacity .3s ease}
+.ilz-kursor .b{opacity:0}
+.ilz-kursor.is-tautan svg{transform:scale(1.3) rotate(-8deg)}
+.ilz-kursor.is-tautan .a{transform:translate(-70px,-60px)}
+.ilz-kursor.is-tautan .b{opacity:1;transform:translate(70px,60px)}
+html.ilz-kursor-aktif,html.ilz-kursor-aktif body *{cursor:none!important}
+html.ilz-kursor-aktif body :is(input,textarea,select){cursor:auto!important}
+body.playing.ui-idle .ilz-kursor{opacity:0!important}
+</style>
+<script>
+(() => {
+  if (new URLSearchParams(location.search).has('intro')) return;
+  const mm = q => matchMedia(q).matches;
+  if (!mm('(hover: hover) and (pointer: fine)') || mm('(prefers-reduced-motion: reduce)') || mm('(forced-colors: active)')) return;
+  const UK = 24, HX = 1245 / 2900 * UK, HY = 755 / 2900 * UK;
+  const el = document.createElement('div'); el.className = 'ilz-kursor'; el.setAttribute('aria-hidden', 'true');
+  el.innerHTML = '<svg viewBox="550 550 2900 2900"><g class="a"><path d="M2597.5 819.1 1269 1002.75c-66.87 10.92-129.84 43.94-177.63 91.88-47.95 47.92-80.35 111.08-91.28 177.99L815.13 2617.09c-13.315 142.852 89.42 228.213 180.21 319.27l685.02-687.55c84.49-100.39 95.23-253.01 30.27-366.29-135.4-178.02-281.19-349.01-420.85-524.12-39.29-42.36 26.61-104.55 66.19-63.67 181.89 140.81 351.8 298.85 541.11 428.97 112.87 56.32 259.08 39.22 354.05-44.48l684.98-684c-143.23-186.86-289.49-179.68-338.61-176.12Z"/></g><g class="b"><path d="M1402.5 3180.9L2731 2997.25c66.87-10.92 129.84-43.94 177.63-91.88 47.95-47.92 80.35-111.08 91.28-177.99l184.96-1344.47c13.315-142.852-89.42-228.213-180.21-319.27l-685.02 687.55c-84.49 100.39-95.23 253.01-30.27 366.29 135.4 178.02 281.19 349.01 420.85 524.12 39.29 42.36-26.61 104.55-66.19 63.67-181.89-140.81-351.8-298.85-541.11-428.97-112.87-56.32-259.08-39.22-354.05 44.48l-684.98 684c143.23 186.86 289.49 179.68 338.61 176.12Z"/></g></svg>';
+  document.body.appendChild(el); document.documentElement.classList.add('ilz-kursor-aktif');
+  const TAUT = 'a[href],button:not(:disabled),label,[role=button],[data-act],.pscene,summary';
+  let x = -100, y = -100, j = 0, akhir = null; const simpan = new WeakMap();
+  const tulis = () => { j = 0; el.style.transform = 'translate3d(' + (x - HX) + 'px,' + (y - HY) + 'px,0)'; };
+  addEventListener('pointermove', e => { if (e.pointerType !== 'mouse') return; x = e.clientX; y = e.clientY; if (!j) j = requestAnimationFrame(tulis); el.classList.add('is-tampil'); }, { passive: true });
+  document.addEventListener('pointerover', e => {
+    const t = e.target; if (!t || t === akhir || t.nodeType !== 1) return; akhir = t;
+    let k = simpan.get(t); if (k === undefined) { k = !!t.closest(TAUT); simpan.set(t, k); }
+    el.classList.toggle('is-tautan', k);
+  }, { passive: true });
+  document.addEventListener('pointerout', e => { if (!e.relatedTarget) el.classList.remove('is-tampil'); }, { passive: true });
 })();
 </script>
 </body></html>
