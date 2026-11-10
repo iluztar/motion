@@ -114,6 +114,8 @@ body:not(.playing) .hero{visibility:visible}
 .art.mid{box-shadow:0 1px 2px rgba(20,20,40,.06),0 8px 18px -6px var(--shadow)}
 .art.far{box-shadow:0 6px 14px var(--shadow);filter:blur(1.3px) saturate(.85);opacity:.6}
 #s1b .say{position:relative;z-index:2}
+#s1b .say-xl{font-size:66px;letter-spacing:-.03em}
+#s1b .art.far{display:none}
 .loc{display:flex;align-items:center;font-size:56px;font-weight:500;white-space:nowrap;letter-spacing:-.015em}
 .loc .pin{display:inline-flex;height:1.05em;margin-right:.28em;animation:spinY 1.4s linear infinite}
 .loc .pin svg{height:100%;width:auto;display:block}
@@ -312,6 +314,7 @@ body:not(.playing) .cf{opacity:1}
 .pbtns a.f{background:var(--blue);color:#fff}
 .pname a{color:inherit;text-decoration:none}
 #prof{display:flex;flex-direction:column;justify-content:center}
+#prof .pgrid{display:none}   /* video: kartu profil tanpa kisi foto */
 #prof>.ptop,#prof>.pbio,#prof>.pbtns{max-width:760px}
 /* right column: the latest posts, like the grid under an Instagram profile */
 .pgrid{position:absolute;right:64px;top:64px;bottom:64px;width:372px;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(3,1fr);gap:12px}
@@ -536,12 +539,12 @@ body:not(.scrollmode) #stag,body:not(.scrollmode) #sgo,body:not(.scrollmode) #sp
       <div class="art far" data-act="zoom" data-d=".45" data-img="0" style="--x:150px;--y:322px;--w:92px;--r:8deg"><img data-slot="ART0" src="aset/web/art-bendera-480.webp" data-besar="aset/web/art-bendera.webp" decoding="async" alt=""></div>
       <div class="art far" data-act="zoom" data-d=".4" data-img="2" style="--x:-712px;--y:40px;--w:76px;--r:-6deg"><img data-slot="ART2" src="aset/web/tex-punchline-480.webp" data-besar="aset/web/tex-punchline.webp" decoding="async" alt=""></div>
       <div class="art far" data-act="zoom" data-d=".4" data-img="1" style="--x:738px;--y:48px;--w:70px;--r:12deg"><img data-slot="ART1" src="aset/web/art-gua-480.webp" data-besar="aset/web/art-gua.webp" decoding="async" alt=""></div>
-      <div class="art" data-act="zoom" data-d="1" style="--x:-580px;--y:-210px;--w:236px;--r:-8deg"><img data-slot="ART0" src="aset/web/art-bendera-480.webp" data-besar="aset/web/art-bendera.webp" decoding="async" alt=""></div>
-      <div class="art mid" data-act="zoom" data-d=".7" style="--x:-60px;--y:-305px;--w:124px;--r:5deg"><img data-slot="ART1" src="aset/web/art-gua-480.webp" data-besar="aset/web/art-gua.webp" decoding="async" alt=""></div>
-      <div class="art mid" data-act="zoom" data-d=".8" style="--x:330px;--y:-262px;--w:158px;--r:-6deg"><img data-slot="ART2" src="aset/web/tex-punchline-480.webp" data-besar="aset/web/tex-punchline.webp" decoding="async" alt=""></div>
-      <div class="art mid" data-act="zoom" data-d=".7" style="--x:650px;--y:-120px;--w:116px;--r:9deg"><img data-slot="ART3" src="aset/web/art-11-480.webp" data-besar="aset/web/art-11.webp" decoding="async" alt=""></div>
-      <div class="art mid" data-act="zoom" data-d=".8" style="--x:-320px;--y:262px;--w:172px;--r:6deg"><img data-slot="ART4" src="aset/web/art-draco-480.webp" data-besar="aset/web/art-draco.webp" decoding="async" alt=""></div>
-      <div class="art" data-act="zoom" data-d="1" style="--x:545px;--y:215px;--w:244px;--r:7deg"><img data-slot="ART5" src="aset/web/art-pokemon-480.webp" data-besar="aset/web/art-pokemon.webp" decoding="async" alt=""></div>
+      <div class="art" data-act="zoom" data-d="1" style="--x:565px;--y:236px;--w:195px;--r:6deg"><img data-slot="ART0" src="aset/web/art-bendera-480.webp" data-besar="aset/web/art-bendera.webp" decoding="async" alt=""></div>
+      <div class="art mid" data-act="zoom" data-d=".7" style="--x:447px;--y:-265px;--w:105px;--r:-4deg"><img data-slot="ART1" src="aset/web/art-gua-480.webp" data-besar="aset/web/art-gua.webp" decoding="async" alt=""></div>
+      <div class="art mid" data-act="zoom" data-d=".8" style="--x:250px;--y:75px;--w:120px;--r:7deg"><img data-slot="ART2" src="aset/web/tex-punchline-480.webp" data-besar="aset/web/tex-punchline.webp" decoding="async" alt=""></div>
+      <div class="art mid" data-act="zoom" data-d=".75" style="--x:-365px;--y:-82px;--w:110px;--r:4deg"><img data-slot="ART3" src="aset/web/art-11-480.webp" data-besar="aset/web/art-11.webp" decoding="async" alt=""></div>
+      <div class="art mid" data-act="zoom" data-d="1" style="--x:-570px;--y:330px;--w:260px;--r:-6deg"><img data-slot="ART4" src="aset/web/art-draco-480.webp" data-besar="aset/web/art-draco.webp" decoding="async" alt=""></div>
+      <div class="art" data-act="zoom" data-d=".75" style="--x:-570px;--y:-275px;--w:137px;--r:-5deg"><img data-slot="ART5" src="aset/web/art-pokemon-480.webp" data-besar="aset/web/art-pokemon.webp" decoding="async" alt=""></div>
       <div class="say say-xl">A creative studio</div>
     </div>
     <div class="layer" id="s1c">
@@ -1122,7 +1125,7 @@ const fmt = s => { s = Math.max(0, Math.round(s)); const h = Math.floor(s / 3600
 /* ---------- SCENES ---------- */
 function S1(tl) {
   scene(tl, 's1', 0, 10.72);
-  // A — "This is Iluztar" is typed, the spinning star riding as the caret; then the camera dives through it
+  // A — "This is Iluztar" is typed, the spinning star riding as the caret; then it slides up out of frame
   const a = $('#s1a'), cell = $('.cell', a);
   show(tl, a, 0, 2.2, { in: 0, out: 0 });
   tl.fromTo(cell, { scale: 2.2 }, { scale: 1, duration: .3, ease: E.out }, 0);
@@ -1130,20 +1133,23 @@ function S1(tl) {
   const tex = $$('.tex', a); gsap.set(tex, { opacity: 0 });
   tex.forEach((im, i) => { const t = .45 + i * .25; if (i) tl.set(tex[i - 1], { opacity: 0 }, t); tl.set(im, { opacity: .3 }, t); });
   typeChars(tl, $('.say', a), .8, .7, { keepCaret: true, pre: 5, preAt: 0 });
-  tl.to(cell, { scale: 3.4, x: -240, y: 110, opacity: 0, duration: .34, ease: E.in }, 1.88);
+  tl.to(cell, { y: -440, duration: .32, ease: E.in }, 1.88);   // video: kamera turun, teks meluncur ke atas keluar layar
 
   // B — "A creative studio": the artwork rises into place around it, then everything drifts up
-  const b = $('#s1b'); show(tl, b, 2.2, 3.35, { in: .12, out: 0 });
-  tl.fromTo($('.say', b), { opacity: 0, y: 26 }, { opacity: 1, y: 0, duration: .5, ease: E.out }, 2.2);
-  $$('.art', b).map(el => ({ el, d: parseFloat(el.dataset.d || 1) })).sort((p, q) => p.d - q.d).forEach((p, i) => {
-    tl.fromTo(p.el, { x: -160 * p.d, y: 520 + 160 * (1 - p.d), opacity: 0 }, { x: 0, y: 0, opacity: p.d < .6 ? .6 : 1, duration: .9, ease: E.out }, 2.2 + i * .035);
+  const b = $('#s1b'); show(tl, b, 2.2, 3.57, { in: 0, out: 0 });
+  tl.fromTo($('.say', b), { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: .22, ease: E.out }, 2.2);
+  // video: karya besar (Draco, bendera) naik lebih dulu, yang kecil menyusul
+  $$('.art:not(.far)', b).map(el => ({ el, d: parseFloat(el.dataset.d || 1) })).sort((p, q) => q.d - p.d).forEach((p, i) => {
+    tl.fromTo(p.el, { x: -80 * p.d, y: 240 + 320 * (1 - p.d), opacity: 0 }, { x: 0, y: 0, opacity: 1, duration: .6, ease: E.out }, 2.16 + i * .07);
   });
-  tl.fromTo(b, { y: 0 }, { y: -34, duration: 1.15, ease: bE(2.2, 1.15), immediateRender: false }, 2.2);
+  tl.fromTo(b, { y: 0 }, { y: -34, duration: 1.37, ease: bE(2.2, 1.37), immediateRender: false }, 2.2);
+  // sebelum potongan ke Bandar Lampung, karya menghilang satu per satu (Draco, bendera, lalu yang di dekat teks)
+  ['ART4', 'ART0', 'ART2', 'ART1'].forEach((k, i) => tl.to($(`.art:not(.far) img[data-slot="${k}"]`, b).parentNode, { scale: .6, opacity: 0, duration: .1, ease: E.in }, 3.23 + i * .08));
 
   // C — Bandar Lampung, then the Indonesia pill opens beside it (the line re-centres as it grows)
-  const c = $('#s1c'); show(tl, c, 3.35, 5.72, { in: .12, out: 0 });
+  const c = $('#s1c'); show(tl, c, 3.57, 5.72, { in: 0, out: 0 });
   const pill = $('.pill', c);
-  tl.fromTo($('.loc', c), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: .35, ease: E.out }, 3.35);
+  tl.fromTo($('.loc', c), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: .3, ease: E.out }, 3.5);
   tl.fromTo(pill, { width: 0, marginLeft: 0 }, { width: 270, marginLeft: 16, duration: .35, ease: E.out }, 4.5);
   tl.fromTo($('.comma', c), { opacity: 0 }, { opacity: 1, duration: .15 }, 4.48);
   tl.fromTo($('.pt', c), { opacity: 0 }, { opacity: 1, duration: .2 }, 4.63);
@@ -1165,45 +1171,46 @@ function S1(tl) {
 
   // D — one artist, then the network: lines shoot out clockwise and the camera pulls back to all of them
   const d = $('#s1d'), net = $('.net', d);
-  show(tl, d, 5.72, 8.72, { in: 0 });
+  show(tl, d, 5.72, 8.77, { in: 0, out: 0 });
   tl.set(net, { scale: 2.05, y: 110, transformOrigin: '50% 50%' }, 5.72);
   // the landed circle is the centre node: the mark pops out and the white shoulder rises into it
   tl.fromTo($('.center use', d), { scale: 0, transformOrigin: '50% 50%' }, { scale: 1, duration: .3, ease: 'back.out(2)' }, 5.72);
   tl.fromTo($('.center ellipse', d), { y: 46 }, { y: 0, duration: .32, ease: E.out }, 5.76);
-  tl.to(net, { y: 0, duration: .45, ease: E.soft }, 7.2);
+  tl.to(net, { y: 0, duration: .45, ease: E.soft }, 7.4);
   const nds = $$('.nd', d);
   $$('.lines line', d).forEach((l, i) => {
     const len = +l.dataset.len;
     l.style.strokeDasharray = `${len} ${len + 6}`;
-    tl.fromTo(l, { strokeDashoffset: len + 3 }, { strokeDashoffset: 0, duration: .25, ease: 'power2.out' }, 7.25 + i * .03);
-    tl.fromTo(nds[i], { scale: 0, transformOrigin: '50% 50%' }, { scale: 1, duration: .28, ease: E.out }, 7.33 + i * .03);
+    tl.fromTo(l, { strokeDashoffset: len + 3 }, { strokeDashoffset: 0, duration: .25, ease: 'power2.out' }, 7.45 + i * .03);
+    tl.fromTo(nds[i], { scale: 0, transformOrigin: '50% 50%' }, { scale: 1, duration: .28, ease: E.out }, 7.53 + i * .03);
   });
-  tl.to(net, { scale: 1, duration: .35, ease: 'power2.inOut' }, 7.4);
+  tl.to(net, { scale: 1, duration: .35, ease: 'power2.inOut' }, 7.6);
   tl.to(net, { scale: .95, y: -10, duration: .72, ease: bE(8.0, .72) }, 8.0);
 
   // E — the calendar rises huge and counts back: ‹ is pressed and a page turns 2026 → 2025 → 2024 → "Since 2023!"
   const e = $('#s1e'), calw = $('.calw', e);
-  show(tl, e, 8.72, 10.72);
-  tl.fromTo(calw, { scale: 2.2, y: 600 }, { scale: 1.8, y: 330, duration: .5, ease: E.out }, 8.72);
+  show(tl, e, 8.77, 10.72, { in: 0 });
+  tl.fromTo(calw, { scale: 2.2, y: 600 }, { scale: 1.8, y: 330, duration: .5, ease: E.out }, 8.77);
+  tl.to(calw, { y: 240, duration: .45, ease: 'none' }, 9.27);   // terus naik pelan seperti video
   [0, 1, 2].forEach(i => {
-    const L = $(`.half.L[data-p="${i}"]`, e), R = $(`.half.R[data-p="${i}"]`, e), t = 8.8 + i * .25;
+    const L = $(`.half.L[data-p="${i}"]`, e), R = $(`.half.R[data-p="${i}"]`, e), t = [8.9, 9.3, 9.65][i], F = .14;   // video: tahun berganti hampir seketika (8.97 · 9.37 · 9.72)
     tl.fromTo($('.cbtn', L), { scale: 1 }, { scale: .82, duration: .07, ease: 'power1.out', immediateRender: false }, t - .12);
     tl.to($('.cbtn', L), { scale: 1, duration: .1, ease: 'power1.out' }, t - .05);
-    tl.fromTo(L, { rotationY: 0, transformOrigin: '50% 50%', transformPerspective: 2200 }, { rotationY: 180, duration: .25, ease: E.inOut }, t);
-    tl.fromTo($('.shade', L), { opacity: 0 }, { opacity: .14, duration: .125, immediateRender: false }, t);
-    tl.to($('.shade', L), { opacity: .06, duration: .125 }, t + .125);
-    tl.set(R, { opacity: 0 }, t + .125);
+    tl.fromTo(L, { rotationY: 0, transformOrigin: '50% 50%', transformPerspective: 2200 }, { rotationY: 180, duration: F, ease: E.inOut }, t);
+    tl.fromTo($('.shade', L), { opacity: 0 }, { opacity: .14, duration: F / 2, immediateRender: false }, t);
+    tl.to($('.shade', L), { opacity: .06, duration: F / 2 }, t + F / 2);
+    tl.set(R, { opacity: 0 }, t + F / 2);
     // past 90° we see the back of the page: a plain sheet, not the front content mirrored
-    tl.set($$(':scope > :not(.shade)', L), { visibility: 'hidden' }, t + .125);
-    tl.set(L, { opacity: 0 }, t + .25);
+    tl.set($$(':scope > :not(.shade)', L), { visibility: 'hidden' }, t + F / 2);
+    tl.set(L, { opacity: 0 }, t + F);
   });
-  tl.fromTo($('.calF .on', e), { scale: 0 }, { scale: 1, duration: .25, ease: E.out }, 9.5);
-  tl.to(calw, { scale: .62, y: 10, duration: .38, ease: 'power3.inOut' }, 9.5);
+  tl.fromTo($('.calF .on', e), { scale: 0 }, { scale: 1, duration: .25, ease: E.out }, 9.75);
+  tl.to(calw, { scale: .62, y: 10, duration: .2, ease: 'power3.out' }, 9.72);
   tl.to(calw, { scale: .58, y: 0, duration: .6, ease: 'power1.out' }, 9.88);
 }
 
 function S2(tl) {
-  scene(tl, 's2', 10.72, 19.95);
+  scene(tl, 's2', 10.72, 20.1);
   // A — the chat: first message pops in, the next two are typed and sent, then the sad reply
   const a = $('#s2a'); show(tl, a, 10.72, 15.1);
   tl.fromTo('#s2a .inbar', { y: 90, opacity: 0 }, { y: 0, opacity: 1, duration: .35, ease: E.out }, 10.72);
@@ -1223,7 +1230,7 @@ function S2(tl) {
   tl.to('#s2a .chat', { scale: .95, y: -20, duration: .7, ease: E.soft }, 14.4);
 
   // B — the timer swings in tilted and straightens while the clock races down
-  const b = $('#s2b'); show(tl, b, 15.1, 15.9);
+  const b = $('#s2b'); show(tl, b, 15.1, 16.07, { out: 0 });
   gsap.set($('.hz', b), { scale: 1.42 });
   tl.fromTo($('.timer', b), { rotation: -24, x: -300, y: -40, opacity: 0 }, { x: 0, y: 0, opacity: 1, duration: .32, ease: E.out }, 15.08);
   tl.to($('.timer', b), { rotation: 0, duration: .5, ease: 'power2.out' }, 15.08);
@@ -1232,31 +1239,31 @@ function S2(tl) {
   tl.fromTo(clock, { v: 23 * 3600 + 58 * 60 + 58 }, { v: 14 * 3600 + 37 * 60 + 37, duration: .9, ease: E.drift, onUpdate: () => dig.textContent = fmt(clock.v), immediateRender: false }, 15.1);
 
   // C — unfinished sketches pile up one by one; the pile keeps itself centred
-  const c = $('#s2c'), sheets = $('.sheets', c); show(tl, c, 15.88, 17.3);
+  const c = $('#s2c'), sheets = $('.sheets', c); show(tl, c, 16.07, 17.47, { in: 0, out: 0 });
   gsap.set($('.hz', c), { scale: .9 });
   const cx = [335, 210, 143, 2];
   $$('.sheet', c).forEach((s, i) => {
-    const t = 15.9 + i * .2;
-    tl.fromTo(s, { x: 130, rotation: 4, opacity: 0 }, { x: 0, rotation: 0, opacity: 1, duration: .38, ease: E.out }, t);
-    if (i) tl.to(sheets, { x: cx[i], duration: .4, ease: E.inOut }, t); else tl.set(sheets, { x: cx[0] }, t);
+    const t = 16.07 + i * .15;
+    if (i) tl.fromTo(s, { x: 130, rotation: 4, opacity: 0 }, { x: 0, rotation: 0, opacity: 1, duration: .3, ease: E.out }, t);
+    else tl.set(s, { x: 0, rotation: 0, opacity: 1 }, t);   // lembar pertama langsung ada saat potongan
+    if (i) tl.to(sheets, { x: cx[i], duration: .32, ease: E.inOut }, t); else tl.set(sheets, { x: cx[0] }, t);
   });
 
   // D — "Plate.file" swings in from the left, papers peek out, then the camera pushes in
-  const d = $('#s2d'), hz = $('.hz', d), pw = $('.pwrap', d); show(tl, d, 17.3, 19.95, { out: .1 });
+  const d = $('#s2d'), hz = $('.hz', d), pw = $('.pwrap', d); show(tl, d, 17.47, 20.1, { in: 0, out: 0 });
   tl.fromTo(hz, { scale: .78 }, { scale: 1.2, duration: .6, ease: 'power2.inOut' }, 18.5);
   tl.to(hz, { scale: 1.28, duration: .8, ease: bE(19.02, .8) }, 19.02);
-  tl.to(pw, { x: -260, y: 150, scale: 1.25, duration: .2, ease: E.in }, 19.8);
-  tl.fromTo(pw, { x: -420, y: 80, rotation: -32, opacity: 0 }, { x: 0, y: 0, rotation: 0, opacity: 1, duration: .32, ease: 'power1.inOut' }, 17.3);
-  $$('.psh', d).forEach((s, i) => tl.fromTo(s, { y: 70, opacity: 0 }, { y: 0, opacity: 1, duration: .25, ease: E.out }, 17.5 + i * .05));
+  tl.fromTo(pw, { x: -420, y: 80, rotation: -32, opacity: 0 }, { x: 0, y: 0, rotation: 0, opacity: 1, duration: .25, ease: 'power2.out' }, 17.47);
+  $$('.psh', d).forEach((s, i) => tl.fromTo(s, { y: 70, opacity: 0 }, { y: 0, opacity: 1, duration: .25, ease: E.out }, 17.67 + i * .05));
 }
 
 function S3(tl, end, cut) {
-  scene(tl, 's3', 19.88, end);
+  scene(tl, 's3', 20.1, end);
   // "we got you!" glides in from the right and keeps drifting
-  const a = $('#s3a'), say = $('.say', a); show(tl, a, 19.88, end, { in: 0, out: cut ? .4 : .3 });
-  tl.set($('.cur', a), { opacity: 1 }, 19.88);
-  tl.fromTo(say, { x: 230, opacity: 0 }, { x: 0, opacity: 1, duration: .32, ease: E.out }, 19.9);
-  tl.to(say, { x: -30, duration: end - 20.3, ease: bE(20.3, end - 20.3) }, 20.3);
+  const a = $('#s3a'), say = $('.say', a); show(tl, a, 20.1, end, { in: 0, out: cut ? .4 : .3 });
+  tl.set($('.cur', a), { opacity: 1 }, 20.1);
+  tl.fromTo(say, { x: 230, opacity: 0 }, { x: 0, opacity: 1, duration: .28, ease: E.out }, 20.1);
+  tl.to(say, { x: -30, duration: end - 20.4, ease: bE(20.4, end - 20.4) }, 20.4);
   if (!cut) bg(tl, true, 21.45, .5);
 }
 
@@ -1489,13 +1496,13 @@ function S8(tl, T) {
     tl.set('#in8', { opacity: 0 }, T.b);
   }
   // B — the input bar grows into the Instagram profile, which fills in and then settles back
-  const b = $('#s8b'), prof = $('#prof'); show(tl, b, T.b, T.c, { in: 0 });
-  tl.fromTo(prof, { left: 222, width: 1156, top: 730, height: 122, borderRadius: 61, opacity: T.a != null ? 1 : 0 }, { left: 165, width: 1270, top: 105, height: 690, borderRadius: 64, opacity: 1, duration: .3, ease: E.out }, T.b);
+  const b = $('#s8b'), prof = $('#prof'); show(tl, b, T.b, T.c, { in: 0, out: 0 });   // video: potongan tegas ke tautan
+  tl.fromTo(prof, { left: 222, width: 1156, top: 730, height: 122, borderRadius: 61, opacity: T.a != null ? 1 : 0 }, { left: 312, width: 975, top: 137, height: 625, borderRadius: 64, opacity: 1, duration: .3, ease: E.out }, T.b);
   tl.fromTo('#prof .pav', { opacity: 0, scale: .85 }, { opacity: 1, scale: 1, duration: .25, ease: E.out }, T.b + .2);
   tl.fromTo($$('#prof .pname, #prof .pstats > div, #prof .pbio'), { opacity: 0 }, { opacity: 1, duration: .15, stagger: .1 }, T.b + .3);
   tl.fromTo($$('#prof .pgrid i'), { opacity: 0, scale: .9 }, { opacity: 1, scale: 1, duration: .25, stagger: .05, ease: E.out }, T.b + .45);
   tl.fromTo($$('#prof .pbtns a'), { opacity: 0, scale: .7 }, { opacity: 1, scale: 1, duration: .22, stagger: .1, ease: E.out }, T.b + 1.1);
-  tl.to(prof, { scale: .6, duration: .4, ease: 'power2.inOut' }, T.b + 1.35);
+  tl.to(prof, { scale: .6, duration: .4, ease: 'power2.inOut' }, T.b + 1.2);
   tl.to(prof, { scale: .52, duration: Math.max(.4, T.c - T.b - 1.75), ease: bE(T.b + 1.75, Math.max(.4, T.c - T.b - 1.75)) }, T.b + 1.75);
   // follower count ticks up to the live number; read at render time, so data that arrives late still shows
   const igc = { p: 0 };
@@ -1507,7 +1514,7 @@ function S8(tl, T) {
   } }, T.b + .4);
 
   // C — the link
-  const c = $('#s8c'); show(tl, c, T.c, T.d);
+  const c = $('#s8c'); show(tl, c, T.c, T.d, { in: 0 });
 
   // D — the mark, small and still, to the end
   const d = $('#s8d'); show(tl, d, T.d, null);
@@ -1528,7 +1535,7 @@ function build() {
     S8(t, { start: 58.3, a: 58.35, b: 61.35, c: 64.85, d: 67.6, end });
   } else {
     S1(t); S2(t); S3(t, 21.5, true);
-    S8(t, { start: 21.5, b: 21.5, c: 25.0, d: 27.75, end });
+    S8(t, { start: 21.5, b: 21.5, c: 25.07, d: 27.75, end });
   }
   t.to({}, { duration: .01 }, end);
   runHooks();
