@@ -11,6 +11,9 @@ The reel is a web page: a ~71-second animation built entirely with HTML, CSS and
 > reviewed by the studio owner before it was merged (human-in-the-loop).
 > This repository also keeps the assets, raw test data, test scripts and anonymised thesis appendices.
 
+🎬 **Breakdown video** (how the Alight Motion original was built, vertical):
+[YouTube Shorts](https://youtube.com/shorts/J43gorGcBds) · [Instagram](https://www.instagram.com/p/DfjVKTWik64/) · [Facebook Reel](https://www.facebook.com/reel/1141954055258448)
+
 ---
 
 ## Contents
