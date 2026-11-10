@@ -1563,6 +1563,9 @@ function tick() {
 // hanya diperbarui kasar (Firefox/Safari, laptop sibuk). Selisih kecil dikoreksi pelan (timeScale), selisih besar dilompati.
 function syncAudio() {
   if (!audio || audio.paused || !tl) return;
+  // audio still loading / buffering (readyState < 3, seeking): hold the frame and wait. Snapping the timeline back to
+  // the stalled audio position made the reel loop on its first frames when the soundtrack loaded slowly.
+  if (audio.readyState < 3 || audio.seeking) { if (!tl.paused()) tl.pause(); return; }
   const a = Math.min(audio.currentTime, tl.duration()), d = a - tl.time();
   if (Math.abs(d) > .25) { tl.time(a); tl.timeScale(1); }
   else tl.timeScale(1 + Math.max(-.06, Math.min(.06, d * 1.5)));
