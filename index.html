@@ -1602,7 +1602,7 @@ function finished() { playingNow = false; setPlayIcon(false); if (audio) audio.p
 // Mode intro: halaman induk (beranda) mengirim 'suara' / 'bisu' saat pengunjung menekan tombol suara.
 // Suara mengikuti posisi timeline yang sedang berjalan; iframe memakai allow="autoplay" agar klik di induk berlaku.
 // 'penuh': versi lengkap 71 detik diputar di iframe yang sama (tombol "Watch full reel" di beranda), bersuara.
-let introAudio = null, introPenuh = false, introMulai = false;
+let introAudio = null, introPenuh = false, introMulai = false, introJeda = false, introSuaraJalan = false;
 // audio sebagai jam utama: animasi dibaca dari posisi audio tiap frame, jadi keduanya tidak bisa lepas sinkron
 function mulaiBersuara(a) {
   playingNow = true; setPlayIcon(true);
@@ -1621,6 +1621,16 @@ if (INTRO) addEventListener('message', e => {
     return;
   }
   if (!tl) return;
+  // Jeda dari halaman induk: animasi & suara berhenti di frame ini; selama jeda pengunjung bisa menggulir/menggeser (pesan 'geser', d = detik)
+  // untuk melihat frame lain; 'lanjut' memutar lagi dari posisi itu dengan suara ikut sinkron.
+  if (m === 'jeda') { if (introJeda) return; introJeda = true; introSuaraJalan = !!(introAudio && !introAudio.paused); playingNow = false; tl.pause(); if (audio) audio.pause(); if (introAudio) introAudio.pause(); return; }
+  if (m === 'lanjut') {
+    if (!introJeda) return; introJeda = false; playingNow = true;
+    if (audio) { try { audio.currentTime = tl.time(); } catch (er) {} audio.play().then(() => tl.play(), () => tl.play()); }
+    else { tl.play(); if (introAudio && introSuaraJalan) { try { introAudio.currentTime = tl.time(); } catch (er) {} introAudio.play().catch(() => {}); } }
+    return;
+  }
+  if (m === 'geser') { if (!introJeda) return; const d = +e.data.d || 0; tl.time(Math.max(0, Math.min(tl.duration() - .05, tl.time() + d))); runHooks(); return; }
   if (audio) { audio.muted = m === 'bisu'; return; }   // suara diatur dengan muted, bukan pause → posisi tetap sinkron
   if (!introAudio) return;
   if (m === 'suara') {
