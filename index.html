@@ -9,7 +9,13 @@
 <meta name="color-scheme" content="light">
 <script>
 /* apply the saved theme before first paint so there is no flash */
-try { const t = localStorage.getItem('iluztar-theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) {}
+// default is always light; dark only when the visitor chose it. Inside the iluztar.com opening (?intro) the site passes
+// its theme as ?tema=dark, because this page (another domain) cannot read the site's saved choice.
+try {
+  const q = new URLSearchParams(location.search);
+  const t = q.has('intro') ? (q.get('tema') === 'dark' ? 'dark' : 'light') : localStorage.getItem('iluztar-theme');
+  if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t;
+} catch (e) {}
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -398,16 +404,17 @@ body.scrollmode.sc-active #bar{opacity:0;pointer-events:none;transform:translate
 #hint.on{opacity:1;transform:translate(-50%,0) scale(1);filter:blur(0)}
 /* portrait phones: the stage is cropped to its central 1100px (see fit()), so the few shots wider than that
    are pulled in, and the small UI-style type is enlarged a little */
-.portrait #s1b{scale:.74}
-.portrait #s1d{scale:.66}
-.portrait #s1e{scale:.8}
-.portrait #s2c{scale:.74}
-.portrait #s4b{scale:.76}
-.portrait #s6d{scale:.8}
-.portrait #s8a .chat8{scale:1.25}
-.portrait #s8b{scale:.8}
-.portrait #s7a{scale:.68}
-.portrait #s2a .chat{scale:1.25}
+.portrait #s1b{scale:.48}
+.portrait #s1d{scale:.52}
+.portrait #s1e{scale:.59}
+.portrait #s2c{scale:.55}
+.portrait #s5a{scale:.68}
+.portrait #s4b{scale:.52}
+.portrait #s6d{scale:.55}
+.portrait #s8a .chat8{scale:1.02}
+.portrait #s8b{scale:.7}
+.portrait #s7a{scale:.47}
+.portrait #s2a .chat{scale:1.02;translate:0 -110px}   /* HP: chat tidak terlalu ke bawah */
 .portrait .say.sm{font-size:46px}
 /* interactive film: anything with data-act can be clicked, in the scroll view and while playing */
 #film [data-act],#film a[data-act]{cursor:pointer;pointer-events:auto}
@@ -833,15 +840,15 @@ syncThemeButtons();
 /* ---------- fit stage ---------- */
 /* Portrait phones: a 16:9 frame fitted to the width would be tiny, so the stage is cropped to its central
    SAFE_W px instead (the action of every shot stays inside it; see .portrait rules in the CSS). */
-const SAFE_W = 1100;
+const SAFE_W = 1100, SAFE_W_HP = 760;   // HP tegak: panggung dipotong ke 760 px tengah (skala ±47% lebih besar); adegan lebar diperkecil lewat .portrait
 function fit() {
   const w = innerWidth, h = innerHeight;
   const playing = document.body.classList.contains('playing');
   const portrait = h > w * 1.1;
   root.classList.toggle('portrait', portrait);
   let s = playing ? Math.min(w / 1600, h / 900) : Math.min(w / 1300, (h - 150) / 900);
-  if (portrait) s = Math.min(w / SAFE_W, h / 900);
-  root.style.setProperty('--fy', playing || portrait ? '50%' : 'calc(50% - 62px)');
+  if (portrait) s = Math.min(w / SAFE_W_HP, h / 900);
+  root.style.setProperty('--fy', portrait ? 'calc(50% - 4vh)' : playing ? '50%' : 'calc(50% - 62px)');   // HP: sedikit ke atas, tombol pembuka ada di bawah
   root.style.setProperty('--s', s.toFixed(4));
 }
 addEventListener('resize', fit); fit();
