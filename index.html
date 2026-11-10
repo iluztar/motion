@@ -1200,7 +1200,7 @@ function S1(tl) {
   tl.fromTo(calw, { scale: 2.2, y: 600 }, { scale: 1.8, y: 330, duration: .5, ease: E.out }, 8.77);
   tl.to(calw, { y: 240, duration: .45, ease: 'none' }, 9.27);   // terus naik pelan seperti video
   [0, 1, 2].forEach(i => {
-    const L = $(`.half.L[data-p="${i}"]`, e), R = $(`.half.R[data-p="${i}"]`, e), t = [8.9, 9.3, 9.65][i], F = .14;   // video: tahun berganti hampir seketika (8.97 · 9.37 · 9.72)
+    const L = $(`.half.L[data-p="${i}"]`, e), R = $(`.half.R[data-p="${i}"]`, e), t = [8.94, 9.34, 9.69][i], F = .05;   // video: tahun berganti seketika (8.97 · 9.37 · 9.72); balikan dibuat sangat singkat
     tl.fromTo($('.cbtn', L), { scale: 1 }, { scale: .82, duration: .07, ease: 'power1.out', immediateRender: false }, t - .12);
     tl.to($('.cbtn', L), { scale: 1, duration: .1, ease: 'power1.out' }, t - .05);
     tl.fromTo(L, { rotationY: 0, transformOrigin: '50% 50%', transformPerspective: 2200 }, { rotationY: 180, duration: F, ease: E.inOut }, t);
