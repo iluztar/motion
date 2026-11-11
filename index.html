@@ -1,5 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-MMtB+DivP3oKTASObOn80/GJpFVKT7sAMNfspaKbjP0=' 'sha256-VfzjFfa5xeAmViZ+byJniW7m3WgJ+0zSYg9XA3z0ZeM=' 'sha256-+yXoJVG4nBn5MAJTZfNB6Ty2hd+qYdkIfHo82pQJYv8=' https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ https://unpkg.com/lenis@1.1.13/dist/lenis.min.js; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://iluztar.com; media-src 'self' blob: https://iluztar.com; connect-src 'self' https://iluztar.com; object-src 'none'; base-uri 'self'; form-action 'self'"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>ILUZTAR - Motion Graphic</title>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-MMtB+DivP3oKTASObOn80/GJpFVKT7sAMNfspaKbjP0=' 'sha256-fHV7Bph4HqWTqdg1PjuPppoYCoQ2Wqtwfw8AQDRFB6g=' 'sha256-+yXoJVG4nBn5MAJTZfNB6Ty2hd+qYdkIfHo82pQJYv8=' https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ https://unpkg.com/lenis@1.1.13/dist/lenis.min.js; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://iluztar.com; media-src 'self' blob: https://iluztar.com; connect-src 'self' https://iluztar.com; object-src 'none'; base-uri 'self'; form-action 'self'"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>ILUZTAR - Motion Graphic</title>
 <meta name="description" content="Company profile digital ILUZTAR Studio berbasis motion graphic interaktif. Dibuat oleh artist ILUZTAR untuk skripsi “Pengembangan Company Profile Digital Studio Kreatif ILUZTAR dengan Menggunakan Motion Graphic sebagai Media Promosi”, dikonversi dari video motion menjadi website dengan bantuan Claude AI (Opus 5.5).">
 <meta property="og:title" content="ILUZTAR - Motion Graphic">
 <meta property="og:description" content="Company profile digital ILUZTAR Studio berbasis motion graphic interaktif. Dibuat oleh artist ILUZTAR untuk skripsi “Pengembangan Company Profile Digital Studio Kreatif ILUZTAR dengan Menggunakan Motion Graphic sebagai Media Promosi”, dikonversi dari video motion menjadi website dengan bantuan Claude AI (Opus 5.5).">
@@ -299,7 +299,7 @@ body:not(.playing) .cf{opacity:1}
 .lsvg{position:absolute;inset:0;width:1600px;height:900px;overflow:visible}
 #wave,#ahead{stroke:var(--ink)}
 /* the arrow lands on a plain typographic statement, same type as the rest of the film */
-.own{position:absolute;left:0;right:0;top:0;bottom:0;display:flex;align-items:center;justify-content:center;gap:.28em;font-size:84px;font-weight:500;letter-spacing:-.035em;color:var(--ink);white-space:nowrap}
+.own{position:absolute;left:0;right:0;top:0;bottom:0;display:flex;align-items:center;justify-content:center;gap:.28em;font-size:74px;font-weight:500;letter-spacing:-.035em;color:var(--ink);white-space:nowrap}
 .own b{font-weight:700;color:var(--blue)}
 
 /* ---------- S8 ---------- */
@@ -1230,13 +1230,8 @@ function S1(tl) {
     const L = $(`.half.L[data-p="${i}"]`, e), R = $(`.half.R[data-p="${i}"]`, e), t = [8.94, 9.34, 9.69][i], F = .05;   // video: tahun berganti seketika (8.97 · 9.37 · 9.72); balikan dibuat sangat singkat
     tl.fromTo($('.cbtn', L), { scale: 1 }, { scale: .82, duration: .07, ease: 'power1.out', immediateRender: false }, t - .12);
     tl.to($('.cbtn', L), { scale: 1, duration: .1, ease: 'power1.out' }, t - .05);
-    tl.fromTo(L, { rotationY: 0, transformOrigin: '50% 50%', transformPerspective: 2200 }, { rotationY: 180, duration: F, ease: E.inOut }, t);
-    tl.fromTo($('.shade', L), { opacity: 0 }, { opacity: .14, duration: F / 2, immediateRender: false }, t);
-    tl.to($('.shade', L), { opacity: .06, duration: F / 2 }, t + F / 2);
-    tl.set(R, { opacity: 0 }, t + F / 2);
-    // past 90° we see the back of the page: a plain sheet, not the front content mirrored
-    tl.set($$(':scope > :not(.shade)', L), { visibility: 'hidden' }, t + F / 2);
-    tl.set(L, { opacity: 0 }, t + F);
+    // video 24 fps: halaman berganti dalam satu frame (balikan setengah halaman 1-2 frame terlihat seperti kedip)
+    tl.set([L, R], { opacity: 0 }, t + F / 2);
   });
   tl.fromTo($('.calF .on', e), { scale: 0 }, { scale: 1, duration: .25, ease: E.out }, 9.75);
   tl.to(calw, { scale: .62, y: 10, duration: .2, ease: 'power3.out' }, 9.72);
@@ -1404,7 +1399,7 @@ function S6(tl) {
   scene(tl, 's6', 39.5, 49.4);
   // A — the eye opens on "You keep the"; the line pans with the reading as "we handle the workload" arrives
   const a = $('#s6a'), line = $('#s6line'), tk = [...line.children];
-  show(tl, a, 39.5, 42.72, { out: .2 });
+  show(tl, a, 39.5, 42.86, { out: .16 });   // video: kalimat ikut pudar bersama latar yang membiru
   const pan = (from, to) => () => {
     const L = tk[from].offsetLeft, R = tk[to].offsetLeft + tk[to].offsetWidth;
     return line.offsetWidth / 2 - (L + R) / 2;
@@ -1432,36 +1427,27 @@ function S6(tl) {
 
   // B — a picker wheel of "Work" scrolls to rest, then folds shut into the toggle
   const b = $('#s6b'), rows = $$('.wrow', b), W = { p: 2.2, c: 0 };
-  show(tl, b, 42.8, 44.46, { in: .12, out: .1 });
+  show(tl, b, 42.9, 44.46, { in: 0, out: .1 });   // video: roda muncul kecil tepat saat latar biru penuh (42.93)
   hooks.push(() => rows.forEach((r, i) => {
     const deg = Math.max(-80, Math.min(80, (i - 3 - W.p) * 22 * W.c)), a = deg * Math.PI / 180, co = Math.cos(a);
-    gsap.set(r, { y: 240 * Math.sin(a), x: (1 - co) * 60, rotation: Math.abs(deg) * .3, scaleY: Math.max(co, .05), scaleX: .82 + .18 * co, opacity: co < .2 ? 0 : 1, zIndex: Math.round(co * 10) });
+    gsap.set(r, { y: 240 * Math.sin(a), x: (1 - co) * 60, rotation: Math.abs(deg) * .3, scaleY: Math.max(co, .05), scaleX: .82 + .18 * co, opacity: Math.min(1, Math.max(0, (co - .08) / .3)), zIndex: Math.round(co * 10) });
   }));
-  tl.fromTo(W, { c: 0 }, { c: 1, duration: .45, ease: E.out, immediateRender: false }, 42.75);
-  tl.fromTo(W, { p: 2.2 }, { p: 0, duration: 1.3, ease: E.out, immediateRender: false }, 42.75);
-  tl.fromTo($('.wheel', b), { y: 260, scale: .7 }, { y: 0, scale: 1, duration: .4, ease: E.out, immediateRender: false }, 42.75);
+  tl.fromTo(W, { c: 0 }, { c: 1, duration: .45, ease: E.out, immediateRender: false }, 42.9);
+  tl.fromTo(W, { p: 2.2 }, { p: 0, duration: 1.25, ease: E.out, immediateRender: false }, 42.9);
+  tl.fromTo($('.wheel', b), { y: 260, scale: .5 }, { y: 0, scale: 1, duration: .32, ease: E.out, immediateRender: false }, 42.9);
   tl.fromTo(rows[3], { backgroundColor: '#F5F5F7', color: '#1F1F21' }, { backgroundColor: '#D7D7DB', color: '#8A8A90', duration: .15, immediateRender: false }, 44.1);
   tl.to(W, { c: 0, duration: .24, ease: E.in }, 44.18);
 
-  // C — "Refine": the toggle, knob on the left
+  // C — "Refine": the wheel dissolves into the switch, the knob slides to ON (right) while the switch darkens,
+  //     then it holds; video: hard cut to the small request pill at 45.8 (no white swipe/collapse)
   const c = $('#s6c'), tog = $('.tog', c), knob = $('.knob', c), lab = $('.tlabel', c);
   show(tl, c, 44.4, 45.8, { in: .12, out: 0 });
-  // the collapsed stack of rows (400×68 at 1.3×) grows straight into the toggle (640×128)
+  tl.set(lab, { x: -100 }, 44.4);   // label at the left, knob ends at the right
   tl.fromTo(tog, { scaleX: .81, scaleY: .69 }, { scaleX: 1, scaleY: 1, duration: .32, ease: E.out }, 44.4);
-  tl.fromTo(knob, { backgroundColor: '#B9C8FF' }, { backgroundColor: '#FFFFFF', duration: .25 }, 44.5);
-  tl.fromTo(lab, { opacity: 0, x: -14 }, { opacity: 1, x: 0, duration: .25, ease: E.out }, 44.55);
+  tl.fromTo(tog, { backgroundColor: '#C9CBD3' }, { backgroundColor: '#262626', duration: .3, ease: 'power1.out', immediateRender: false }, 44.42);
+  tl.fromTo(knob, { x: 230, backgroundColor: '#B9C8FF' }, { x: 512, backgroundColor: '#FFFFFF', duration: .36, ease: E.out, immediateRender: false }, 44.42);
+  tl.fromTo(lab, { opacity: 0 }, { opacity: 1, duration: .25, ease: E.out, immediateRender: false }, 44.55);
   tl.to(tog, { scale: 1.03, duration: .8, ease: bE(44.8, .8) }, 44.8);
-  // swipe: the knob slides to the right end, a white trail fills in behind it and covers the label,
-  // leaving a fully white toggle — the base the request pill grows out of
-  const tf = $('.tfill', c);
-  tl.set(tf, { opacity: 1 }, 45.02);
-  tl.fromTo(knob, { x: 0 }, { x: 512, duration: .36, ease: 'power3.inOut', immediateRender: false }, 45.02);
-  tl.fromTo(tf, { width: 100 }, { width: 612, duration: .36, ease: 'power3.inOut', immediateRender: false }, 45.02);
-  tl.to(knob, { boxShadow: '0 0 0 rgba(0,0,0,0)', duration: .12 }, 45.3);
-  tl.to(tog, { backgroundColor: '#F7F7F8', duration: .14, ease: 'none' }, 45.26);
-  tl.set([tf, knob, lab], { opacity: 0 }, 45.4);
-  // …then the white toggle collapses into the small white request pill
-  tl.to(tog, { width: 270, height: 50, borderRadius: 25, padding: 0, scale: 1, duration: .22, ease: E.inOut }, 45.6);
 
   // D — "I want a Website!" grows into the website itself
   const d = $('#s6d'), wp = $('#wpill'), lbl = $('.wlab', wp), kids = [...$('.wfc', wp).children];
@@ -1495,8 +1481,10 @@ function S7(tl) {
   tl.to(w, { x: -1300, duration: .65, ease: bE(54.05, .65) }, 54.05);
   // the camera follows the arrow to its final spot first; "Your Ownership" then slides in, stops centred on
   // screen just past the tip, and the two drift together — the arrow never pulls back
-  tl.to(w, { x: OWN_W, duration: .65, ease: E.inOut }, 54.75);
-  tl.to(w, { x: OWN_W - 14, duration: 2.0, ease: bE(56.1, 2.0) }, 56.1);
+  // video: kamera berhenti dengan ujung panah di ±56% layar, lalu ikut bergeser kiri saat teks meluncur masuk
+  tl.to(w, { x: OWN_W + 480, duration: .65, ease: E.inOut }, 54.75);
+  tl.to(w, { x: OWN_W + 254, duration: .75, ease: 'power3.out' }, 55.55);
+  tl.to(w, { x: OWN_W + 230, duration: 1.9, ease: bE(56.3, 1.9) }, 56.3);
   hooks.push(() => {
     const L = wave.getTotalLength(), e = L * A.d;
     wave.style.visibility = e > 1.5 ? 'visible' : 'hidden';
@@ -1505,9 +1493,9 @@ function S7(tl) {
     const p = wave.getPointAtLength(e), q = wave.getPointAtLength(Math.max(e - 12, 0));
     head.setAttribute('transform', `translate(${p.x.toFixed(2)} ${p.y.toFixed(2)}) rotate(${(Math.atan2(p.y - q.y, p.x - q.x) * 180 / Math.PI).toFixed(2)})`);
   });
-  tl.fromTo(own, { x: 1200, opacity: 1 }, { x: 0, duration: .5, ease: E.out }, 55.45);
-  tl.fromTo($('.ow2', own), { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: .35, ease: E.out, immediateRender: false }, 55.8);
-  tl.to(own, { x: -14, duration: 2.0, ease: bE(56.1, 2.0) }, 56.1);
+  // satu baris utuh meluncur dari kanan dan melambat (tanpa kata kedua yang hilang lalu muncul lagi)
+  tl.fromTo(own, { x: 1350, opacity: 1 }, { x: 280, duration: .75, ease: 'power3.out' }, 55.55);
+  tl.to(own, { x: 250, duration: 1.85, ease: bE(56.3, 1.85) }, 56.3);
   tl.to(own, { opacity: 0, duration: .2 }, 58.15);
   tl.to([wave, head], { opacity: 0, duration: .2 }, 58.15);
 }
@@ -1615,7 +1603,9 @@ function syncAudio() {
   // the stalled audio position made the reel loop on its first frames when the soundtrack loaded slowly.
   if (audio.readyState < 3 || audio.seeking) { if (!tl.paused()) tl.pause(); return; }
   const a = Math.min(audio.currentTime, tl.duration()), d = a - tl.time();
-  if (Math.abs(d) > .25) { tl.time(a); tl.timeScale(1); }
+  // selisih besar: animasi TIDAK pernah dimundurkan (itu yang terlihat sebagai potongan berulang saat suara lambat dimuat);
+  // suara yang tertinggal disusulkan ke posisi animasi, animasi hanya dilompatkan maju bila suara di depan
+  if (Math.abs(d) > .25) { if (d < 0) { try { audio.currentTime = tl.time(); } catch (er) {} } else tl.time(a); tl.timeScale(1); }
   else tl.timeScale(1 + Math.max(-.06, Math.min(.06, d * 1.5)));
   if (tl.paused() && playingNow) tl.play();
 }
