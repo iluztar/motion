@@ -1,5 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-MMtB+DivP3oKTASObOn80/GJpFVKT7sAMNfspaKbjP0=' 'sha256-fHV7Bph4HqWTqdg1PjuPppoYCoQ2Wqtwfw8AQDRFB6g=' 'sha256-+yXoJVG4nBn5MAJTZfNB6Ty2hd+qYdkIfHo82pQJYv8=' https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ https://unpkg.com/lenis@1.1.13/dist/lenis.min.js; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://iluztar.com; media-src 'self' blob: https://iluztar.com; connect-src 'self' https://iluztar.com; object-src 'none'; base-uri 'self'; form-action 'self'"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>ILUZTAR - Motion Graphic</title>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-MMtB+DivP3oKTASObOn80/GJpFVKT7sAMNfspaKbjP0=' 'sha256-ild9pW6djvy11w8PxRcsBZFTSfEmJt3re3jhFEPSiNI=' 'sha256-+yXoJVG4nBn5MAJTZfNB6Ty2hd+qYdkIfHo82pQJYv8=' https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ https://unpkg.com/lenis@1.1.13/dist/lenis.min.js; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://iluztar.com; media-src 'self' blob: https://iluztar.com; connect-src 'self' https://iluztar.com; object-src 'none'; base-uri 'self'; form-action 'self'"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>ILUZTAR - Motion Graphic</title>
 <meta name="description" content="Company profile digital ILUZTAR Studio berbasis motion graphic interaktif. Dibuat oleh artist ILUZTAR untuk skripsi “Pengembangan Company Profile Digital Studio Kreatif ILUZTAR dengan Menggunakan Motion Graphic sebagai Media Promosi”, dikonversi dari video motion menjadi website dengan bantuan Claude AI (Opus 5.5).">
 <meta property="og:title" content="ILUZTAR - Motion Graphic">
 <meta property="og:description" content="Company profile digital ILUZTAR Studio berbasis motion graphic interaktif. Dibuat oleh artist ILUZTAR untuk skripsi “Pengembangan Company Profile Digital Studio Kreatif ILUZTAR dengan Menggunakan Motion Graphic sebagai Media Promosi”, dikonversi dari video motion menjadi website dengan bantuan Claude AI (Opus 5.5).">
@@ -1637,12 +1637,23 @@ function finished() { playingNow = false; setPlayIcon(false); if (audio) audio.p
 // Suara mengikuti posisi timeline yang sedang berjalan; iframe memakai allow="autoplay" agar klik di induk berlaku.
 // 'penuh': versi lengkap 71 detik diputar di iframe yang sama (tombol "Watch full reel" di beranda), bersuara.
 let introAudio = null, introPenuh = false, introMulai = false, introJeda = false, introSuaraJalan = false;
+// Browser bawaan aplikasi (Instagram/Facebook) menolak suara yang dipicu klik di halaman induk (beda frame). Suara disimpan,
+// lalu ketukan pertama DI DALAM video (gerakan pengguna di frame ini) memutarnya, sinkron dengan posisi animasi.
+let audioTertunda = null;
+if (INTRO) document.addEventListener('pointerdown', () => {
+  if (!tl || !playingNow || introJeda) return;
+  const a = (audio && audio.paused) ? audio : audioTertunda;
+  if (!a || !a.paused) return;
+  audio = a; audioTertunda = null;
+  try { a.currentTime = Math.min(tl.time(), (a.duration || 1e9) - .05); } catch (er) {}
+  a.play().then(() => { gsap.ticker.remove(syncAudio); gsap.ticker.add(syncAudio); kabariInduk('suara-jalan'); }, () => { audioTertunda = a; });
+}, { capture: true });
 // audio sebagai jam utama: animasi dibaca dari posisi audio tiap frame, jadi keduanya tidak bisa lepas sinkron
 function mulaiBersuara(a) {
   playingNow = true; setPlayIcon(true);
   if (!a) { tl.play(0); return; }
   audio = a; try { audio.currentTime = 0; } catch (er) {} tl.time(0);
-  audio.play().then(() => { tl.play(); gsap.ticker.add(syncAudio); }, () => { audio = null; tl.play(0); kabariInduk('suara-gagal'); });
+  audio.play().then(() => { tl.play(); gsap.ticker.add(syncAudio); }, () => { audioTertunda = audio; audio = null; tl.play(0); kabariInduk('suara-gagal'); });
 }
 if (INTRO) addEventListener('message', e => {
   if (e.source !== window.parent || !e.data) return;
@@ -1651,7 +1662,7 @@ if (INTRO) addEventListener('message', e => {
   if (m === 'penuh') {
     if (introAudio) introAudio.pause();
     introPenuh = true; setMode('full'); start(0);
-    if (audio) audio.play().catch(() => kabariInduk('suara-gagal'));
+    if (audio) audio.play().then(() => kabariInduk('suara-jalan'), () => kabariInduk('suara-gagal'));
     return;
   }
   if (!tl) return;
@@ -1669,7 +1680,7 @@ if (INTRO) addEventListener('message', e => {
   if (!introAudio) return;
   if (m === 'suara') {
     try { introAudio.currentTime = tl.time(); } catch (er) {}
-    introAudio.play().catch(() => kabariInduk('suara-gagal'));
+    introAudio.play().then(() => kabariInduk('suara-jalan'), () => kabariInduk('suara-gagal'));
   } else if (m === 'bisu') introAudio.pause();
 });
 function toggle() {
