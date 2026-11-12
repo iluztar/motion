@@ -1,5 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-MMtB+DivP3oKTASObOn80/GJpFVKT7sAMNfspaKbjP0=' 'sha256-n+/AZjTKBmaUEMDvCzI6tyxg6/kyq/A6hw1y9Ma/slI=' 'sha256-+yXoJVG4nBn5MAJTZfNB6Ty2hd+qYdkIfHo82pQJYv8=' https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ https://unpkg.com/lenis@1.1.13/dist/lenis.min.js; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://iluztar.com; media-src 'self' blob: https://iluztar.com; connect-src 'self' https://iluztar.com; object-src 'none'; base-uri 'self'; form-action 'self'"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>ILUZTAR - Motion Graphic</title>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-MMtB+DivP3oKTASObOn80/GJpFVKT7sAMNfspaKbjP0=' 'sha256-v6V1kntEbDByc67QnadX4/FdNN8shPeui5g/dC0YvmY=' 'sha256-+yXoJVG4nBn5MAJTZfNB6Ty2hd+qYdkIfHo82pQJYv8=' https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ https://unpkg.com/lenis@1.1.13/dist/lenis.min.js; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://iluztar.com; media-src 'self' blob: https://iluztar.com; connect-src 'self' https://iluztar.com; object-src 'none'; base-uri 'self'; form-action 'self'"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>ILUZTAR - Motion Graphic</title>
 <meta name="description" content="Company profile digital ILUZTAR Studio berbasis motion graphic interaktif. Dibuat oleh artist ILUZTAR untuk skripsi “Pengembangan Company Profile Digital Studio Kreatif ILUZTAR dengan Menggunakan Motion Graphic sebagai Media Promosi”, dikonversi dari video motion menjadi website dengan bantuan Claude AI (Opus 5.5).">
 <meta property="og:title" content="ILUZTAR - Motion Graphic">
 <meta property="og:description" content="Company profile digital ILUZTAR Studio berbasis motion graphic interaktif. Dibuat oleh artist ILUZTAR untuk skripsi “Pengembangan Company Profile Digital Studio Kreatif ILUZTAR dengan Menggunakan Motion Graphic sebagai Media Promosi”, dikonversi dari video motion menjadi website dengan bantuan Claude AI (Opus 5.5).">
@@ -423,6 +423,7 @@ body.scrollmode.sc-active #bar{opacity:0;pointer-events:none;transform:translate
 .portrait #s1e{scale:.54}
 .portrait #s2c{scale:.55}
 .portrait #s5a{scale:.6}
+.portrait #s5c{scale:.8}   /* HP: kartu "With the same" (puncak skala 1.32) tetap berjarak dari tepi layar */
 .portrait #s4b{scale:.42}
 .portrait #s6d{scale:.55}
 .portrait #s8a .chat8{scale:1.02}
@@ -1537,9 +1538,38 @@ function S8(tl, T) {
   }
   // B — the input bar grows into the Instagram profile, which fills in and then settles back
   const b = $('#s8b'), prof = $('#prof'); show(tl, b, T.b, T.c, { in: 0, out: 0 });   // video: potongan tegas ke tautan
-  tl.fromTo(prof, { left: 222, width: 1156, top: 730, height: 122, borderRadius: 61, opacity: T.a != null ? 1 : 0 }, { left: 312, width: 975, top: 137, height: 625, borderRadius: 64, opacity: 1, duration: .3, ease: E.out }, T.b);
-  tl.fromTo('#prof .pav', { opacity: 0, scale: .85 }, { opacity: 1, scale: 1, duration: .25, ease: E.out }, T.b + .2);
-  tl.fromTo($$('#prof .pname, #prof .pstats > div, #prof .pbio'), { opacity: 0 }, { opacity: 1, duration: .15, stagger: .1 }, T.b + .3);
+  // elemen bersama: kolom ketik (#in8) SENDIRI yang berubah jadi kartu profil. Kartu mulai tepat di kotak kolom ketik
+  // (dihitung dari skala .chat8 dan #s8b yang sedang berlaku, jadi pas di desktop maupun HP tegak), lalu posisi, ukuran,
+  // radius, tebal garis dan bayangan berpindah bersama dalam satu gerak. Gelembung chat terdorong ke atas dan memudar.
+  const morph = { p: 0 }, R1 = { l: 312, t: 137, w: 975, h: 625, r: 64, bw: 2 };
+  let r0k = null, r0 = null, lastK = '';
+  const awal = () => {
+    const k = root.classList.contains('portrait') ? 'p' : 'l';
+    if (k === r0k) return r0;
+    const ch = $('#s8a .chat8'), ib = $('#in8'), cs = getComputedStyle(ch);
+    const sc = parseFloat(cs.scale) || 1, ty = parseFloat((cs.translate || '').split(' ')[1]) || 0, q = parseFloat(getComputedStyle(b).scale) || 1;
+    const x = 800 + (ch.offsetLeft + ib.offsetLeft - 800) * sc, y = 450 + (ch.offsetTop + ib.offsetTop - 450) * sc + ty;
+    const w = ib.offsetWidth * sc / q, h = ib.offsetHeight * sc / q;
+    r0k = k; r0 = { l: 800 + (x - 800) / q, t: 450 + (y - 450) / q, w, h, r: h / 2, bw: 2 * sc / q };
+    return r0;
+  };
+  hooks.push(() => {
+    const p = morph.p, a0 = awal(), k = p.toFixed(4) + r0k;
+    if (k === lastK) return; lastK = k;
+    const m = (u, v) => u + (v - u) * p, s = prof.style;
+    s.left = m(a0.l, R1.l) + 'px'; s.top = m(a0.t, R1.t) + 'px'; s.width = m(a0.w, R1.w) + 'px'; s.height = m(a0.h, R1.h) + 'px';
+    s.borderRadius = m(a0.r, R1.r) + 'px'; s.borderWidth = m(a0.bw, R1.bw) + 'px';
+    s.boxShadow = '0 1px 2px rgba(20,20,40,' + (.06 * p).toFixed(3) + '),0 ' + (14 * p) + 'px ' + (30 * p) + 'px -10px var(--shadow),0 ' + (40 * p) + 'px ' + (70 * p) + 'px -30px var(--shadow)';
+  });
+  tl.fromTo(morph, { p: 0 }, { p: 1, duration: .5, ease: 'power3.inOut' }, T.b);
+  if (T.a == null) tl.fromTo(prof, { opacity: 0 }, { opacity: 1, duration: .3, ease: E.out }, T.b);
+  else {
+    tl.set(prof, { opacity: 1 }, T.b);
+    tl.to('#in8 .send', { scale: 0, opacity: 0, duration: .16, ease: E.in }, T.b - .16);   // tombol kirim mengecil dulu, kolom kosong lalu tumbuh
+    tl.to($$('#s8a .bub'), { y: -140, opacity: 0, duration: .32, ease: 'power2.in', stagger: .03 }, T.b);
+  }
+  tl.fromTo('#prof .pav', { opacity: 0, scale: .85 }, { opacity: 1, scale: 1, duration: .25, ease: E.out }, T.b + .32);
+  tl.fromTo($$('#prof .pname, #prof .pstats > div, #prof .pbio'), { opacity: 0 }, { opacity: 1, duration: .15, stagger: .1 }, T.b + .4);
   tl.fromTo($$('#prof .pgrid i'), { opacity: 0, scale: .9 }, { opacity: 1, scale: 1, duration: .25, stagger: .05, ease: E.out }, T.b + .45);
   tl.fromTo($$('#prof .pbtns a'), { opacity: 0, scale: .7 }, { opacity: 1, scale: 1, duration: .22, stagger: .1, ease: E.out }, T.b + 1.1);
   tl.to(prof, { scale: .6, duration: .4, ease: 'power2.inOut' }, T.b + 1.2);
