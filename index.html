@@ -1,5 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-MMtB+DivP3oKTASObOn80/GJpFVKT7sAMNfspaKbjP0=' 'sha256-v6V1kntEbDByc67QnadX4/FdNN8shPeui5g/dC0YvmY=' 'sha256-+yXoJVG4nBn5MAJTZfNB6Ty2hd+qYdkIfHo82pQJYv8=' https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ https://unpkg.com/lenis@1.1.13/dist/lenis.min.js; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://iluztar.com; media-src 'self' blob: https://iluztar.com; connect-src 'self' https://iluztar.com; object-src 'none'; base-uri 'self'; form-action 'self'"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>ILUZTAR - Motion Graphic</title>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-MMtB+DivP3oKTASObOn80/GJpFVKT7sAMNfspaKbjP0=' 'sha256-vo4Y7olp5FeASbw2d679+XVXJP3kf73tUEMy1dSUkoY=' 'sha256-+yXoJVG4nBn5MAJTZfNB6Ty2hd+qYdkIfHo82pQJYv8=' https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ https://unpkg.com/lenis@1.1.13/dist/lenis.min.js; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://iluztar.com; media-src 'self' blob: https://iluztar.com; connect-src 'self' https://iluztar.com; object-src 'none'; base-uri 'self'; form-action 'self'"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>ILUZTAR - Motion Graphic</title>
 <meta name="description" content="Company profile digital ILUZTAR Studio berbasis motion graphic interaktif. Dibuat oleh artist ILUZTAR untuk skripsi “Pengembangan Company Profile Digital Studio Kreatif ILUZTAR dengan Menggunakan Motion Graphic sebagai Media Promosi”, dikonversi dari video motion menjadi website dengan bantuan Claude AI (Opus 5.5).">
 <meta property="og:title" content="ILUZTAR - Motion Graphic">
 <meta property="og:description" content="Company profile digital ILUZTAR Studio berbasis motion graphic interaktif. Dibuat oleh artist ILUZTAR untuk skripsi “Pengembangan Company Profile Digital Studio Kreatif ILUZTAR dengan Menggunakan Motion Graphic sebagai Media Promosi”, dikonversi dari video motion menjadi website dengan bantuan Claude AI (Opus 5.5).">
@@ -424,7 +424,7 @@ body.scrollmode.sc-active #bar{opacity:0;pointer-events:none;transform:translate
 .portrait #s2c{scale:.55}
 .portrait #s5a{scale:.6}
 .portrait #s5c{scale:.8}   /* HP: kartu "With the same" (puncak skala 1.32) tetap berjarak dari tepi layar */
-.portrait #s4b{scale:.42}
+.portrait #s4b{scale:1.4}   /* HP: kartu tengah ±66% lebar layar, kartu samping mengintip dari belakang (jarak slot x.6 di S3) */
 .portrait #s6d{scale:.55}
 .portrait #s8a .chat8{scale:1.02}
 .portrait #s8b{scale:.7}
@@ -1331,8 +1331,8 @@ function S4(tl) {
     const k = i - P.p;
     // side cards are pushed back in depth instead of scaled down: same look, but each card is always
     // rasterised at full size, so it stays sharp as it comes forward and can stay on its own GPU layer
-    const sc = slotS(k);
-    gsap.set(c, { x: (slotX(k) + X[i].dx) / sc, z: 1600 * (1 - 1 / sc), scale: 1, rotationY: slotR(k) + X[i].ry, opacity: X[i].o, zIndex: 10 - Math.round(Math.abs(k) * 3), transformPerspective: 1600 });
+    const sc = slotS(k), fx = root.classList.contains('portrait') ? .6 : 1;   // HP tegak: kartu samping lebih rapat (karusel, terselip di belakang)
+    gsap.set(c, { x: (slotX(k) * fx + X[i].dx) / sc, z: 1600 * (1 - 1 / sc), scale: 1, rotationY: slotR(k) + X[i].ry, opacity: X[i].o, zIndex: 10 - Math.round(Math.abs(k) * 3), transformPerspective: 1600 });
     gsap.set(c._dim || (c._dim = $('.cfd', c)), { autoAlpha: .22 * Math.min(Math.abs(k), 2) / 2 });
   }));
   X.forEach((x, i) => {
