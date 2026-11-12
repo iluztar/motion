@@ -1,5 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-MMtB+DivP3oKTASObOn80/GJpFVKT7sAMNfspaKbjP0=' 'sha256-ild9pW6djvy11w8PxRcsBZFTSfEmJt3re3jhFEPSiNI=' 'sha256-+yXoJVG4nBn5MAJTZfNB6Ty2hd+qYdkIfHo82pQJYv8=' https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ https://unpkg.com/lenis@1.1.13/dist/lenis.min.js; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://iluztar.com; media-src 'self' blob: https://iluztar.com; connect-src 'self' https://iluztar.com; object-src 'none'; base-uri 'self'; form-action 'self'"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>ILUZTAR - Motion Graphic</title>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-MMtB+DivP3oKTASObOn80/GJpFVKT7sAMNfspaKbjP0=' 'sha256-n+/AZjTKBmaUEMDvCzI6tyxg6/kyq/A6hw1y9Ma/slI=' 'sha256-+yXoJVG4nBn5MAJTZfNB6Ty2hd+qYdkIfHo82pQJYv8=' https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ https://unpkg.com/lenis@1.1.13/dist/lenis.min.js; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://iluztar.com; media-src 'self' blob: https://iluztar.com; connect-src 'self' https://iluztar.com; object-src 'none'; base-uri 'self'; form-action 'self'"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>ILUZTAR - Motion Graphic</title>
 <meta name="description" content="Company profile digital ILUZTAR Studio berbasis motion graphic interaktif. Dibuat oleh artist ILUZTAR untuk skripsi “Pengembangan Company Profile Digital Studio Kreatif ILUZTAR dengan Menggunakan Motion Graphic sebagai Media Promosi”, dikonversi dari video motion menjadi website dengan bantuan Claude AI (Opus 5.5).">
 <meta property="og:title" content="ILUZTAR - Motion Graphic">
 <meta property="og:description" content="Company profile digital ILUZTAR Studio berbasis motion graphic interaktif. Dibuat oleh artist ILUZTAR untuk skripsi “Pengembangan Company Profile Digital Studio Kreatif ILUZTAR dengan Menggunakan Motion Graphic sebagai Media Promosi”, dikonversi dari video motion menjadi website dengan bantuan Claude AI (Opus 5.5).">
@@ -415,7 +415,7 @@ body.scrollmode.sc-active #bar{opacity:0;pointer-events:none;transform:translate
 #hint.on{opacity:1;transform:translate(-50%,0) scale(1);filter:blur(0)}
 /* portrait phones: the stage is cropped to its central 1100px (see fit()), so the few shots wider than that
    are pulled in, and the small UI-style type is enlarged a little */
-.portrait #s1b{scale:.9}   /* HP: susunan tegak sendiri (--px/--py/--pw), teks tetap terbaca */
+.portrait #s1b{scale:.9}   /* HP: susunan tegak sendiri (--px/--py/--pw): zig-zag kanan-kiri simetris titik terhadap judul, 3 ukuran (besar/sedang/kecil), tidak menutup teks */
 .portrait #s1c{scale:.86}
 .portrait #s6a{scale:.86}
 .portrait #s4a{scale:.92}   /* HP: tombol Order tidak menempel tepi kanan */   /* HP: "we handle the workload" tidak menempel tepi kanan */   /* HP: "Bandar Lampung, Indonesia" tidak menempel tepi layar (dulu 393 px di layar 390) */
@@ -560,12 +560,12 @@ body:not(.scrollmode) #stag,body:not(.scrollmode) #sgo,body:not(.scrollmode) #sp
       <div class="art far" data-act="zoom" data-d=".45" data-img="0" style="--x:150px;--y:322px;--w:92px;--r:8deg"><img data-slot="ART0" src="aset/web/art-bendera-480.webp" data-besar="aset/web/art-bendera.webp" decoding="async" alt=""></div>
       <div class="art far" data-act="zoom" data-d=".4" data-img="2" style="--x:-712px;--y:40px;--w:76px;--r:-6deg"><img data-slot="ART2" src="aset/web/art-harisun-480.webp" data-besar="aset/web/art-harisun.webp" decoding="async" alt=""></div>
       <div class="art far" data-act="zoom" data-d=".4" data-img="1" style="--x:738px;--y:48px;--w:70px;--r:12deg"><img data-slot="ART1" src="aset/web/art-sarah-480.webp" data-besar="aset/web/art-sarah.webp" decoding="async" alt=""></div>
-      <div class="art" data-act="zoom" data-ry="16" data-rx="6" data-rz="0" style="--x:569px;--y:236px;--w:205px;--px:235px;--py:470px;--pw:250px"><img data-slot="ART0" src="aset/web/art-bendera-480.webp" data-besar="aset/web/art-bendera.webp" decoding="async" alt=""><i class="eg"></i></div>
-      <div class="art" data-act="zoom" data-ry="-36" data-rx="4" data-rz="0" style="--x:451px;--y:-264px;--w:118px;--px:250px;--py:-590px;--pw:155px"><img data-slot="ART1" src="aset/web/art-sarah-480.webp" data-besar="aset/web/art-sarah.webp" decoding="async" alt=""><i class="eg"></i></div>
-      <div class="art" data-act="zoom" data-ry="-22" data-rx="-6" data-rz="-2" style="--x:254px;--y:76px;--w:126px;--px:205px;--py:110px;--pw:150px"><img data-slot="ART2" src="aset/web/art-harisun-480.webp" data-besar="aset/web/art-harisun.webp" decoding="async" alt=""><i class="eg"></i></div>
-      <div class="art" data-act="zoom" data-ry="8" data-rx="0" data-rz="-3" style="--x:-359px;--y:-82px;--w:110px;--px:-170px;--py:-330px;--pw:140px"><img data-slot="ART3" src="aset/web/art-persona-480.webp" data-besar="aset/web/art-persona.webp" decoding="async" alt=""><i class="eg"></i></div>
-      <div class="art" data-act="zoom" data-ry="12" data-rx="-4" data-rz="0" style="--x:-556px;--y:232px;--w:282px;--px:-205px;--py:470px;--pw:300px"><img data-slot="ART4" src="aset/web/art-draco-480.webp" data-besar="aset/web/art-draco.webp" decoding="async" alt=""><i class="eg"></i></div>
-      <div class="art" data-act="zoom" data-ry="6" data-rx="6" data-rz="0" style="--x:-563px;--y:-276px;--w:129px;--px:-230px;--py:-640px;--pw:170px"><img data-slot="ART5" src="aset/web/art-huion-480.webp" data-besar="aset/web/art-huion.webp" decoding="async" alt=""><i class="eg"></i></div>
+      <div class="art" data-act="zoom" data-ry="16" data-rx="6" data-rz="0" style="--x:569px;--y:236px;--w:205px;--px:215px;--py:430px;--pw:200px"><img data-slot="ART0" src="aset/web/art-bendera-480.webp" data-besar="aset/web/art-bendera.webp" decoding="async" alt=""><i class="eg"></i></div>
+      <div class="art" data-act="zoom" data-ry="-36" data-rx="4" data-rz="0" style="--x:451px;--y:-264px;--w:118px;--px:190px;--py:-620px;--pw:240px"><img data-slot="ART1" src="aset/web/art-sarah-480.webp" data-besar="aset/web/art-sarah.webp" decoding="async" alt=""><i class="eg"></i></div>
+      <div class="art" data-act="zoom" data-ry="-22" data-rx="-6" data-rz="-2" style="--x:254px;--y:76px;--w:126px;--px:250px;--py:-235px;--pw:150px"><img data-slot="ART2" src="aset/web/art-harisun-480.webp" data-besar="aset/web/art-harisun.webp" decoding="async" alt=""><i class="eg"></i></div>
+      <div class="art" data-act="zoom" data-ry="8" data-rx="0" data-rz="-3" style="--x:-359px;--y:-82px;--w:110px;--px:-250px;--py:235px;--pw:150px"><img data-slot="ART3" src="aset/web/art-persona-480.webp" data-besar="aset/web/art-persona.webp" decoding="async" alt=""><i class="eg"></i></div>
+      <div class="art" data-act="zoom" data-ry="12" data-rx="-4" data-rz="0" style="--x:-556px;--y:232px;--w:282px;--px:-190px;--py:620px;--pw:260px"><img data-slot="ART4" src="aset/web/art-draco-480.webp" data-besar="aset/web/art-draco.webp" decoding="async" alt=""><i class="eg"></i></div>
+      <div class="art" data-act="zoom" data-ry="6" data-rx="6" data-rz="0" style="--x:-563px;--y:-276px;--w:129px;--px:-215px;--py:-430px;--pw:200px"><img data-slot="ART5" src="aset/web/art-huion-480.webp" data-besar="aset/web/art-huion.webp" decoding="async" alt=""><i class="eg"></i></div>
       <div class="say say-xl">A creative studio</div>
     </div>
     <div class="layer" id="s1c">
@@ -1558,10 +1558,10 @@ function S8(tl, T) {
 
   // D — the mark, small and still, to the end
   const d = $('#s8d'); show(tl, d, T.d, null);
-  // video 30 fps: muncul kecil (±45°), membesar sambil berputar sampai sedikit lewat (-18°), lalu diam miring ±9°
+  // video 30 fps: muncul kecil (±45°), membesar sambil berputar sampai sedikit lewat (-18°), lalu mendarat tegak (0°) = posisi logo normal
   const lg = $('.lg', d);
   tl.fromTo(lg, { scale: .14, rotation: 45, opacity: 1 }, { scale: 1.1, rotation: -18, duration: .3, ease: 'power2.inOut', immediateRender: false }, T.d + .05);
-  tl.to(lg, { scale: 1, rotation: -9, duration: .3, ease: 'power2.out' }, T.d + .35);
+  tl.to(lg, { scale: 1, rotation: 0, duration: .4, ease: 'power2.out' }, T.d + .35);   // berhenti tegak = posisi logo normal (bukan miring)
 }
 
 const runHooks = () => hooks.forEach(f => f());
