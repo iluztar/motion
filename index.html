@@ -1,5 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-2gvS2on1O97mmJrBX4poePoq5HxNbyUX2UXxxnKrR0A=' 'sha256-vfQHCiyNzyfkS8POSgu15/Mp/QNtIBn2hWst1n6Oyfo=' 'sha256-+yXoJVG4nBn5MAJTZfNB6Ty2hd+qYdkIfHo82pQJYv8='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://iluztar.com; media-src 'self' blob: https://iluztar.com; connect-src 'self' https://iluztar.com; object-src 'none'; base-uri 'self'; form-action 'self'"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>ILUZTAR - Motion Graphic</title>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-2gvS2on1O97mmJrBX4poePoq5HxNbyUX2UXxxnKrR0A=' 'sha256-Z9uez7M+5sTabozz7U7IQrAVuMAb3yEIw+xIBHcBkYA=' 'sha256-+yXoJVG4nBn5MAJTZfNB6Ty2hd+qYdkIfHo82pQJYv8='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://iluztar.com; media-src 'self' blob: https://iluztar.com; connect-src 'self' https://iluztar.com; object-src 'none'; base-uri 'self'; form-action 'self'"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>ILUZTAR - Motion Graphic</title>
 <meta name="description" content="Company profile digital ILUZTAR Studio berbasis motion graphic interaktif. Dibuat oleh artist ILUZTAR untuk skripsi “Pengembangan Company Profile Digital Studio Kreatif ILUZTAR dengan Menggunakan Motion Graphic sebagai Media Promosi”, dikonversi dari video motion menjadi website dengan bantuan Claude AI (Opus 5.5).">
 <meta property="og:title" content="ILUZTAR - Motion Graphic">
 <meta property="og:description" content="Company profile digital ILUZTAR Studio berbasis motion graphic interaktif. Dibuat oleh artist ILUZTAR untuk skripsi “Pengembangan Company Profile Digital Studio Kreatif ILUZTAR dengan Menggunakan Motion Graphic sebagai Media Promosi”, dikonversi dari video motion menjadi website dengan bantuan Claude AI (Opus 5.5).">
@@ -140,6 +140,7 @@ body:not(.playing) .hero{visibility:visible}
 .net .ln{stroke:#4D72FF;stroke-width:1.6;opacity:.8}
 .net .nbg{fill:var(--surface);stroke:var(--border);stroke-width:1.5}
 .calw{position:relative;width:640px;height:470px}
+.playing #s1e .calw{will-change:transform}   /* kalender hanya mengecil (2.2 → .58): dirasterkan sekali di ukuran terbesar, tidak dilukis ulang tiap frame (bayangan blur 70px) */
 .cal{position:absolute;inset:0;padding:44px 50px 54px;background:var(--surface);border-radius:38px;border:3px solid #8AA6FF;box-shadow:0 0 0 1px rgba(255,255,255,.3) inset,0 -18px 70px 4px rgba(0,71,255,.28),0 30px 60px -20px rgba(0,20,90,.3)}
 .cal.half{box-shadow:none}.cal.half.L{clip-path:inset(-4% 50% -4% -4%)}.cal.half.R{clip-path:inset(-4% -4% -4% 50%)}
 .cal .shade{position:absolute;inset:-3px;border-radius:38px;background:#000;opacity:0;pointer-events:none}
@@ -1336,14 +1337,15 @@ function S4(tl) {
   const slotX = k => 30 + (k >= 0 ? (k <= 1 ? k * 355 : 355 + (k - 1) * 150) : (k >= -1 ? k * 350 : -350 + (k + 1) * 300));
   const slotS = k => 1 - .28 * Math.min(Math.abs(k), 1) - .22 * Math.max(0, Math.min(Math.abs(k), 2) - 1);
   const slotR = k => k > 0 ? -26 * Math.min(k, 1.4) : 20 * Math.min(-k, 1.4);
-  hooks.push(() => cards.forEach((c, i) => {
+  let cfK = '';
+  hooks.push(() => { const kk = P.p.toFixed(4) + X.map(x => x.ry.toFixed(2) + x.dx.toFixed(1) + x.o).join() + root.classList.contains('portrait'); if (kk === cfK) return; cfK = kk; cards.forEach((c, i) => {
     const k = i - P.p;
     // side cards are pushed back in depth instead of scaled down: same look, but each card is always
     // rasterised at full size, so it stays sharp as it comes forward and can stay on its own GPU layer
     const sc = slotS(k), fx = root.classList.contains('portrait') ? .6 : 1;   // HP tegak: kartu samping lebih rapat (karusel, terselip di belakang)
     gsap.set(c, { x: (slotX(k) * fx + X[i].dx) / sc, z: 1600 * (1 - 1 / sc), scale: 1, rotationY: slotR(k) + X[i].ry, opacity: X[i].o, zIndex: 10 - Math.round(Math.abs(k) * 3), transformPerspective: 1600 });
     gsap.set(c._dim || (c._dim = $('.cfd', c)), { autoAlpha: .22 * Math.min(Math.abs(k), 2) / 2 });
-  }));
+  }); });
   X.forEach((x, i) => {
     tl.fromTo(x, { ry: i ? -80 : -90, dx: [0, 220, 260][i] }, { ry: 0, dx: 0, duration: i ? .45 : .6, ease: E.out }, 26.02 + i * .15);
     // appear fully opaque while still edge-on — a half-transparent card flashed as a pale box
@@ -1438,10 +1440,11 @@ function S6(tl) {
   // B — a picker wheel of "Work" scrolls to rest, then folds shut into the toggle
   const b = $('#s6b'), rows = $$('.wrow', b), W = { p: 2.2, c: 0 };
   show(tl, b, 42.9, 44.46, { in: 0, out: .1 });   // video: roda muncul kecil tepat saat latar biru penuh (42.93)
-  hooks.push(() => rows.forEach((r, i) => {
+  let wK = '';
+  hooks.push(() => { const kk = W.p.toFixed(4) + '|' + W.c.toFixed(4); if (kk === wK) return; wK = kk; rows.forEach((r, i) => {
     const deg = Math.max(-80, Math.min(80, (i - 3 - W.p) * 22 * W.c)), a = deg * Math.PI / 180, co = Math.cos(a);
     gsap.set(r, { y: 240 * Math.sin(a), x: (1 - co) * 60, rotation: Math.abs(deg) * .3, scaleY: Math.max(co, .05), scaleX: .82 + .18 * co, opacity: Math.min(1, Math.max(0, (co - .08) / .3)), zIndex: Math.round(co * 10) });
-  }));
+  }); });
   tl.fromTo(W, { c: 0 }, { c: 1, duration: .45, ease: E.out, immediateRender: false }, 42.9);
   tl.fromTo(W, { p: 2.2 }, { p: 0, duration: 1.25, ease: E.out, immediateRender: false }, 42.9);
   tl.fromTo($('.wheel', b), { y: 260, scale: .5 }, { y: 0, scale: 1, duration: .32, ease: E.out, immediateRender: false }, 42.9);
@@ -1498,7 +1501,9 @@ function S7(tl) {
   // video: kamera berhenti dengan ujung panah di ±56% layar, lalu ikut bergeser kiri saat teks meluncur masuk
   tl.to(w, { x: OWN_W + 480, duration: .65, ease: E.inOut }, 54.75);
   tl.to(w, { x: OWN_W + 230, duration: .9, ease: 'expo.out' }, 55.55);   // berhenti bersih (tanpa geser susulan)
+  let aK = '';
   hooks.push(() => {
+    const kk = A.d.toFixed(4) + (wave.getAttribute('d') || '').length + (wave.getAttribute('d') || '').slice(-40); if (kk === aK) return; aK = kk;
     const L = wave.getTotalLength(), e = L * A.d;
     wave.style.visibility = e > 1.5 ? 'visible' : 'hidden';
     head.style.visibility = e > 14 ? 'visible' : 'hidden';
@@ -1651,11 +1656,16 @@ function syncAudio() {
   if (!audio || audio.paused || !tl) return;
   // audio still loading / buffering (readyState < 3, seeking): hold the frame and wait. Snapping the timeline back to
   // the stalled audio position made the reel loop on its first frames when the soundtrack loaded slowly.
-  if (audio.readyState < 3 || audio.seeking) { if (!tl.paused()) tl.pause(); return; }
-  const a = Math.min(audio.currentTime, tl.duration()), d = a - tl.time();
-  // selisih besar: animasi TIDAK pernah dimundurkan (itu yang terlihat sebagai potongan berulang saat suara lambat dimuat);
-  // suara yang tertinggal disusulkan ke posisi animasi, animasi hanya dilompatkan maju bila suara di depan
-  if (Math.abs(d) > .25) { if (d < 0) { try { audio.currentTime = tl.time(); } catch (er) {} } else tl.time(a); tl.timeScale(1); }
+  // 12 Nov 2026: animasi TIDAK lagi berhenti menunggu suara (itu yang terlihat sebagai "macet" saat suara memuat ulang
+  // di jaringan lambat). Selama suara memuat/mencari posisi, animasi jalan terus di kecepatan normal; setelah itu suara
+  // disusulkan pelan-pelan (paling sering sekali per 2 detik), animasi hanya dilompatkan maju bila suara jauh di depan.
+  if (audio.readyState < 3 || audio.seeking) { if (tl.timeScale() !== 1) tl.timeScale(1); if (tl.paused() && playingNow) tl.play(); return; }
+  const a = Math.min(audio.currentTime, tl.duration()), d = a - tl.time(), now = performance.now();
+  if (Math.abs(d) > .35) {
+    if (d < 0) { if (now - (syncAudio.seekAt || 0) > 2000) { syncAudio.seekAt = now; try { audio.currentTime = tl.time(); } catch (er) {} } }
+    else tl.time(a);
+    tl.timeScale(1);
+  }
   else tl.timeScale(1 + Math.max(-.06, Math.min(.06, d * 1.5)));
   if (tl.paused() && playingNow) tl.play();
 }
