@@ -1,5 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-MMtB+DivP3oKTASObOn80/GJpFVKT7sAMNfspaKbjP0=' 'sha256-vfQHCiyNzyfkS8POSgu15/Mp/QNtIBn2hWst1n6Oyfo=' 'sha256-+yXoJVG4nBn5MAJTZfNB6Ty2hd+qYdkIfHo82pQJYv8=' https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ https://unpkg.com/lenis@1.1.13/dist/lenis.min.js; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://iluztar.com; media-src 'self' blob: https://iluztar.com; connect-src 'self' https://iluztar.com; object-src 'none'; base-uri 'self'; form-action 'self'"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>ILUZTAR - Motion Graphic</title>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-2gvS2on1O97mmJrBX4poePoq5HxNbyUX2UXxxnKrR0A=' 'sha256-vfQHCiyNzyfkS8POSgu15/Mp/QNtIBn2hWst1n6Oyfo=' 'sha256-+yXoJVG4nBn5MAJTZfNB6Ty2hd+qYdkIfHo82pQJYv8='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://iluztar.com; media-src 'self' blob: https://iluztar.com; connect-src 'self' https://iluztar.com; object-src 'none'; base-uri 'self'; form-action 'self'"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>ILUZTAR - Motion Graphic</title>
 <meta name="description" content="Company profile digital ILUZTAR Studio berbasis motion graphic interaktif. Dibuat oleh artist ILUZTAR untuk skripsi “Pengembangan Company Profile Digital Studio Kreatif ILUZTAR dengan Menggunakan Motion Graphic sebagai Media Promosi”, dikonversi dari video motion menjadi website dengan bantuan Claude AI (Opus 5.5).">
 <meta property="og:title" content="ILUZTAR - Motion Graphic">
 <meta property="og:description" content="Company profile digital ILUZTAR Studio berbasis motion graphic interaktif. Dibuat oleh artist ILUZTAR untuk skripsi “Pengembangan Company Profile Digital Studio Kreatif ILUZTAR dengan Menggunakan Motion Graphic sebagai Media Promosi”, dikonversi dari video motion menjadi website dengan bantuan Claude AI (Opus 5.5).">
@@ -17,6 +17,8 @@ try {
   const t = q.has('intro') ? (q.get('tema') === 'dark' ? 'dark' : 'light') : localStorage.getItem('iluztar-theme');
   if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t;
 } catch (e) {}
+// pustaka animasi tidak termuat (diblokir/terlalu lambat): beri tahu halaman induk (beranda) supaya langsung membuka situs
+if (window.parent !== window) setTimeout(() => { if (!window.gsap || !window.__reel) try { parent.postMessage({ iluztarReel: 'gagal' }, location.origin); } catch (e) {} }, 4000);
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -820,9 +822,9 @@ body:not(.scrollmode) #stag,body:not(.scrollmode) #sgo,body:not(.scrollmode) #sp
 </div>
 
 <script src="config.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js" integrity="sha384-B2WBjDzEjJpYvhmi2UyEn7rektqkf5suS6sNoyyrf0EBAwBHdkiXxIlU0V5Ru2ed" crossorigin="anonymous"></script>
+<script src="vendor/gsap-3.12.5.min.js" integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt"></script>
+<script src="vendor/ScrollTrigger-3.12.5.min.js" integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d"></script>
+<script src="vendor/lenis-1.1.13.min.js" integrity="sha384-7X5nHOAeBQH0mRvO8u3v4wILXWdn6NrdFOTYJli/qGUI8HdppS/tvhk1Nwy8eRgl"></script>
 <script>
 (() => {
 const $ = (s, r = document) => r.querySelector(s);

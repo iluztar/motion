@@ -1,0 +1,4 @@
+# vendor/: salinan pustaka berversi (nama berkas memuat versi) — tidak pernah berubah, boleh di-cache setahun
+<IfModule mod_headers.c>
+    Header set Cache-Control "public, max-age=31536000, immutable"
+</IfModule>
