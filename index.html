@@ -1,5 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-MMtB+DivP3oKTASObOn80/GJpFVKT7sAMNfspaKbjP0=' 'sha256-vo4Y7olp5FeASbw2d679+XVXJP3kf73tUEMy1dSUkoY=' 'sha256-+yXoJVG4nBn5MAJTZfNB6Ty2hd+qYdkIfHo82pQJYv8=' https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ https://unpkg.com/lenis@1.1.13/dist/lenis.min.js; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://iluztar.com; media-src 'self' blob: https://iluztar.com; connect-src 'self' https://iluztar.com; object-src 'none'; base-uri 'self'; form-action 'self'"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>ILUZTAR - Motion Graphic</title>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-MMtB+DivP3oKTASObOn80/GJpFVKT7sAMNfspaKbjP0=' 'sha256-vfQHCiyNzyfkS8POSgu15/Mp/QNtIBn2hWst1n6Oyfo=' 'sha256-+yXoJVG4nBn5MAJTZfNB6Ty2hd+qYdkIfHo82pQJYv8=' https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ https://unpkg.com/lenis@1.1.13/dist/lenis.min.js; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://iluztar.com; media-src 'self' blob: https://iluztar.com; connect-src 'self' https://iluztar.com; object-src 'none'; base-uri 'self'; form-action 'self'"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>ILUZTAR - Motion Graphic</title>
 <meta name="description" content="Company profile digital ILUZTAR Studio berbasis motion graphic interaktif. Dibuat oleh artist ILUZTAR untuk skripsi “Pengembangan Company Profile Digital Studio Kreatif ILUZTAR dengan Menggunakan Motion Graphic sebagai Media Promosi”, dikonversi dari video motion menjadi website dengan bantuan Claude AI (Opus 5.5).">
 <meta property="og:title" content="ILUZTAR - Motion Graphic">
 <meta property="og:description" content="Company profile digital ILUZTAR Studio berbasis motion graphic interaktif. Dibuat oleh artist ILUZTAR untuk skripsi “Pengembangan Company Profile Digital Studio Kreatif ILUZTAR dengan Menggunakan Motion Graphic sebagai Media Promosi”, dikonversi dari video motion menjadi website dengan bantuan Claude AI (Opus 5.5).">
@@ -264,8 +264,8 @@ body:not(.playing) .cf{opacity:1}
 /* swipe trail: grows behind the knob as it slides right until the whole toggle is white */
 .tfill{position:absolute;left:14px;top:14px;width:100px;height:100px;border-radius:50px;background:#F7F7F8;z-index:1;opacity:0}
 .tlabel{position:relative;z-index:0}
-.wpill{position:relative;width:270px;height:50px;border-radius:25px;background:#F7F7F8;overflow:hidden;box-shadow:0 1px 2px rgba(0,20,90,.08),0 18px 36px -12px rgba(0,20,90,.28),0 50px 90px -30px rgba(0,20,90,.35)}
-.wpill .wlab{pointer-events:none;position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:500;color:#1F1F21;white-space:nowrap}
+.wpill{position:relative;width:640px;height:128px;border-radius:64px;background:#F7F7F8;overflow:hidden;box-shadow:0 1px 2px rgba(0,20,90,.08),0 18px 36px -12px rgba(0,20,90,.28),0 50px 90px -30px rgba(0,20,90,.35)}
+.wpill .wlab{pointer-events:none;position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:50px;font-weight:500;color:#1F1F21;white-space:nowrap}
 .wfc{position:absolute;left:0;top:0;width:1130px;height:625px}
 .wfc>*{position:absolute}
 /* the website it grows into: a small landing page (browser bar, nav, hero + CTA, artwork, feature strip) */
@@ -350,6 +350,8 @@ body:not(.playing) .cf{opacity:1}
 .playing .scene{position:fixed;inset:0;z-index:1;height:auto;min-height:0;border:0;visibility:hidden;background:transparent}
 .playing .bg{display:none}
 #gbg{position:fixed;inset:-8%;z-index:0;pointer-events:none;visibility:hidden}
+.portrait #gbg{top:-8%;left:-8%;right:-16%;bottom:calc(-16% - 120px)}   /* HP: latar menutup penuh walau bilah alamat menyusut/bulat piksel */
+html:has(body.playing){overflow:hidden;overscroll-behavior:none;background:var(--canvas)}
 .playing #gbg{visibility:visible}
 #gbg i{position:absolute;inset:0}
 #gbg i::before{content:"";position:absolute;inset:0;background-size:calc(64px*var(--s)) calc(64px*var(--s));background-position:center;
@@ -420,15 +422,16 @@ body.scrollmode.sc-active #bar{opacity:0;pointer-events:none;transform:translate
 .portrait #s6a{scale:.86}
 .portrait #s4a{scale:.92}   /* HP: tombol Order tidak menempel tepi kanan */   /* HP: "we handle the workload" tidak menempel tepi kanan */   /* HP: "Bandar Lampung, Indonesia" tidak menempel tepi layar (dulu 393 px di layar 390) */
 .portrait #s1d{scale:.52}
-.portrait #s1e{scale:.54}
+.portrait #s1e{scale:var(--k1e,.54)}   /* HP: kalender menghitung mundur di .54, lalu kartu "Since 2023!" membesar (--k1e ditween ke 1.25) */
 .portrait #s2c{scale:.55}
 .portrait #s5a{scale:.6}
 .portrait #s5c{scale:.8}   /* HP: kartu "With the same" (puncak skala 1.32) tetap berjarak dari tepi layar */
 .portrait #s4b{scale:1.4}   /* HP: kartu tengah ±66% lebar layar, kartu samping mengintip dari belakang (jarak slot x.6 di S3) */
-.portrait #s6d{scale:.55}
+.portrait #s6d{scale:var(--k6d,.55)}   /* HP: kapsul mulai seukuran kapsul Refine (1), mengecil ke .55 saat tumbuh jadi website */
 .portrait #s8a .chat8{scale:1.02}
 .portrait #s8b{scale:.7}
-.portrait #s7a{scale:.47}
+.portrait #s8d .endlogo{translate:0 calc(4vh / var(--s))}   /* HP: logo akhir tepat di tengah layar (panggung HP naik 4vh) */
+.portrait #s7a{scale:.85}   /* HP: "And every ... stays true to your style" ±17 px, bukan 10 px */
 .portrait #s2a .chat{scale:.95;translate:0 -110px}   /* HP: chat tidak terlalu ke bawah */
 .portrait .say.sm{font-size:46px}
 /* interactive film: anything with data-act can be clicked, in the scroll view and while playing */
@@ -1039,6 +1042,7 @@ let hooks = [], mode = 'full', tl = null, audio = null, audioURL = null, labels 
 /* ---------- motion vocabulary ----------
    Calm and exact, like the reference cut: things arrive fast and stop clean (no overshoot,
    no wobble); life comes from slow camera drift and from shapes turning into the next shape. */
+const PAIR_DX = 60, PAIR_SHUF = 100, OWN_DX = -160;   // HP tegak: geser pasangan kartu (S4) dan panah + "Your ownership." (S7) ke tengah layar
 const E = { out: 'power3.out', inOut: 'power2.inOut', in: 'power2.in', drift: 'none', soft: 'sine.inOut' };
 
 /* ---------- the beat ----------
@@ -1236,6 +1240,7 @@ function S1(tl) {
   });
   tl.fromTo($('.calF .on', e), { scale: 0 }, { scale: 1, duration: .25, ease: E.out }, 9.75);
   tl.to(calw, { scale: .62, y: 10, duration: .2, ease: 'power3.out' }, 9.72);
+  tl.fromTo(e, { '--k1e': .54 }, { '--k1e': 1.25, duration: .2, ease: 'power3.out', immediateRender: false }, 9.72);   // hanya terbaca di HP tegak
   tl.to(calw, { scale: .58, y: 0, duration: .6, ease: 'power1.out' }, 9.88);
 }
 
@@ -1281,8 +1286,7 @@ function S2(tl) {
 
   // D — "Plate.file" swings in from the left, papers peek out, then the camera pushes in
   const d = $('#s2d'), hz = $('.hz', d), pw = $('.pwrap', d); show(tl, d, 17.47, 20.1, { in: 0, out: 0 });
-  tl.fromTo(hz, { scale: .78 }, { scale: 1.2, duration: .6, ease: 'power2.inOut' }, 18.5);
-  tl.to(hz, { scale: 1.28, duration: .8, ease: bE(19.02, .8) }, 19.02);
+  tl.fromTo(hz, { scale: .78 }, { scale: 1.28, duration: 1.1, ease: 'power3.inOut' }, 18.5);   // satu dorongan kamera sampai diam (tanpa gerak susulan)
   tl.fromTo(pw, { x: -420, y: 80, rotation: -32, opacity: 0 }, { x: 0, y: 0, rotation: 0, opacity: 1, duration: .25, ease: 'power2.out' }, 17.47);
   $$('.psh', d).forEach((s, i) => tl.fromTo(s, { y: 70, opacity: 0 }, { y: 0, opacity: 1, duration: .25, ease: E.out }, 17.67 + i * .05));
 }
@@ -1292,8 +1296,7 @@ function S3(tl, end, cut) {
   // "we got you!" glides in from the right and keeps drifting
   const a = $('#s3a'), say = $('.say', a); show(tl, a, 20.1, end, { in: 0, out: cut ? .4 : .3 });
   tl.set($('.cur', a), { opacity: 1 }, 20.1);
-  tl.fromTo(say, { x: 230, opacity: 0 }, { x: 0, opacity: 1, duration: .28, ease: E.out }, 20.1);
-  tl.to(say, { x: -30, duration: end - 20.4, ease: bE(20.4, end - 20.4) }, 20.4);
+  tl.fromTo(say, { x: 230, opacity: 0 }, { x: 0, opacity: 1, duration: .5, ease: 'expo.out' }, 20.1);   // meluncur lalu diam bersih
   if (!cut) bg(tl, true, 21.45, .5);
 }
 
@@ -1306,11 +1309,9 @@ function S4(tl) {
   tl.fromTo(fc, { x: -560, y: -30, rotationY: 65, transformPerspective: 1400 }, { x: 0, y: 0, rotationY: 0, duration: .4, ease: E.out }, 21.75);
   tl.fromTo(fc, { opacity: 0 }, { opacity: 1, duration: .001, ease: 'none' }, 21.75);
   cardFill(tl, fc, 21.8);
-  tl.to(fc, { y: 14, scale: .97, duration: 1.65, ease: bE(22.15, 1.65) }, 22.15);
   tl.to(fc, { x: -100, y: 0, rotation: -14, scale: .72, duration: .3, ease: E.inOut }, 23.8);
   tl.fromTo(ph, { x: 0, rotation: 0, scale: .72, opacity: 0 }, { x: 110, y: 8, rotation: 12, opacity: 1, duration: .3, ease: E.inOut }, 23.8);
   cardFill(tl, ph, 23.93);
-  tl.to(hz, { rotation: -1.5, y: 10, duration: 1.7, ease: bE(24.1, 1.7) }, 24.1);
   // shuffle: Pair of Hands slides out from behind, is laid on top, and the deck settles
   tl.set(fc, { zIndex: 2 }, 24.7); tl.set(ph, { zIndex: 1 }, 24.7);
   tl.to(ph, { x: 250, y: -24, rotation: 20, duration: .26, ease: 'power2.out' }, 24.72);
@@ -1318,6 +1319,12 @@ function S4(tl) {
   tl.set(ph, { zIndex: 3 }, 24.98);
   tl.to(ph, { x: 60, y: 14, rotation: 7, duration: .34, ease: 'power3.inOut' }, 24.98);
   tl.to(fc, { x: -140, y: -6, rotation: -16, duration: .34, ease: 'power3.inOut' }, 24.98);
+  // HP tegak: pasangan kartu digeser ke tengah layar bersamaan dengan gerak terakhirnya (desktop tetap)
+  // (ikut tiap fase: saat Pair of Hands keluar ke kanan pasangan digeser ke kiri, lalu ke posisi akhir yang tengah)
+  const G4 = { x: 0 }; let g4k = '';
+  hooks.push(() => { const k = root.classList.contains('portrait') ? G4.x : 0, kk = k.toFixed(2); if (kk === g4k) return; g4k = kk; hz.style.translate = k ? kk + 'px 0' : ''; });
+  tl.fromTo(G4, { x: 0 }, { x: -PAIR_SHUF, duration: .26, ease: 'power2.out', immediateRender: false }, 24.72);
+  tl.to(G4, { x: PAIR_DX, duration: .34, ease: 'power3.inOut' }, 24.98);
   tl.to([fc, ph], { rotationY: -90, duration: .2, ease: E.in, transformPerspective: 1400 }, 25.85);
 
   // B — cover-flow of the three stages; the focus steps Sketch → Line-art → Base Color
@@ -1400,7 +1407,7 @@ function S6(tl) {
   scene(tl, 's6', 39.5, 49.4);
   // A — the eye opens on "You keep the"; the line pans with the reading as "we handle the workload" arrives
   const a = $('#s6a'), line = $('#s6line'), tk = [...line.children];
-  show(tl, a, 39.5, 42.86, { out: .16 });   // video: kalimat ikut pudar bersama latar yang membiru
+  show(tl, a, 39.5, 42.58, { out: .3 });   // kalimat (dan mata biru) pudar sebelum latar biru menutupinya; tanpa titik putih tersisa
   const pan = (from, to) => () => {
     const L = tk[from].offsetLeft, R = tk[to].offsetLeft + tk[to].offsetWidth;
     return line.offsetWidth / 2 - (L + R) / 2;
@@ -1448,15 +1455,19 @@ function S6(tl) {
   tl.fromTo(tog, { backgroundColor: '#C9CBD3' }, { backgroundColor: '#262626', duration: .3, ease: 'power1.out', immediateRender: false }, 44.42);
   tl.fromTo(knob, { x: 230, backgroundColor: '#B9C8FF' }, { x: 512, backgroundColor: '#FFFFFF', duration: .36, ease: E.out, immediateRender: false }, 44.42);
   tl.fromTo(lab, { opacity: 0 }, { opacity: 1, duration: .25, ease: E.out, immediateRender: false }, 44.55);
-  tl.to(tog, { scale: 1.03, duration: .8, ease: bE(44.8, .8) }, 44.8);
+  tl.to([knob, lab], { opacity: 0, duration: .18, ease: 'power1.in' }, 45.62);   // kapsul dikosongkan dulu, lalu kapsul yang sama berganti warna & teks
 
   // D — "I want a Website!" grows into the website itself
   const d = $('#s6d'), wp = $('#wpill'), lbl = $('.wlab', wp), kids = [...$('.wfc', wp).children];
   show(tl, d, 45.8, 49.45, { in: 0, out: .15 });
-  tl.fromTo(lbl, { opacity: 0 }, { opacity: 1, duration: .2 }, 45.8);
-  tl.to(wp, { width: 340, height: 64, borderRadius: 32, duration: .35, ease: E.inOut }, 46.9);
+  // elemen bersama: kapsul "Refine" (gelap) berganti warna jadi kapsul terang di ukuran & radius yang sama, teks bersilang
+  const BS = '0 1px 2px rgba(0,20,90,.08),0 18px 36px -12px rgba(0,20,90,.28),0 50px 90px -30px rgba(0,20,90,.35)';
+  tl.fromTo(wp, { backgroundColor: '#262626', boxShadow: BS.replace(/,\.(08|28|35)\)/g, ',0)') }, { backgroundColor: '#F7F7F8', boxShadow: BS, duration: .32, ease: 'power1.out', immediateRender: false }, 45.8);
+  tl.fromTo(lbl, { opacity: 0 }, { opacity: 1, duration: .25, ease: 'power1.out', immediateRender: false }, 45.9);
+  tl.set(d, { '--k6d': 1 }, 45.8);   // HP tegak: kapsul seukuran kapsul Refine
   tl.to(lbl, { opacity: 0, duration: .1 }, 47.35);
   tl.to(wp, { width: 1130, height: 625, borderRadius: 44, duration: .5, ease: 'power3.inOut' }, 47.35);
+  tl.to(d, { '--k6d': .55, duration: .5, ease: 'power3.inOut' }, 47.35);
   tl.fromTo(kids, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: .3, stagger: .03, ease: E.out }, 47.45);
   tl.fromTo(wp, { scale: 1 }, { scale: 1.03, duration: 1.4, ease: bE(47.85, 1.4), immediateRender: false }, 47.85);
   tl.to(wp, { x: -260, duration: .2, ease: E.in }, 49.25);
@@ -1476,16 +1487,15 @@ function S7(tl) {
   const A = { d: 0 };
   tl.to(w, { scale: .58, x: -350, duration: .4, ease: E.inOut }, 51.9);
   tl.fromTo(A, { d: 0 }, { d: 1, duration: .4, ease: 'power1.inOut', immediateRender: false }, 51.95);
-  tl.to(w, { x: -400, duration: 1.05, ease: bE(52.35, 1.05) }, 52.35);
+  tl.to(w, { x: -400, duration: 1.05, ease: 'sine.inOut' }, 52.35);
   tl.to(w, { scale: 1.3, x: -1080, duration: .7, ease: E.inOut }, 53.4);
   tl.to(wave, { attr: { d: STRAIGHT }, duration: .65, ease: E.inOut }, 54.05);
-  tl.to(w, { x: -1300, duration: .65, ease: bE(54.05, .65) }, 54.05);
+  tl.to(w, { x: -1300, duration: .65, ease: 'sine.inOut' }, 54.05);
   // the camera follows the arrow to its final spot first; "Your Ownership" then slides in, stops centred on
   // screen just past the tip, and the two drift together — the arrow never pulls back
   // video: kamera berhenti dengan ujung panah di ±56% layar, lalu ikut bergeser kiri saat teks meluncur masuk
   tl.to(w, { x: OWN_W + 480, duration: .65, ease: E.inOut }, 54.75);
-  tl.to(w, { x: OWN_W + 254, duration: .75, ease: 'power3.out' }, 55.55);
-  tl.to(w, { x: OWN_W + 230, duration: 1.9, ease: bE(56.3, 1.9) }, 56.3);
+  tl.to(w, { x: OWN_W + 230, duration: .9, ease: 'expo.out' }, 55.55);   // berhenti bersih (tanpa geser susulan)
   hooks.push(() => {
     const L = wave.getTotalLength(), e = L * A.d;
     wave.style.visibility = e > 1.5 ? 'visible' : 'hidden';
@@ -1495,8 +1505,11 @@ function S7(tl) {
     head.setAttribute('transform', `translate(${p.x.toFixed(2)} ${p.y.toFixed(2)}) rotate(${(Math.atan2(p.y - q.y, p.x - q.x) * 180 / Math.PI).toFixed(2)})`);
   });
   // satu baris utuh meluncur dari kanan dan melambat (tanpa kata kedua yang hilang lalu muncul lagi)
-  tl.fromTo(own, { x: 1350, opacity: 1 }, { x: 280, duration: .75, ease: 'power3.out' }, 55.55);
-  tl.to(own, { x: 250, duration: 1.85, ease: bE(56.3, 1.85) }, 56.3);
+  tl.fromTo(own, { x: 1350, opacity: 1 }, { x: 250, duration: .9, ease: 'expo.out' }, 55.55);
+  // HP tegak: panah + "Your ownership." digeser bersama ke tengah layar (desktop tetap)
+  const G7 = { p: 0 }; let g7k = '';
+  hooks.push(() => { const k = root.classList.contains('portrait') ? G7.p : 0, kk = k.toFixed(4); if (kk === g7k) return; g7k = kk; const v = k ? (OWN_DX * k).toFixed(2) + 'px 0' : ''; own.style.translate = v; w.style.translate = v; });
+  tl.fromTo(G7, { p: 0 }, { p: 1, duration: .9, ease: 'expo.out', immediateRender: false }, 55.55);
   tl.to(own, { opacity: 0, duration: .2 }, 58.15);
   tl.to([wave, head], { opacity: 0, duration: .2 }, 58.15);
 }
@@ -1572,8 +1585,8 @@ function S8(tl, T) {
   tl.fromTo($$('#prof .pname, #prof .pstats > div, #prof .pbio'), { opacity: 0 }, { opacity: 1, duration: .15, stagger: .1 }, T.b + .4);
   tl.fromTo($$('#prof .pgrid i'), { opacity: 0, scale: .9 }, { opacity: 1, scale: 1, duration: .25, stagger: .05, ease: E.out }, T.b + .45);
   tl.fromTo($$('#prof .pbtns a'), { opacity: 0, scale: .7 }, { opacity: 1, scale: 1, duration: .22, stagger: .1, ease: E.out }, T.b + 1.1);
-  tl.to(prof, { scale: .6, duration: .4, ease: 'power2.inOut' }, T.b + 1.2);
-  tl.to(prof, { scale: .52, duration: Math.max(.4, T.c - T.b - 1.75), ease: bE(T.b + 1.75, Math.max(.4, T.c - T.b - 1.75)) }, T.b + 1.75);
+  // kartu diam setelah lengkap; tepat sebelum tautan (ketukan audio di T.c) kartu langsung mengecil ke titik tautan
+  tl.to(prof, { scale: .06, opacity: 0, duration: .3, ease: 'power3.in' }, T.c - .3);
   // follower count ticks up to the live number; read at render time, so data that arrives late still shows
   const igc = { p: 0 };
   tl.fromTo(igc, { p: 0 }, { p: 1, duration: .9, ease: 'power2.out', immediateRender: false, onUpdate: () => {
@@ -1585,6 +1598,11 @@ function S8(tl, T) {
 
   // C — the link
   const c = $('#s8c'); show(tl, c, T.c, T.d, { in: 0, out: 0 });   // video: potongan tegas ke logo
+  // tautan diketik: ikon muncul, lalu "iluztar.com" terbuka huruf demi huruf (tetap pada ketukan audio T.c)
+  const lk = $('.linkrow b', c), nCh = Math.max(1, (lk.textContent || '').trim().length);
+  tl.fromTo($('.lk-ico', c), { scale: .4, opacity: 0 }, { scale: 1, opacity: 1, duration: .22, ease: 'back.out(2)', immediateRender: false }, T.c);
+  tl.set(lk, { clipPath: 'inset(-20% 100% -20% 0)' }, T.c);
+  tl.to(lk, { clipPath: 'inset(-20% 0% -20% 0)', duration: .55, ease: 'steps(' + nCh + ')' }, T.c + .1);
 
   // D — the mark, small and still, to the end
   const d = $('#s8d'); show(tl, d, T.d, null);
