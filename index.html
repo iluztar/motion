@@ -1,5 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-WPXtdFt7t9/WDgVKJLeDk4zXae1SbtY3KmaxUFGRn/g=' 'sha256-dwcidI52fPxjFKWuG4S8JVfzrGEaArxdk7Ivtzkft8s=' 'sha256-+yXoJVG4nBn5MAJTZfNB6Ty2hd+qYdkIfHo82pQJYv8='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://iluztar.com; media-src 'self' blob: https://iluztar.com; connect-src 'self' https://iluztar.com; object-src 'none'; base-uri 'self'; form-action 'self'"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>ILUZTAR - Motion Graphic</title>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-WPXtdFt7t9/WDgVKJLeDk4zXae1SbtY3KmaxUFGRn/g=' 'sha256-5gVbUOrz9mjGZnKk3iHdLWnc0sO8JlxQlBM/0ypl34E=' 'sha256-+yXoJVG4nBn5MAJTZfNB6Ty2hd+qYdkIfHo82pQJYv8='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://iluztar.com; media-src 'self' blob: https://iluztar.com; connect-src 'self' https://iluztar.com; object-src 'none'; base-uri 'self'; form-action 'self'"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>ILUZTAR - Motion Graphic</title>
 <meta name="description" content="Company profile digital ILUZTAR Studio berbasis motion graphic interaktif. Dibuat oleh artist ILUZTAR untuk skripsi “Pengembangan Company Profile Digital Studio Kreatif ILUZTAR dengan Menggunakan Motion Graphic sebagai Media Promosi”, dikonversi dari video motion menjadi website dengan bantuan Claude AI (Opus 5.5).">
 <meta property="og:title" content="ILUZTAR - Motion Graphic">
 <meta property="og:description" content="Company profile digital ILUZTAR Studio berbasis motion graphic interaktif. Dibuat oleh artist ILUZTAR untuk skripsi “Pengembangan Company Profile Digital Studio Kreatif ILUZTAR dengan Menggunakan Motion Graphic sebagai Media Promosi”, dikonversi dari video motion menjadi website dengan bantuan Claude AI (Opus 5.5).">
@@ -1185,7 +1185,7 @@ function S1(tl) {
     el.style.setProperty('--ex', (ry < 0 ? -3 : 3) + 'px');
     const akhir = { rotationY: ry, rotationX: rx, rotation: rz, scale: 1, transformPerspective: 900 };
     if (balik[k] == null) {   // Draco: naik bersama adegan, berputar sedikit ke arah kamera
-      tl.fromTo(el, { autoAlpha: 1, rotationY: ry + 16, rotationX: rx - 6, rotation: rz, scale: .84, transformPerspective: 900 }, { ...akhir, duration: .7, ease: 'power2.out', immediateRender: false }, 2.2);
+      tl.fromTo(el, { autoAlpha: 1, rotationY: ry + 16, rotationX: rx - 6, rotation: rz, scale: .84, transformPerspective: 900 }, { ...akhir, autoAlpha: 1, duration: .7, ease: 'power2.out', immediateRender: false }, 2.2);
       return;
     }
     const t = balik[k], sisi = ry < 0 ? -1 : 1;
@@ -1218,9 +1218,9 @@ function S1(tl) {
   // membulat, melompat, lalu jatuh tepat di lingkaran pusat jaringan (memantul sedikit) dan menjadi foto profil
   tl.set(pill, { opacity: 0 }, 5.25);
   tl.fromTo(blob, { x: () => pc().x, y: () => pc().y, width: 270, height: 78, borderRadius: 39, opacity: 1, scaleX: 1, scaleY: 1 },
-    { x: 0, y: 0, width: DIA, height: DIA, borderRadius: () => DIA() / 2, duration: .3, ease: 'power2.inOut', immediateRender: false }, 5.25);
-  tl.to(blob, { y: () => -DIA() * .35, duration: .13, ease: 'power2.out' }, 5.55);   // lompat
-  tl.to(blob, { y: DROP, duration: .16, ease: 'power2.in' }, 5.68);                   // jatuh ke tempat foto profil
+    { x: 0, y: 0, width: DIA, height: DIA, borderRadius: () => DIA() / 2, opacity: 1, duration: .3, ease: 'power2.inOut', immediateRender: false }, 5.25);
+  tl.to(blob, { y: () => -DIA() * .35, opacity: 1, duration: .13, ease: 'power2.out' }, 5.55);   // lompat
+  tl.to(blob, { y: DROP, opacity: 1, duration: .16, ease: 'power2.in' }, 5.68);                   // jatuh ke tempat foto profil
   tl.to(blob, { scaleX: 1.1, scaleY: .9, duration: .05, ease: 'power1.out' }, 5.84);  // mendarat (memantul)
   tl.to(blob, { scaleX: 1, scaleY: 1, duration: .12, ease: 'back.out(3)' }, 5.89);
   tl.set(blob, { opacity: 0 }, 5.9);
@@ -1260,6 +1260,8 @@ function S1(tl) {
   });
   tl.fromTo($('.calF .on', e), { scale: 0 }, { scale: 1, duration: .25, ease: E.out }, 9.75);
   tl.to(calw, { scale: .62, y: 10, duration: .2, ease: 'power3.out' }, 9.72);
+  // 13 Nov 2026: --k1e diberi nilai awal eksplisit — tanpa ini, sesudah digulir mundur GSAP mengembalikannya ke '' (= 0) dan kalender lenyap di HP
+  gsap.set(e, { '--k1e': .54 }); tl.set(e, { '--k1e': .54 }, 8.77);
   tl.fromTo(e, { '--k1e': .54 }, { '--k1e': 1.25, duration: .2, ease: 'power3.out', immediateRender: false }, 9.72);   // hanya terbaca di HP tegak
   tl.to(calw, { scale: .58, y: 0, duration: .6, ease: 'power1.out' }, 9.88);
 }
@@ -1287,8 +1289,9 @@ function S2(tl) {
   // B — the timer swings in tilted and straightens while the clock races down
   const b = $('#s2b'); show(tl, b, 15.1, 16.07, { out: 0 });
   gsap.set($('.hz', b), { scale: 1.42 });
-  tl.fromTo($('.timer', b), { rotation: -24, x: -300, y: -40, opacity: 0 }, { x: 0, y: 0, opacity: 1, duration: .32, ease: E.out }, 15.08);
-  tl.to($('.timer', b), { rotation: 0, duration: .5, ease: 'power2.out' }, 15.08);
+  // 13 Nov 2026: rotasi hanya diatur satu tween (dulu dua tween berebut rotasi → posisi beda saat digulir mundur)
+  tl.fromTo($('.timer', b), { x: -300, y: -40, opacity: 0 }, { x: 0, y: 0, opacity: 1, duration: .32, ease: E.out }, 15.08);
+  tl.fromTo($('.timer', b), { rotation: -24 }, { rotation: 0, duration: .5, ease: 'power2.out', immediateRender: false }, 15.08);
   tl.fromTo($('.prog', b), { strokeDashoffset: 30 }, { strokeDashoffset: 250, duration: .9, ease: E.drift }, 15.1);
   const dig = $('.tdig', b), clock = { v: 23 * 3600 + 58 * 60 + 58 };
   tl.fromTo(clock, { v: 23 * 3600 + 58 * 60 + 58 }, { v: 14 * 3600 + 37 * 60 + 37, duration: .9, ease: E.drift, onUpdate: () => dig.textContent = fmt(clock.v), immediateRender: false }, 15.1);
@@ -1330,7 +1333,7 @@ function S4(tl) {
   tl.fromTo(fc, { opacity: 0 }, { opacity: 1, duration: .001, ease: 'none' }, 21.75);
   cardFill(tl, fc, 21.8);
   tl.to(fc, { x: -100, y: 0, rotation: -14, scale: .72, duration: .3, ease: E.inOut }, 23.8);
-  tl.fromTo(ph, { x: 0, rotation: 0, scale: .72, opacity: 0 }, { x: 110, y: 8, rotation: 12, opacity: 1, duration: .3, ease: E.inOut }, 23.8);
+  tl.fromTo(ph, { x: 0, rotation: 0, scale: .72, opacity: 0 }, { x: 110, y: 8, rotation: 12, scale: .72, opacity: 1, duration: .3, ease: E.inOut }, 23.8);
   cardFill(tl, ph, 23.93);
   // shuffle: Pair of Hands slides out from behind, is laid on top, and the deck settles
   tl.set(fc, { zIndex: 2 }, 24.7); tl.set(ph, { zIndex: 1 }, 24.7);
@@ -1398,7 +1401,7 @@ function S5(tl) {
   const a = $('#s5a'), bp = $('#bp'), st = $('#st'), sel = $('#sel');
   show(tl, a, 31.32, 33.6, { in: .15, out: .2 });
   tl.set(sel, { width: 360, left: 620 }, 31.3);
-  tl.fromTo(bp, { x: 170, scale: .2 }, { scale: 1, duration: .28, ease: E.out }, 31.32);
+  tl.fromTo(bp, { x: 170, scale: .2 }, { x: 170, scale: 1, duration: .28, ease: E.out }, 31.32);
   tl.fromTo($$('.pp', bp), { y: 70 }, { y: 0, duration: .35, ease: E.out, stagger: .06 }, 31.5);
   tl.fromTo($$('.pp', st), { y: 70 }, { y: 0, duration: .35, ease: E.out }, 32.45);
   tl.fromTo(st, { x: -170, opacity: 0 }, { x: 0, opacity: 1, duration: .42, ease: E.inOut }, 32.2);
@@ -1492,6 +1495,7 @@ function S6(tl) {
   const BS = '0 1px 2px rgba(0,20,90,.08),0 18px 36px -12px rgba(0,20,90,.28),0 50px 90px -30px rgba(0,20,90,.35)';
   tl.fromTo(wp, { backgroundColor: '#F7F7F8', boxShadow: BS.replace(/,\.(08|28|35)\)/g, ',0)') }, { backgroundColor: '#F7F7F8', boxShadow: BS, duration: .32, ease: 'power1.out', immediateRender: false }, 45.8);
   tl.fromTo(lbl, { opacity: 0 }, { opacity: 1, duration: .25, ease: 'power1.out', immediateRender: false }, 45.9);
+  gsap.set(d, { '--k6d': .55 });   // nilai awal eksplisit (lihat --k1e)
   tl.set(d, { '--k6d': 1 }, 45.8);   // HP tegak: kapsul seukuran kapsul Refine
   tl.to(lbl, { opacity: 0, duration: .1 }, 47.35);
   tl.to(wp, { width: 1130, height: 625, borderRadius: 44, duration: .8, ease: 'power3.inOut' }, 47.35);   // 13 Nov 2026: tumbuh terlihat (dulu .5 dtk)
@@ -1535,7 +1539,7 @@ function S7(tl) {
     head.setAttribute('transform', `translate(${p.x.toFixed(2)} ${p.y.toFixed(2)}) rotate(${(Math.atan2(p.y - q.y, p.x - q.x) * 180 / Math.PI).toFixed(2)})`);
   });
   // satu baris utuh meluncur dari kanan dan melambat (tanpa kata kedua yang hilang lalu muncul lagi)
-  tl.fromTo(own, { x: 1350, opacity: 1 }, { x: 250, duration: .9, ease: 'expo.out' }, 55.55);
+  tl.fromTo(own, { x: 1350, opacity: 1 }, { x: 250, opacity: 1, duration: .9, ease: 'expo.out' }, 55.55);
   // HP tegak: panah + "Your ownership." digeser bersama ke tengah layar (desktop tetap)
   const G7 = { p: 0 }; let g7k = '';
   hooks.push(() => { const k = root.classList.contains('portrait') ? G7.p : 0, kk = k.toFixed(4); if (kk === g7k) return; g7k = kk; const v = k ? (OWN_DX * k).toFixed(2) + 'px 0' : ''; own.style.translate = v; w.style.translate = v; });
@@ -1638,7 +1642,7 @@ function S8(tl, T) {
   const d = $('#s8d'); show(tl, d, T.d, null);
   // video 30 fps: muncul kecil (±45°), membesar sambil berputar sampai sedikit lewat (-18°), lalu mendarat tegak (0°) = posisi logo normal
   const lg = $('.lg', d);
-  tl.fromTo(lg, { scale: .14, rotation: 45, opacity: 1 }, { scale: 1.1, rotation: -18, duration: .3, ease: 'power2.inOut', immediateRender: false }, T.d + .05);
+  tl.fromTo(lg, { scale: .14, rotation: 45, opacity: 1 }, { scale: 1.1, rotation: -18, opacity: 1, duration: .3, ease: 'power2.inOut', immediateRender: false }, T.d + .05);
   tl.to(lg, { scale: 1, rotation: 0, duration: .4, ease: 'power2.out' }, T.d + .35);   // berhenti tegak = posisi logo normal (bukan miring)
 }
 
