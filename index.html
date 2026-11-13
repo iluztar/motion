@@ -1,5 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-WPXtdFt7t9/WDgVKJLeDk4zXae1SbtY3KmaxUFGRn/g=' 'sha256-/VjWayt9i7EWDdXCP4H0ED80wBp7KVSJjbq4V+4aBeY=' 'sha256-+yXoJVG4nBn5MAJTZfNB6Ty2hd+qYdkIfHo82pQJYv8='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://iluztar.com; media-src 'self' blob: https://iluztar.com; connect-src 'self' https://iluztar.com; object-src 'none'; base-uri 'self'; form-action 'self'"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>ILUZTAR - Motion Graphic</title>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-WPXtdFt7t9/WDgVKJLeDk4zXae1SbtY3KmaxUFGRn/g=' 'sha256-64MLv9MRMZ2AWRd0LuvOzyIAX2aoThf9fh6qbNB5200=' 'sha256-+yXoJVG4nBn5MAJTZfNB6Ty2hd+qYdkIfHo82pQJYv8='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://iluztar.com; media-src 'self' blob: https://iluztar.com; connect-src 'self' https://iluztar.com; object-src 'none'; base-uri 'self'; form-action 'self'"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>ILUZTAR - Motion Graphic</title>
 <meta name="description" content="Company profile digital ILUZTAR Studio berbasis motion graphic interaktif. Dibuat oleh artist ILUZTAR untuk skripsi “Pengembangan Company Profile Digital Studio Kreatif ILUZTAR dengan Menggunakan Motion Graphic sebagai Media Promosi”, dikonversi dari video motion menjadi website dengan bantuan Claude AI (Opus 5.5).">
 <meta property="og:title" content="ILUZTAR - Motion Graphic">
 <meta property="og:description" content="Company profile digital ILUZTAR Studio berbasis motion graphic interaktif. Dibuat oleh artist ILUZTAR untuk skripsi “Pengembangan Company Profile Digital Studio Kreatif ILUZTAR dengan Menggunakan Motion Graphic sebagai Media Promosi”, dikonversi dari video motion menjadi website dengan bantuan Claude AI (Opus 5.5).">
@@ -1740,6 +1740,16 @@ function syncAudio() {
   else tl.timeScale(1 + Math.max(-.1, Math.min(.1, d * 2)));
   if (tl.paused() && playingNow) tl.play();
 }
+// 13 Nov 2026: animasi dan suara dimulai BERSAMAAN — tunggu suara cukup termuat (readyState >= 3) dulu, paling lama 6 dtk.
+// Dulu animasi langsung jalan sementara suara masih memuat, jadi beberapa detik awal tampil tanpa suara.
+function tungguBunyi(a, ms = 6000) {
+  return new Promise(ok => {
+    if (!a || a.readyState >= 3) return ok();
+    let selesai = false; const beres = () => { if (selesai) return; selesai = true; a.removeEventListener('canplay', beres); a.removeEventListener('canplaythrough', beres); ok(); };
+    a.addEventListener('canplay', beres); a.addEventListener('canplaythrough', beres); setTimeout(beres, ms);
+    try { a.load && a.readyState === 0 && a.networkState === 0 && a.load(); } catch (e) {}
+  });
+}
 function setPlayIcon(p) { $('#cIcon').setAttribute('d', p ? 'M3 2h4v12H3zM9 2h4v12H9z' : 'M4 2l10 6-10 6z'); $('#cPlay').setAttribute('aria-label', p ? 'Pause' : 'Play'); }
 function start(at = 0) {
   leaveScroll();
@@ -1757,9 +1767,14 @@ function start(at = 0) {
   if (!INTRO) try { if (!document.fullscreenElement && root.requestFullscreen) root.requestFullscreen().catch(() => {}); } catch (e) {}
   playingNow = true; setPlayIcon(true);
   if (audio) {
-    audio.currentTime = at; tl.pause(); tl.time(at);
-    audio.play().then(() => tl.play(), () => tl.play());
-    gsap.ticker.add(syncAudio);
+    audio.currentTime = at; tl.pause(); tl.time(at); runHooks();
+    const tlIni = tl, a = audio;
+    tungguBunyi(a).then(() => {
+      if (tl !== tlIni || !playingNow || audio !== a) return;
+      try { a.currentTime = tl.time(); } catch (er) {}
+      a.play().then(() => { tl.play(); if (INTRO) kabariInduk('suara-jalan'); }, () => { tl.play(); if (INTRO) kabariInduk('suara-gagal'); });
+      gsap.ticker.add(syncAudio);
+    });
   } else if (INTRO && !introPenuh && !introMulai) { playingNow = false; tl.pause(); tl.time(0); runHooks(); }
   else tl.play(at);
 }
@@ -1784,7 +1799,11 @@ function mulaiBersuara(a) {
   playingNow = true; setPlayIcon(true);
   if (!a) { tl.play(0); return; }
   audio = a; try { audio.currentTime = 0; } catch (er) {} tl.time(0);
-  audio.play().then(() => { tl.play(); gsap.ticker.add(syncAudio); }, () => { audioTertunda = audio; audio = null; tl.play(0); kabariInduk('suara-gagal'); });
+  tungguBunyi(a).then(() => {
+    if (audio !== a || !playingNow) return;
+    try { a.currentTime = 0; } catch (er) {}
+    a.play().then(() => { tl.play(); gsap.ticker.add(syncAudio); }, () => { audioTertunda = a; audio = null; tl.play(0); kabariInduk('suara-gagal'); });
+  });
 }
 if (INTRO) addEventListener('message', e => {
   if (e.source !== window.parent || !e.data) return;
@@ -1793,7 +1812,6 @@ if (INTRO) addEventListener('message', e => {
   if (m === 'penuh') {
     if (introAudio) introAudio.pause();
     introPenuh = true; setMode('full'); start(0);
-    if (audio) audio.play().then(() => kabariInduk('suara-jalan'), () => kabariInduk('suara-gagal'));
     return;
   }
   if (m === 'tema') { setTheme(e.data.t === 'dark' ? 'dark' : 'light', false); return; }   // 13 Nov 2026: tombol tema di intro halaman induk
@@ -1975,7 +1993,8 @@ function setAudio(url, label) {
   if (audioURL) { URL.revokeObjectURL(audioURL); audioURL = null; }
   if (!url) { audio = null; return; }
   if (url.startsWith('blob:')) audioURL = url;
-  audio = new Audio(url); audio.preload = 'auto'; audio.crossOrigin = 'anonymous';
+  if (window.__suaraPra && window.__suaraPra.src === url) { audio = window.__suaraPra; window.__suaraPra = null; }
+  else { audio = new Audio(url); audio.preload = 'auto'; audio.crossOrigin = 'anonymous'; }
   audio.addEventListener('ended', () => { if (tl) { tl.progress(1); finished(); } });
   if (label) $('#voName').textContent = '♪ ' + label;
 }
@@ -2141,7 +2160,10 @@ addEventListener('keydown', e => { if (e.key === 'Escape' && closeLightbox()) { 
 // decode every picture up front so none is decoded mid-animation (that cost a dropped frame)
 const predecode = () => Promise.race([Promise.all($$('#film img').map(i => { try { return i.decode ? i.decode().catch(() => {}) : 0; } catch (e) { return 0; } })), new Promise(r => setTimeout(r, 5000))]);
 // intro: the "Open website" button appears only once every picture is decoded (at most 5 s)
-if (INTRO) { bodyC.add('intro'); setMode('cut'); start(0); predecode().then(() => kabariInduk('siap')); }
+if (INTRO) { bodyC.add('intro'); setMode('cut'); start(0); predecode().then(() => kabariInduk('siap'));
+  // 13 Nov 2026: dibuka lewat Watch reel → suara 71 dtk dimuat sekarang, jadi saat diputar suara langsung ada
+  if (new URLSearchParams(location.search).has('penuh')) { const u = slotMap.AUDIO || defaultAudio('AUDIO'); if (u) { const a = new Audio(u); a.preload = 'auto'; a.crossOrigin = 'anonymous'; window.__suaraPra = a; } }
+}
 else { enterScroll(0, true); (window.requestIdleCallback || setTimeout)(predecode); }
 window.__audioSrc = () => audio ? audio.src : 'none';
 window.__reel = { time: () => tl && tl.time(), dur: () => tl && tl.duration(), mode: () => mode, seek: t => { if (tl) { playingNow = false; tl.pause(); tl.time(t); runHooks(); } }, theme: t => setTheme(t, false) };
