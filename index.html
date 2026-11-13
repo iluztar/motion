@@ -1,5 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-WPXtdFt7t9/WDgVKJLeDk4zXae1SbtY3KmaxUFGRn/g=' 'sha256-TjRSDd0Fu3vSySW0nMULeVi/uinyZ5UIgMpGf7q9eyU=' 'sha256-+yXoJVG4nBn5MAJTZfNB6Ty2hd+qYdkIfHo82pQJYv8='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://iluztar.com; media-src 'self' blob: https://iluztar.com; connect-src 'self' https://iluztar.com; object-src 'none'; base-uri 'self'; form-action 'self'"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>ILUZTAR - Motion Graphic</title>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-WPXtdFt7t9/WDgVKJLeDk4zXae1SbtY3KmaxUFGRn/g=' 'sha256-aomsvEI0HNxc0kRO+4tBUEV1qexT2sv7sv13rHTwoxA=' 'sha256-+yXoJVG4nBn5MAJTZfNB6Ty2hd+qYdkIfHo82pQJYv8='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://iluztar.com; media-src 'self' blob: https://iluztar.com; connect-src 'self' https://iluztar.com; object-src 'none'; base-uri 'self'; form-action 'self'"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>ILUZTAR - Motion Graphic</title>
 <meta name="description" content="Company profile digital ILUZTAR Studio berbasis motion graphic interaktif. Dibuat oleh artist ILUZTAR untuk skripsi “Pengembangan Company Profile Digital Studio Kreatif ILUZTAR dengan Menggunakan Motion Graphic sebagai Media Promosi”, dikonversi dari video motion menjadi website dengan bantuan Claude AI (Opus 5.5).">
 <meta property="og:title" content="ILUZTAR - Motion Graphic">
 <meta property="og:description" content="Company profile digital ILUZTAR Studio berbasis motion graphic interaktif. Dibuat oleh artist ILUZTAR untuk skripsi “Pengembangan Company Profile Digital Studio Kreatif ILUZTAR dengan Menggunakan Motion Graphic sebagai Media Promosi”, dikonversi dari video motion menjadi website dengan bantuan Claude AI (Opus 5.5).">
@@ -1562,7 +1562,7 @@ function S8(tl, T) {
     tl.set('#in8', { opacity: 0 }, T.b);
   }
   // B — the input bar grows into the Instagram profile, which fills in and then settles back
-  const b = $('#s8b'), prof = $('#prof'); show(tl, b, T.b, T.c, { in: 0, out: 0 });   // video: potongan tegas ke tautan
+  const b = $('#s8b'), prof = $('#prof'); show(tl, b, T.b, T.c - .35, { in: 0, out: 0 });   // 13 Nov 2026: kartu jadi kolom alamat sedikit lebih awal agar alamat terbaca saat diucapkan
   // elemen bersama: kolom ketik (#in8) SENDIRI yang berubah jadi kartu profil. Kartu mulai tepat di kotak kolom ketik
   // (dihitung dari skala .chat8 dan #s8b yang sedang berlaku, jadi pas di desktop maupun HP tegak), lalu posisi, ukuran,
   // radius, tebal garis dan bayangan berpindah bersama dalam satu gerak. Gelembung chat terdorong ke atas dan memudar.
@@ -1599,8 +1599,8 @@ function S8(tl, T) {
   tl.fromTo($$('#prof .pbtns a'), { opacity: 0, scale: .7 }, { opacity: 1, scale: 1, duration: .22, stagger: .1, ease: E.out }, T.b + 1.1);
   // kartu diam setelah lengkap; tepat sebelum tautan (ketukan audio di T.c) kartu langsung mengecil ke titik tautan
   // 13 Nov 2026 (permintaan pemilik): isi kartu memudar, kartu memipih jadi kolom cari (ukuran kolom di #s8c), lalu kolom itu mengambil alih tepat di T.c
-  tl.fromTo($$('#prof > *'), { opacity: 1 }, { opacity: 0, duration: .12, ease: 'none', immediateRender: false }, T.c - .42);
-  tl.fromTo(prof, { scaleX: 1, scaleY: 1 }, { scaleX: 760 / 975, scaleY: 96 / 625, duration: .3, ease: 'power3.inOut', immediateRender: false }, T.c - .32);
+  tl.fromTo($$('#prof > *'), { opacity: 1 }, { opacity: 0, duration: .12, ease: 'none', immediateRender: false }, T.c - .75);
+  tl.fromTo(prof, { scaleX: 1, scaleY: 1 }, { scaleX: 760 / 975, scaleY: 96 / 625, duration: .3, ease: 'power3.inOut', immediateRender: false }, T.c - .65);
   // follower count ticks up to the live number; read at render time, so data that arrives late still shows
   const igc = { p: 0 };
   tl.fromTo(igc, { p: 0 }, { p: 1, duration: .9, ease: 'power2.out', immediateRender: false, onUpdate: () => {
@@ -1611,15 +1611,15 @@ function S8(tl, T) {
   } }, T.b + .4);
 
   // C — the link
-  const c = $('#s8c'); show(tl, c, T.c, T.d, { in: 0, out: 0 });   // video: potongan tegas ke logo
+  const c = $('#s8c'); show(tl, c, T.c - .35, T.d, { in: 0, out: 0 });   // video: potongan tegas ke logo
   // 13 Nov 2026 (permintaan pemilik): cukup kolom alamat — "iluztar.com" diketik tenang mulai ketukan audio T.c, ditahan, lalu hilang sebelum logo.
   // Website aslinya sudah tampil di adegan 6. Semua nilai awal ditulis eksplisit supaya frame sama saat digulir mundur.
   const bar = $('.sbar', c), lk = $('.sb-row b', c);
   const nCh = Math.max(1, (lk.textContent || '').trim().length);
-  gsap.set(c, { '--k8c': .7 }); tl.set(c, { '--k8c': .7 }, T.c);
-  tl.set(bar, { opacity: 1, scale: 1 }, T.c);
-  tl.set(lk, { clipPath: 'inset(-20% 100% -20% 0)' }, T.c);
-  tl.to(lk, { clipPath: 'inset(-20% 0% -20% 0)', duration: 1.1, ease: 'steps(' + nCh + ')' }, T.c + .12);
+  gsap.set(c, { '--k8c': .7 }); tl.set(c, { '--k8c': .7 }, T.c - .35);
+  tl.set(bar, { opacity: 1, scale: 1 }, T.c - .35);
+  tl.set(lk, { clipPath: 'inset(-20% 100% -20% 0)' }, T.c - .35);
+  tl.to(lk, { clipPath: 'inset(-20% 0% -20% 0)', duration: .5, ease: 'steps(' + nCh + ')' }, T.c - .3);   // selesai ±T.c+.2: alamat utuh saat diucapkan
   tl.fromTo(bar, { opacity: 1, scale: 1 }, { opacity: 0, scale: .96, duration: .15, ease: 'power2.in', immediateRender: false }, T.d - .15);   // video: alamat tetap sampai logo (potongan tegas di T.d)
 
   // D — the mark, small and still, to the end
