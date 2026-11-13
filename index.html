@@ -1,5 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-WPXtdFt7t9/WDgVKJLeDk4zXae1SbtY3KmaxUFGRn/g=' 'sha256-JSKtYadGF9s9WzE1JLWK2nfYBzdKxAH7ALoY63YtHu8=' 'sha256-+yXoJVG4nBn5MAJTZfNB6Ty2hd+qYdkIfHo82pQJYv8='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://iluztar.com; media-src 'self' blob: https://iluztar.com; connect-src 'self' https://iluztar.com; object-src 'none'; base-uri 'self'; form-action 'self'"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>ILUZTAR - Motion Graphic</title>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-WPXtdFt7t9/WDgVKJLeDk4zXae1SbtY3KmaxUFGRn/g=' 'sha256-TjRSDd0Fu3vSySW0nMULeVi/uinyZ5UIgMpGf7q9eyU=' 'sha256-+yXoJVG4nBn5MAJTZfNB6Ty2hd+qYdkIfHo82pQJYv8='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://iluztar.com; media-src 'self' blob: https://iluztar.com; connect-src 'self' https://iluztar.com; object-src 'none'; base-uri 'self'; form-action 'self'"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>ILUZTAR - Motion Graphic</title>
 <meta name="description" content="Company profile digital ILUZTAR Studio berbasis motion graphic interaktif. Dibuat oleh artist ILUZTAR untuk skripsi “Pengembangan Company Profile Digital Studio Kreatif ILUZTAR dengan Menggunakan Motion Graphic sebagai Media Promosi”, dikonversi dari video motion menjadi website dengan bantuan Claude AI (Opus 5.5).">
 <meta property="og:title" content="ILUZTAR - Motion Graphic">
 <meta property="og:description" content="Company profile digital ILUZTAR Studio berbasis motion graphic interaktif. Dibuat oleh artist ILUZTAR untuk skripsi “Pengembangan Company Profile Digital Studio Kreatif ILUZTAR dengan Menggunakan Motion Graphic sebagai Media Promosi”, dikonversi dari video motion menjadi website dengan bantuan Claude AI (Opus 5.5).">
@@ -178,7 +178,6 @@ body:not(.playing) .intext{display:none!important}
 .sheets{position:relative;width:1060px;height:593px}
 .sheet{position:absolute}
 .sheet .kertas{position:relative;width:100%;height:100%;padding:12px 12px 24px;border-radius:2px;background:linear-gradient(168deg,#fff 0%,#fcfbf8 55%,#f2efe8 100%);box-shadow:0 0 0 1px rgba(20,20,40,.05),0 1px 1px rgba(20,20,40,.14),0 5px 10px -3px rgba(20,20,40,.14),0 20px 36px -16px rgba(20,20,60,.42)}
-.sheet .kertas::after{content:"";position:absolute;right:10px;bottom:12px;width:46%;height:20px;z-index:-1;box-shadow:0 14px 14px rgba(20,20,40,.24);rotate:3deg}
 .sheet:nth-child(odd) .kertas::before{content:"";position:absolute;top:-11px;left:50%;width:86px;height:24px;translate:-50% 0;rotate:-3deg;background:rgba(236,221,184,.78);box-shadow:0 1px 2px rgba(20,20,40,.10);z-index:1}
 .sheet:nth-child(even) .kertas::before{content:"";position:absolute;top:-9px;right:18px;width:70px;height:22px;rotate:24deg;background:rgba(236,221,184,.78);box-shadow:0 1px 2px rgba(20,20,40,.10);z-index:1}
 .sheet img{width:100%;height:100%;object-fit:contain;display:block}
@@ -278,29 +277,11 @@ body:not(.playing) .cf{opacity:1}
 .wpill .wlab{pointer-events:none;position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:50px;font-weight:500;color:#1F1F21;white-space:nowrap}
 .wfc{position:absolute;left:0;top:0;width:1130px;height:625px}
 .wfc>*{position:absolute}
-/* the website it grows into: a small landing page (browser bar, nav, hero + CTA, artwork, feature strip) */
+/* the website it grows into: browser bar + tangkapan beranda iluztar.com yang asli (13 Nov 2026, permintaan pemilik) */
+.wl-shot{left:0;top:48px;width:1130px;height:577px;display:block}
 .wl-bar{left:0;right:0;top:0;height:48px;display:flex;align-items:center;gap:8px;padding:0 26px;border-bottom:1px solid #E6E6EA}
 .wl-bar i{width:12px;height:12px;border-radius:50%;background:#DADADF}
 .wl-bar span{margin-left:18px;height:28px;padding:0 18px;border-radius:14px;background:#ECECEF;color:#8A8A8F;font-size:14px;display:flex;align-items:center}
-.wl-nav{left:44px;right:44px;top:70px;height:44px;display:flex;align-items:center;gap:30px;color:#6B6B73;font-size:17px;font-weight:500}
-.wl-nav svg{width:36px;height:36px;border-radius:10px}
-.wl-nav b{margin:0 auto 0 -18px;color:#1F1F21;font-size:19px;font-weight:700;letter-spacing:.06em}
-.wl-nav em{font-style:normal;color:#1F1F21;height:40px;padding:0 20px;border-radius:20px;box-shadow:inset 0 0 0 1.5px #1F1F21;display:flex;align-items:center}
-.wl-hero{left:44px;top:150px;width:560px;color:#1F1F21}
-.wl-eye{display:inline-flex;height:32px;padding:0 14px;border-radius:16px;background:rgba(0,71,255,.1);color:var(--blue);font-size:15px;font-weight:600;align-items:center}
-.wl-hero h4{margin:18px 0 0;font-size:62px;line-height:1.02;font-weight:700;letter-spacing:-.03em}
-.wl-hero h4 u{text-decoration:none;color:var(--blue)}
-.wl-hero p{margin:18px 0 0;width:470px;font-size:18px;line-height:1.45;color:#6B6B73}
-.wl-cta{margin-top:28px;display:flex;gap:14px;align-items:center}
-.wfc .go{position:relative;font-style:normal;height:56px;padding:0 34px;border-radius:28px;background:var(--blue);color:#fff;font-size:22px;font-weight:600;display:grid;place-items:center;box-shadow:0 12px 24px -10px rgba(0,71,255,.6)}
-.wl-ghost{height:56px;padding:0 26px;border-radius:28px;box-shadow:inset 0 0 0 1.5px #D4D4DA;font-size:19px;font-weight:500;display:flex;align-items:center}
-.wl-art{right:44px;top:138px;width:420px;height:330px;border-radius:28px;overflow:visible}
-.wl-art img{width:100%;height:100%;object-fit:cover;border-radius:28px;display:block;box-shadow:0 20px 40px -18px rgba(0,20,90,.45)}
-.wl-chip{position:absolute;left:-30px;bottom:-22px;height:52px;padding:0 20px;border-radius:26px;background:#fff;color:#6B6B73;font-size:16px;display:flex;align-items:center;gap:8px;box-shadow:0 12px 28px -10px rgba(0,20,90,.35)}
-.wl-chip b{color:var(--blue);font-size:22px}
-.wl-feat{left:44px;right:44px;bottom:34px;height:74px;display:flex;gap:16px}
-.wl-feat div{flex:1;border-radius:20px;background:#fff;box-shadow:0 1px 2px rgba(0,20,90,.06);display:flex;align-items:center;gap:14px;padding:0 20px;font-size:19px;font-weight:600;color:#1F1F21}
-.wl-feat i{font-style:normal;width:40px;height:40px;border-radius:12px;background:var(--blue);color:#fff;font-size:15px;display:grid;place-items:center}
 
 /* ---------- S7 ---------- */
 .world{position:absolute;left:0;top:0;width:1600px;height:900px;transform-origin:800px 450px}
@@ -352,20 +333,13 @@ body:not(.playing) .cf{opacity:1}
 /* end card sits on the grid: stage centre is the centre of a 64px cell, so the mark fills that cell and the
    link icon fills the cell two columns to the left, with the text starting just past the next grid line */
 .sbar{position:absolute;left:800px;top:450px;width:760px;height:96px;translate:-50% -50%;border-radius:48px;background:var(--surface);overflow:hidden;box-shadow:0 1px 2px rgba(0,20,90,.08),0 18px 36px -12px rgba(0,20,90,.28),0 50px 90px -30px rgba(0,20,90,.35)}
-/* 13 Nov 2026: akhir — kartu profil menjadi kolom cari, iluztar.com diketik, kolom tumbuh jadi jendela situs yang digulir, lalu hilang sebelum logo.
-   Jendela tetap terang di tema gelap (sama dengan website di adegan 6). */
+/* 13 Nov 2026: akhir — kartu profil menjadi kolom alamat, iluztar.com diketik dengan tenang, ditahan, lalu hilang sebelum logo. */
 .sb-row{position:absolute;inset:0;display:flex;align-items:center;gap:18px;padding:0 34px;white-space:nowrap}
 .sb-ico{width:40px;height:40px;flex:none;display:grid;place-items:center}
 .sb-ico svg{width:34px;height:34px;display:block}
 .sb-row b{font-size:38px;font-weight:600;letter-spacing:-.01em;color:var(--ink)}
 .sb-car{width:3px;height:44px;margin-left:-14px;background:var(--blue);animation:sbkedip 1s steps(1) infinite}
 @keyframes sbkedip{50%{opacity:0}}
-.sweb{position:absolute;left:0;top:0;width:1130px;height:625px;opacity:0;background:#F7F7F8}
-.sweb-in{position:absolute;left:0;top:0;width:1130px;height:1180px}
-.sweb>.wl-bar{position:absolute;z-index:2;background:#F7F7F8}
-.sw-gal{position:absolute;left:44px;right:44px;top:610px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
-.sw-gal h5{grid-column:1/-1;margin:0;font-size:34px;font-weight:700;letter-spacing:-.02em;color:#1F1F21}
-.sw-gal img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:20px;display:block}
 .portrait #s8c{scale:var(--k8c,.7)}
 
 /* ---------- background (one shared canvas while playing) ----------
@@ -740,15 +714,7 @@ body:not(.scrollmode) #stag,body:not(.scrollmode) #sgo,body:not(.scrollmode) #sp
       <div class="wpill" id="wpill">
         <div class="wfc">
           <div class="wl-bar"><i></i><i></i><i></i><span>iluztar.com</span></div>
-          <div class="wl-nav"><svg viewBox="0 0 4000 4000"><use href="#logo"/></svg><b>ILUZTAR</b><span>Work</span><span>Services</span><span>About</span><em>Contact</em></div>
-          <div class="wl-hero">
-            <span class="wl-eye">Illustration &amp; Design Studio</span>
-            <h4>Bring your next<br>idea to <u>life.</u></h4>
-            <p>From the first sketch to the final render, we handle the workload so you can keep the vision.</p>
-            <div class="wl-cta"><i class="go" data-act="link" data-link="order">Build it!</i><span class="wl-ghost">See our work</span></div>
-          </div>
-          <div class="wl-art"><img data-slot="ART4" src="aset/web/art-draco-480.webp" data-besar="aset/web/art-draco.webp" decoding="async" alt=""><span class="wl-chip"><b>120+</b> projects done</span></div>
-          <div class="wl-feat"><div><i>01</i>Sketch</div><div><i>02</i>Line-art</div><div><i>03</i>Full render</div></div>
+          <img class="wl-shot" src="aset/web/situs-iluztar-atas.webp" width="1130" height="577" decoding="async" alt="Beranda iluztar.com">
         </div>
         <div class="wlab">I want a Website!</div>
       </div>
@@ -800,7 +766,7 @@ body:not(.scrollmode) #stag,body:not(.scrollmode) #sgo,body:not(.scrollmode) #sp
       </div>
     </div>
     <div class="layer" id="s8c">
-      <div class="sbar" data-act="link" data-link="web"><div class="sweb"><div class="sweb-in"></div></div><div class="sb-row"><span class="sb-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#8A8A8F" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg></span><b data-text="webLabel">iluztar.com</b><i class="sb-car"></i></div></div>
+      <div class="sbar" data-act="link" data-link="web"><div class="sb-row"><span class="sb-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#8A8A8F" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg></span><b data-text="webLabel">iluztar.com</b><i class="sb-car"></i></div></div>
     </div>
     <div class="layer" id="s8d">
       <div class="endlogo" data-act="restart" title="Play again"><svg class="lg" viewBox="713.96 713.96 2572.08 2572.08" role="img" aria-label="Iluztar logo"><path class="lgA" fill="#0042f8"/><path class="lgB" fill="#0042f8"/></svg></div>
@@ -1646,33 +1612,15 @@ function S8(tl, T) {
 
   // C — the link
   const c = $('#s8c'); show(tl, c, T.c, T.d, { in: 0, out: 0 });   // video: potongan tegas ke logo
-  // 13 Nov 2026: kolom cari -> "iluztar.com" diketik (pada ketukan audio T.c) -> kolom tumbuh jadi jendela situs (prototipe dari adegan 6)
-  // yang digulir ke bawah -> hilang sebelum logo. Semua nilai awal ditulis eksplisit supaya frame sama saat digulir mundur.
-  const bar = $('.sbar', c), web = $('.sweb', c), win = $('.sweb-in', c), row = $('.sb-row', c), lk = $('.sb-row b', c);
-  if (!win.children.length) {
-    const asal = $('#wpill .wfc');
-    if (asal) {
-      // salinan membawa gaya "belum muncul" dari adegan 6 (opacity/transform sebaris) — dibuang supaya website tampil utuh
-      const salin = asal.cloneNode(true); [salin, ...salin.querySelectorAll('[style]')].forEach(el => el.removeAttribute('style'));
-      win.appendChild(salin); const br = $('.wl-bar', salin); if (br) web.appendChild(br.cloneNode(true));
-    }
-    const gal = document.createElement('div'); gal.className = 'sw-gal'; gal.innerHTML = '<h5>Selected works</h5>';
-    $$('#prof .pgrid img').slice(0, 6).forEach(im => { const i = document.createElement('img'); i.src = im.currentSrc || im.src; i.alt = ''; i.decoding = 'async'; gal.appendChild(i); });
-    win.appendChild(gal);
-  }
+  // 13 Nov 2026 (permintaan pemilik): cukup kolom alamat — "iluztar.com" diketik tenang mulai ketukan audio T.c, ditahan, lalu hilang sebelum logo.
+  // Website aslinya sudah tampil di adegan 6. Semua nilai awal ditulis eksplisit supaya frame sama saat digulir mundur.
+  const bar = $('.sbar', c), lk = $('.sb-row b', c);
   const nCh = Math.max(1, (lk.textContent || '').trim().length);
   gsap.set(c, { '--k8c': .7 }); tl.set(c, { '--k8c': .7 }, T.c);
-  tl.set(bar, { width: 760, height: 96, borderRadius: 48, opacity: 1, scale: 1 }, T.c);
-  tl.set(row, { opacity: 1 }, T.c); tl.set(web, { opacity: 0 }, T.c); tl.set(win, { y: 0 }, T.c);
+  tl.set(bar, { opacity: 1, scale: 1 }, T.c);
   tl.set(lk, { clipPath: 'inset(-20% 100% -20% 0)' }, T.c);
-  tl.to(lk, { clipPath: 'inset(-20% 0% -20% 0)', duration: .55, ease: 'steps(' + nCh + ')' }, T.c + .08);
-  const g = T.c + .8;
-  tl.fromTo(row, { opacity: 1 }, { opacity: 0, duration: .15, ease: 'none', immediateRender: false }, g);
-  tl.fromTo(bar, { width: 760, height: 96, borderRadius: 48 }, { width: 1130, height: 625, borderRadius: 28, duration: .45, ease: 'power3.inOut', immediateRender: false }, g);
-  tl.fromTo(c, { '--k8c': .7 }, { '--k8c': .55, duration: .45, ease: 'power3.inOut', immediateRender: false }, g);   // HP tegak: jendela muat di layar
-  tl.fromTo(web, { opacity: 0 }, { opacity: 1, duration: .25, ease: 'none', immediateRender: false }, g + .15);   // website terang menutupi warna kartu
-  tl.fromTo(win, { y: 0 }, { y: -(1180 - 625), duration: Math.max(.6, T.d - .45 - (g + .5)), ease: 'power2.inOut', immediateRender: false }, g + .5);
-  tl.fromTo(bar, { opacity: 1, scale: 1 }, { opacity: 0, scale: .92, duration: .3, ease: 'power2.in', immediateRender: false }, T.d - .38);
+  tl.to(lk, { clipPath: 'inset(-20% 0% -20% 0)', duration: 1.1, ease: 'steps(' + nCh + ')' }, T.c + .12);
+  tl.fromTo(bar, { opacity: 1, scale: 1 }, { opacity: 0, scale: .96, duration: .15, ease: 'power2.in', immediateRender: false }, T.d - .15);   // video: alamat tetap sampai logo (potongan tegas di T.d)
 
   // D — the mark, small and still, to the end
   const d = $('#s8d'); show(tl, d, T.d, null);
