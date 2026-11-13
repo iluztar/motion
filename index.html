@@ -1,5 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-WPXtdFt7t9/WDgVKJLeDk4zXae1SbtY3KmaxUFGRn/g=' 'sha256-5gVbUOrz9mjGZnKk3iHdLWnc0sO8JlxQlBM/0ypl34E=' 'sha256-+yXoJVG4nBn5MAJTZfNB6Ty2hd+qYdkIfHo82pQJYv8='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://iluztar.com; media-src 'self' blob: https://iluztar.com; connect-src 'self' https://iluztar.com; object-src 'none'; base-uri 'self'; form-action 'self'"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>ILUZTAR - Motion Graphic</title>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-WPXtdFt7t9/WDgVKJLeDk4zXae1SbtY3KmaxUFGRn/g=' 'sha256-JSKtYadGF9s9WzE1JLWK2nfYBzdKxAH7ALoY63YtHu8=' 'sha256-+yXoJVG4nBn5MAJTZfNB6Ty2hd+qYdkIfHo82pQJYv8='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://iluztar.com; media-src 'self' blob: https://iluztar.com; connect-src 'self' https://iluztar.com; object-src 'none'; base-uri 'self'; form-action 'self'"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>ILUZTAR - Motion Graphic</title>
 <meta name="description" content="Company profile digital ILUZTAR Studio berbasis motion graphic interaktif. Dibuat oleh artist ILUZTAR untuk skripsi “Pengembangan Company Profile Digital Studio Kreatif ILUZTAR dengan Menggunakan Motion Graphic sebagai Media Promosi”, dikonversi dari video motion menjadi website dengan bantuan Claude AI (Opus 5.5).">
 <meta property="og:title" content="ILUZTAR - Motion Graphic">
 <meta property="og:description" content="Company profile digital ILUZTAR Studio berbasis motion graphic interaktif. Dibuat oleh artist ILUZTAR untuk skripsi “Pengembangan Company Profile Digital Studio Kreatif ILUZTAR dengan Menggunakan Motion Graphic sebagai Media Promosi”, dikonversi dari video motion menjadi website dengan bantuan Claude AI (Opus 5.5).">
@@ -351,10 +351,22 @@ body:not(.playing) .cf{opacity:1}
 .endlogo svg.lg{width:64px;display:block;overflow:visible}   /* video: tanda biru tanpa kotak, ±64 px di panggung 1600 */
 /* end card sits on the grid: stage centre is the centre of a 64px cell, so the mark fills that cell and the
    link icon fills the cell two columns to the left, with the text starting just past the next grid line */
-.linkrow{position:absolute;left:640px;top:418px;height:64px;display:flex;align-items:center;white-space:nowrap}
-.linkrow .lk-ico{width:64px;height:64px;display:grid;place-items:center;flex:none}
-.linkrow .lk-ico svg{width:40px;height:40px;display:block}
-.linkrow b{margin-left:16px;font-size:40px;font-weight:700;letter-spacing:-.01em;color:var(--ink)}
+.sbar{position:absolute;left:800px;top:450px;width:760px;height:96px;translate:-50% -50%;border-radius:48px;background:var(--surface);overflow:hidden;box-shadow:0 1px 2px rgba(0,20,90,.08),0 18px 36px -12px rgba(0,20,90,.28),0 50px 90px -30px rgba(0,20,90,.35)}
+/* 13 Nov 2026: akhir — kartu profil menjadi kolom cari, iluztar.com diketik, kolom tumbuh jadi jendela situs yang digulir, lalu hilang sebelum logo.
+   Jendela tetap terang di tema gelap (sama dengan website di adegan 6). */
+.sb-row{position:absolute;inset:0;display:flex;align-items:center;gap:18px;padding:0 34px;white-space:nowrap}
+.sb-ico{width:40px;height:40px;flex:none;display:grid;place-items:center}
+.sb-ico svg{width:34px;height:34px;display:block}
+.sb-row b{font-size:38px;font-weight:600;letter-spacing:-.01em;color:var(--ink)}
+.sb-car{width:3px;height:44px;margin-left:-14px;background:var(--blue);animation:sbkedip 1s steps(1) infinite}
+@keyframes sbkedip{50%{opacity:0}}
+.sweb{position:absolute;left:0;top:0;width:1130px;height:625px;opacity:0;background:#F7F7F8}
+.sweb-in{position:absolute;left:0;top:0;width:1130px;height:1180px}
+.sweb>.wl-bar{position:absolute;z-index:2;background:#F7F7F8}
+.sw-gal{position:absolute;left:44px;right:44px;top:610px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.sw-gal h5{grid-column:1/-1;margin:0;font-size:34px;font-weight:700;letter-spacing:-.02em;color:#1F1F21}
+.sw-gal img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:20px;display:block}
+.portrait #s8c{scale:var(--k8c,.7)}
 
 /* ---------- background (one shared canvas while playing) ----------
    Soft light gradient + grid lines that fade out diagonally, so the frame is never a flat grid. */
@@ -452,8 +464,8 @@ body.scrollmode.sc-active #bar{opacity:0;pointer-events:none;transform:translate
 #film .art[data-act]:hover,#film .ig-img[data-act]:hover{outline-offset:3px}
 #film .sheet[data-act]:hover{outline:0;filter:drop-shadow(0 0 0 #0047FF) brightness(1.04)}
 #film .pbtns a:hover,#film .svc .pb:hover,#film .go:hover{outline:0;filter:brightness(1.12)}
-#film .linkrow:hover b,#film .loc:hover .lt{text-decoration:underline;text-underline-offset:6px}
-#film .linkrow:hover,#film .loc:hover{outline:0}
+#film .sbar:hover .sb-row b,#film .loc:hover .lt{text-decoration:underline;text-underline-offset:6px}
+#film .sbar:hover,#film .loc:hover{outline:0}
 /* lightbox */
 #lb{position:fixed;inset:0;z-index:95;background:rgba(10,10,12,.86);display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;pointer-events:none;transition:opacity .25s ease;cursor:zoom-out}
 #lb.on{opacity:1;pointer-events:auto}
@@ -788,7 +800,7 @@ body:not(.scrollmode) #stag,body:not(.scrollmode) #sgo,body:not(.scrollmode) #sp
       </div>
     </div>
     <div class="layer" id="s8c">
-      <div class="linkrow" data-act="link" data-link="web"><span class="lk-ico"><svg viewBox="0 0 24 24"><use href="#link"/></svg></span><b data-text="webLabel">iluztar.com</b></div>
+      <div class="sbar" data-act="link" data-link="web"><div class="sweb"><div class="sweb-in"></div></div><div class="sb-row"><span class="sb-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#8A8A8F" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg></span><b data-text="webLabel">iluztar.com</b><i class="sb-car"></i></div></div>
     </div>
     <div class="layer" id="s8d">
       <div class="endlogo" data-act="restart" title="Play again"><svg class="lg" viewBox="713.96 713.96 2572.08 2572.08" role="img" aria-label="Iluztar logo"><path class="lgA" fill="#0042f8"/><path class="lgB" fill="#0042f8"/></svg></div>
@@ -1620,7 +1632,9 @@ function S8(tl, T) {
   tl.fromTo($$('#prof .pgrid i'), { opacity: 0, scale: .9 }, { opacity: 1, scale: 1, duration: .25, stagger: .05, ease: E.out }, T.b + .45);
   tl.fromTo($$('#prof .pbtns a'), { opacity: 0, scale: .7 }, { opacity: 1, scale: 1, duration: .22, stagger: .1, ease: E.out }, T.b + 1.1);
   // kartu diam setelah lengkap; tepat sebelum tautan (ketukan audio di T.c) kartu langsung mengecil ke titik tautan
-  tl.to(prof, { scale: .06, opacity: 0, duration: .3, ease: 'power3.in' }, T.c - .3);
+  // 13 Nov 2026 (permintaan pemilik): isi kartu memudar, kartu memipih jadi kolom cari (ukuran kolom di #s8c), lalu kolom itu mengambil alih tepat di T.c
+  tl.fromTo($$('#prof > *'), { opacity: 1 }, { opacity: 0, duration: .12, ease: 'none', immediateRender: false }, T.c - .42);
+  tl.fromTo(prof, { scaleX: 1, scaleY: 1 }, { scaleX: 760 / 975, scaleY: 96 / 625, duration: .3, ease: 'power3.inOut', immediateRender: false }, T.c - .32);
   // follower count ticks up to the live number; read at render time, so data that arrives late still shows
   const igc = { p: 0 };
   tl.fromTo(igc, { p: 0 }, { p: 1, duration: .9, ease: 'power2.out', immediateRender: false, onUpdate: () => {
@@ -1632,11 +1646,33 @@ function S8(tl, T) {
 
   // C — the link
   const c = $('#s8c'); show(tl, c, T.c, T.d, { in: 0, out: 0 });   // video: potongan tegas ke logo
-  // tautan diketik: ikon muncul, lalu "iluztar.com" terbuka huruf demi huruf (tetap pada ketukan audio T.c)
-  const lk = $('.linkrow b', c), nCh = Math.max(1, (lk.textContent || '').trim().length);
-  tl.fromTo($('.lk-ico', c), { scale: .4, opacity: 0 }, { scale: 1, opacity: 1, duration: .22, ease: 'back.out(2)', immediateRender: false }, T.c);
+  // 13 Nov 2026: kolom cari -> "iluztar.com" diketik (pada ketukan audio T.c) -> kolom tumbuh jadi jendela situs (prototipe dari adegan 6)
+  // yang digulir ke bawah -> hilang sebelum logo. Semua nilai awal ditulis eksplisit supaya frame sama saat digulir mundur.
+  const bar = $('.sbar', c), web = $('.sweb', c), win = $('.sweb-in', c), row = $('.sb-row', c), lk = $('.sb-row b', c);
+  if (!win.children.length) {
+    const asal = $('#wpill .wfc');
+    if (asal) {
+      // salinan membawa gaya "belum muncul" dari adegan 6 (opacity/transform sebaris) — dibuang supaya website tampil utuh
+      const salin = asal.cloneNode(true); [salin, ...salin.querySelectorAll('[style]')].forEach(el => el.removeAttribute('style'));
+      win.appendChild(salin); const br = $('.wl-bar', salin); if (br) web.appendChild(br.cloneNode(true));
+    }
+    const gal = document.createElement('div'); gal.className = 'sw-gal'; gal.innerHTML = '<h5>Selected works</h5>';
+    $$('#prof .pgrid img').slice(0, 6).forEach(im => { const i = document.createElement('img'); i.src = im.currentSrc || im.src; i.alt = ''; i.decoding = 'async'; gal.appendChild(i); });
+    win.appendChild(gal);
+  }
+  const nCh = Math.max(1, (lk.textContent || '').trim().length);
+  gsap.set(c, { '--k8c': .7 }); tl.set(c, { '--k8c': .7 }, T.c);
+  tl.set(bar, { width: 760, height: 96, borderRadius: 48, opacity: 1, scale: 1 }, T.c);
+  tl.set(row, { opacity: 1 }, T.c); tl.set(web, { opacity: 0 }, T.c); tl.set(win, { y: 0 }, T.c);
   tl.set(lk, { clipPath: 'inset(-20% 100% -20% 0)' }, T.c);
-  tl.to(lk, { clipPath: 'inset(-20% 0% -20% 0)', duration: .55, ease: 'steps(' + nCh + ')' }, T.c + .1);
+  tl.to(lk, { clipPath: 'inset(-20% 0% -20% 0)', duration: .55, ease: 'steps(' + nCh + ')' }, T.c + .08);
+  const g = T.c + .8;
+  tl.fromTo(row, { opacity: 1 }, { opacity: 0, duration: .15, ease: 'none', immediateRender: false }, g);
+  tl.fromTo(bar, { width: 760, height: 96, borderRadius: 48 }, { width: 1130, height: 625, borderRadius: 28, duration: .45, ease: 'power3.inOut', immediateRender: false }, g);
+  tl.fromTo(c, { '--k8c': .7 }, { '--k8c': .55, duration: .45, ease: 'power3.inOut', immediateRender: false }, g);   // HP tegak: jendela muat di layar
+  tl.fromTo(web, { opacity: 0 }, { opacity: 1, duration: .25, ease: 'none', immediateRender: false }, g + .15);   // website terang menutupi warna kartu
+  tl.fromTo(win, { y: 0 }, { y: -(1180 - 625), duration: Math.max(.6, T.d - .45 - (g + .5)), ease: 'power2.inOut', immediateRender: false }, g + .5);
+  tl.fromTo(bar, { opacity: 1, scale: 1 }, { opacity: 0, scale: .92, duration: .3, ease: 'power2.in', immediateRender: false }, T.d - .38);
 
   // D — the mark, small and still, to the end
   const d = $('#s8d'); show(tl, d, T.d, null);
