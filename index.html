@@ -1,5 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-WPXtdFt7t9/WDgVKJLeDk4zXae1SbtY3KmaxUFGRn/g=' 'sha256-aomsvEI0HNxc0kRO+4tBUEV1qexT2sv7sv13rHTwoxA=' 'sha256-+yXoJVG4nBn5MAJTZfNB6Ty2hd+qYdkIfHo82pQJYv8='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://iluztar.com; media-src 'self' blob: https://iluztar.com; connect-src 'self' https://iluztar.com; object-src 'none'; base-uri 'self'; form-action 'self'"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>ILUZTAR - Motion Graphic</title>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-WPXtdFt7t9/WDgVKJLeDk4zXae1SbtY3KmaxUFGRn/g=' 'sha256-E5emCoj6k0WX4T3yYel5NTev/B9F9nXQQUwfSM5MV98=' 'sha256-+yXoJVG4nBn5MAJTZfNB6Ty2hd+qYdkIfHo82pQJYv8='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://iluztar.com; media-src 'self' blob: https://iluztar.com; connect-src 'self' https://iluztar.com; object-src 'none'; base-uri 'self'; form-action 'self'"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>ILUZTAR - Motion Graphic</title>
 <meta name="description" content="Company profile digital ILUZTAR Studio berbasis motion graphic interaktif. Dibuat oleh artist ILUZTAR untuk skripsi “Pengembangan Company Profile Digital Studio Kreatif ILUZTAR dengan Menggunakan Motion Graphic sebagai Media Promosi”, dikonversi dari video motion menjadi website dengan bantuan Claude AI (Opus 5.5).">
 <meta property="og:title" content="ILUZTAR - Motion Graphic">
 <meta property="og:description" content="Company profile digital ILUZTAR Studio berbasis motion graphic interaktif. Dibuat oleh artist ILUZTAR untuk skripsi “Pengembangan Company Profile Digital Studio Kreatif ILUZTAR dengan Menggunakan Motion Graphic sebagai Media Promosi”, dikonversi dari video motion menjadi website dengan bantuan Claude AI (Opus 5.5).">
@@ -182,7 +182,9 @@ body:not(.playing) .intext{display:none!important}
 .sheet:nth-child(even) .kertas::before{content:"";position:absolute;top:-9px;right:18px;width:70px;height:22px;rotate:24deg;background:rgba(236,221,184,.78);box-shadow:0 1px 2px rgba(20,20,40,.10);z-index:1}
 .sheet img{width:100%;height:100%;object-fit:contain;display:block}
 .plate{width:380px;height:340px;overflow:visible}
-.plab{font-size:44px;font-weight:500;letter-spacing:-.01em;margin-top:6px}
+.plab{font-size:44px;font-weight:500;letter-spacing:-.01em;margin-top:6px;display:flex;flex-direction:column;align-items:center;gap:6px}
+.plab .pnum{font-size:24px;font-weight:500;letter-spacing:0;opacity:.62}
+.plab .pnum b{color:var(--blue);font-weight:700;font-variant-numeric:tabular-nums}
 .pwrap{display:flex;flex-direction:column;align-items:center}
 
 /* ---------- S4 (blue) ---------- */
@@ -277,8 +279,40 @@ body:not(.playing) .cf{opacity:1}
 .wpill .wlab{pointer-events:none;position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:50px;font-weight:500;color:#1F1F21;white-space:nowrap}
 .wfc{position:absolute;left:0;top:0;width:1130px;height:625px}
 .wfc>*{position:absolute}
-/* the website it grows into: browser bar + tangkapan beranda iluztar.com yang asli (13 Nov 2026, permintaan pemilik) */
-.wl-shot{left:0;top:48px;width:1130px;height:577px;display:block}
+/* the website it grows into: a small landing page (browser bar, nav, hero + CTA, artwork, feature strip).
+   13 Nov 2026: isi di bawah bilah peramban adalah halaman yang digulir (.wl-hal > .wl-isi) dan berlanjut ke "Featured artworks"
+   bergaya iluztar.com; kartu karya bisa diklik (lightbox). */
+.wl-hal{left:0;top:48px;right:0;bottom:0;overflow:hidden}
+.wl-isi{position:absolute;left:0;top:-48px;width:1130px;height:1340px}
+.wl-isi>*{position:absolute}
+.wl-nav{left:44px;right:44px;top:70px;height:44px;display:flex;align-items:center;gap:30px;color:#6B6B73;font-size:17px;font-weight:500}
+.wl-nav svg{width:36px;height:36px;border-radius:10px}
+.wl-nav b{margin:0 auto 0 -18px;color:#1F1F21;font-size:19px;font-weight:700;letter-spacing:.06em}
+.wl-nav em{font-style:normal;color:#1F1F21;height:40px;padding:0 20px;border-radius:20px;box-shadow:inset 0 0 0 1.5px #1F1F21;display:flex;align-items:center}
+.wl-hero{left:44px;top:150px;width:560px;color:#1F1F21}
+.wl-eye{display:inline-flex;height:32px;padding:0 14px;border-radius:16px;background:rgba(0,71,255,.1);color:var(--blue);font-size:15px;font-weight:600;align-items:center}
+.wl-hero h4{margin:18px 0 0;font-size:62px;line-height:1.02;font-weight:700;letter-spacing:-.03em}
+.wl-hero h4 u{text-decoration:none;color:var(--blue)}
+.wl-hero p{margin:18px 0 0;width:470px;font-size:18px;line-height:1.45;color:#6B6B73}
+.wl-cta{margin-top:28px;display:flex;gap:14px;align-items:center}
+.wfc .go{position:relative;font-style:normal;height:56px;padding:0 34px;border-radius:28px;background:var(--blue);color:#fff;font-size:22px;font-weight:600;display:grid;place-items:center;box-shadow:0 12px 24px -10px rgba(0,71,255,.6)}
+.wl-ghost{height:56px;padding:0 26px;border-radius:28px;box-shadow:inset 0 0 0 1.5px #D4D4DA;font-size:19px;font-weight:500;display:flex;align-items:center}
+.wl-art{right:44px;top:138px;width:420px;height:330px;border-radius:28px;overflow:visible}
+.wl-art img{width:100%;height:100%;object-fit:cover;border-radius:28px;display:block;box-shadow:0 20px 40px -18px rgba(0,20,90,.45)}
+.wl-chip{position:absolute;left:-30px;bottom:-22px;height:52px;padding:0 20px;border-radius:26px;background:#fff;color:#6B6B73;font-size:16px;display:flex;align-items:center;gap:8px;box-shadow:0 12px 28px -10px rgba(0,20,90,.35)}
+.wl-chip b{color:var(--blue);font-size:22px}
+.wl-feat{left:44px;right:44px;top:517px;height:74px;display:flex;gap:16px}
+.wl-feat div{flex:1;border-radius:20px;background:#fff;box-shadow:0 1px 2px rgba(0,20,90,.06);display:flex;align-items:center;gap:14px;padding:0 20px;font-size:19px;font-weight:600;color:#1F1F21}
+.wl-feat i{font-style:normal;width:40px;height:40px;border-radius:12px;background:var(--blue);color:#fff;font-size:15px;display:grid;place-items:center}
+.wl-karya{left:44px;right:44px;top:640px}
+.wl-karya h5{margin:0;font-size:40px;font-weight:700;letter-spacing:-.02em;color:#1F1F21}
+.wl-karya>p{margin:6px 0 22px;font-size:16px;color:#6B6B73}
+.wl-kisi{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.wl-k{position:relative;font-style:normal;border-radius:20px;background:#fff;box-shadow:0 1px 2px rgba(20,20,30,.05),0 8px 24px rgba(20,20,30,.06);overflow:hidden;cursor:pointer}
+.wl-k img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+.wl-k em{position:absolute;left:12px;top:12px;height:30px;padding:0 12px;border-radius:15px;background:#fff;color:#1F1F21;font-style:normal;font-size:13px;font-weight:600;display:flex;align-items:center}
+.wl-k b{display:flex;justify-content:space-between;gap:8px;padding:12px 14px 14px;font-size:15px;font-weight:700;color:#1F1F21}
+.wl-k b span{font-weight:500;color:#6B6B73;white-space:nowrap}
 .wl-bar{left:0;right:0;top:0;height:48px;display:flex;align-items:center;gap:8px;padding:0 26px;border-bottom:1px solid #E6E6EA}
 .wl-bar i{width:12px;height:12px;border-radius:50%;background:#DADADF}
 .wl-bar span{margin-left:18px;height:28px;padding:0 18px;border-radius:14px;background:#ECECEF;color:#8A8A8F;font-size:14px;display:flex;align-items:center}
@@ -552,21 +586,21 @@ body:not(.scrollmode) #stag,body:not(.scrollmode) #sgo,body:not(.scrollmode) #sp
   <button class="pscene" data-go="s1">▶ Play scene</button>
   <div class="fit"><div class="cam"><div class="bg"></div>
     <div class="layer" id="s1a">
-      <div class="cell"><img class="tex" data-slot="ART1" src="aset/web/art-sarah-480.webp" data-besar="aset/web/art-sarah.webp" decoding="async" alt=""><img class="tex" data-slot="TEX" src="aset/web/tex-punchline-480.webp" data-besar="aset/web/tex-punchline.webp" decoding="async" alt=""><img class="tex" data-slot="ART3" src="aset/web/art-persona-480.webp" data-besar="aset/web/art-persona.webp" decoding="async" alt=""><img class="tex" data-slot="ART0" src="aset/web/art-bendera-480.webp" data-besar="aset/web/art-bendera.webp" decoding="async" alt=""><img class="tex" data-slot="ART5" src="aset/web/art-huion-480.webp" data-besar="aset/web/art-huion.webp" decoding="async" alt=""><img class="tex" data-slot="ART4" src="aset/web/art-draco-480.webp" data-besar="aset/web/art-draco.webp" decoding="async" alt=""><i class="gl gt"></i><i class="gl gb"></i><i class="gl gv1"></i><i class="gl gv2"></i>
+      <div class="cell"><img class="tex" data-slot="ART1" src="aset/web/art-sarah-480.webp" data-besar="aset/web/art-sarah.webp" decoding="async" alt=""><img class="tex" data-slot="TEX" src="aset/web/tex-punchline-480.webp" data-besar="aset/web/tex-punchline.webp" decoding="async" alt=""><img class="tex" data-slot="ART3" src="aset/web/art-ilustrasi-480.webp" data-besar="aset/web/art-ilustrasi.webp" decoding="async" alt=""><img class="tex" data-slot="ART0" src="aset/web/art-bendera-480.webp" data-besar="aset/web/art-bendera.webp" decoding="async" alt=""><img class="tex" data-slot="ART5" src="aset/web/art-omen-480.webp" data-besar="aset/web/art-omen.webp" decoding="async" alt=""><img class="tex" data-slot="ART4" src="aset/web/art-draco-480.webp" data-besar="aset/web/art-draco.webp" decoding="async" alt=""><i class="gl gt"></i><i class="gl gb"></i><i class="gl gv1"></i><i class="gl gv2"></i>
         <div class="say say-lg type tw" data-caret="star">This is Iluztar</div>
       </div>
     </div>
     <div class="layer hero" id="s1b">
-      <div class="art far" data-act="zoom" data-d=".45" data-img="5" style="--x:-330px;--y:-345px;--w:84px;--r:-10deg"><img data-slot="ART5" src="aset/web/art-huion-480.webp" data-besar="aset/web/art-huion.webp" decoding="async" alt=""></div>
+      <div class="art far" data-act="zoom" data-d=".45" data-img="5" style="--x:-330px;--y:-345px;--w:84px;--r:-10deg"><img data-slot="ART5" src="aset/web/art-omen-480.webp" data-besar="aset/web/art-omen.webp" decoding="async" alt=""></div>
       <div class="art far" data-act="zoom" data-d=".45" data-img="0" style="--x:150px;--y:322px;--w:92px;--r:8deg"><img data-slot="ART0" src="aset/web/art-bendera-480.webp" data-besar="aset/web/art-bendera.webp" decoding="async" alt=""></div>
       <div class="art far" data-act="zoom" data-d=".4" data-img="2" style="--x:-712px;--y:40px;--w:76px;--r:-6deg"><img data-slot="ART2" src="aset/web/art-harisun-480.webp" data-besar="aset/web/art-harisun.webp" decoding="async" alt=""></div>
       <div class="art far" data-act="zoom" data-d=".4" data-img="1" style="--x:738px;--y:48px;--w:70px;--r:12deg"><img data-slot="ART1" src="aset/web/art-sarah-480.webp" data-besar="aset/web/art-sarah.webp" decoding="async" alt=""></div>
       <div class="art" data-act="zoom" data-ry="16" data-rx="6" data-rz="0" style="--x:569px;--y:236px;--w:205px;--px:215px;--py:430px;--pw:200px"><img data-slot="ART0" src="aset/web/art-bendera-480.webp" data-besar="aset/web/art-bendera.webp" decoding="async" alt=""><i class="eg"></i></div>
       <div class="art" data-act="zoom" data-ry="-36" data-rx="4" data-rz="0" style="--x:451px;--y:-264px;--w:118px;--px:190px;--py:-620px;--pw:240px"><img data-slot="ART1" src="aset/web/art-sarah-480.webp" data-besar="aset/web/art-sarah.webp" decoding="async" alt=""><i class="eg"></i></div>
       <div class="art" data-act="zoom" data-ry="-22" data-rx="-6" data-rz="-2" style="--x:254px;--y:76px;--w:126px;--px:250px;--py:-235px;--pw:150px"><img data-slot="ART2" src="aset/web/art-harisun-480.webp" data-besar="aset/web/art-harisun.webp" decoding="async" alt=""><i class="eg"></i></div>
-      <div class="art" data-act="zoom" data-ry="8" data-rx="0" data-rz="-3" style="--x:-359px;--y:-82px;--w:110px;--px:-250px;--py:235px;--pw:150px"><img data-slot="ART3" src="aset/web/art-persona-480.webp" data-besar="aset/web/art-persona.webp" decoding="async" alt=""><i class="eg"></i></div>
+      <div class="art" data-act="zoom" data-ry="8" data-rx="0" data-rz="-3" style="--x:-359px;--y:-82px;--w:110px;--px:-250px;--py:235px;--pw:150px"><img data-slot="ART3" src="aset/web/art-ilustrasi-480.webp" data-besar="aset/web/art-ilustrasi.webp" decoding="async" alt=""><i class="eg"></i></div>
       <div class="art" data-act="zoom" data-ry="12" data-rx="-4" data-rz="0" style="--x:-556px;--y:232px;--w:282px;--px:-190px;--py:620px;--pw:260px"><img data-slot="ART4" src="aset/web/art-draco-480.webp" data-besar="aset/web/art-draco.webp" decoding="async" alt=""><i class="eg"></i></div>
-      <div class="art" data-act="zoom" data-ry="6" data-rx="6" data-rz="0" style="--x:-563px;--y:-276px;--w:129px;--px:-215px;--py:-430px;--pw:200px"><img data-slot="ART5" src="aset/web/art-huion-480.webp" data-besar="aset/web/art-huion.webp" decoding="async" alt=""><i class="eg"></i></div>
+      <div class="art" data-act="zoom" data-ry="6" data-rx="6" data-rz="0" style="--x:-563px;--y:-276px;--w:129px;--px:-215px;--py:-430px;--pw:200px"><img data-slot="ART5" src="aset/web/art-omen-480.webp" data-besar="aset/web/art-omen.webp" decoding="async" alt=""><i class="eg"></i></div>
       <div class="say say-xl">A creative studio</div>
     </div>
     <div class="layer" id="s1c">
@@ -625,7 +659,7 @@ body:not(.scrollmode) #stag,body:not(.scrollmode) #sgo,body:not(.scrollmode) #sp
           <g class="psh"><g transform="rotate(6 247 139)"><rect x="172" y="74" width="150" height="130" rx="14" fill="#fff"/><rect x="192" y="96" width="56" height="12" rx="6" fill="#0047FF"/><rect x="192" y="120" width="100" height="8" rx="4" fill="#DCE2EE"/><rect x="192" y="136" width="70" height="8" rx="4" fill="#DCE2EE"/></g></g>
           <rect x="22" y="130" width="336" height="196" rx="28" fill="url(#fgrad)"/><rect x="46" y="131.5" width="288" height="2.5" rx="1.25" fill="#fff" opacity=".35"/>
         </svg>
-        <div class="plab">Plate.file</div>
+        <div class="plab">Commission<small class="pnum"><b>0</b>+ projects</small></div>
       </div></div>
     </div>
   </div></div>
@@ -714,7 +748,18 @@ body:not(.scrollmode) #stag,body:not(.scrollmode) #sgo,body:not(.scrollmode) #sp
       <div class="wpill" id="wpill">
         <div class="wfc">
           <div class="wl-bar"><i></i><i></i><i></i><span>iluztar.com</span></div>
-          <img class="wl-shot" src="aset/web/situs-iluztar-atas.webp" width="1130" height="577" decoding="async" alt="Beranda iluztar.com">
+          <div class="wl-hal"><div class="wl-isi">
+            <div class="wl-nav"><svg viewBox="0 0 4000 4000"><use href="#logo"/></svg><b>ILUZTAR</b><span>Work</span><span>Services</span><span>About</span><em>Contact</em></div>
+            <div class="wl-hero">
+              <span class="wl-eye">Illustration &amp; Design Studio</span>
+              <h4>Bring your next<br>idea to <u>life.</u></h4>
+              <p>From the first sketch to the final render, we handle the workload so you can keep the vision.</p>
+              <div class="wl-cta"><i class="go" data-act="link" data-link="order">Build it!</i><span class="wl-ghost">See our work</span></div>
+            </div>
+            <div class="wl-art"><img data-slot="ART4" src="aset/web/art-draco-480.webp" data-besar="aset/web/art-draco.webp" decoding="async" alt=""><span class="wl-chip"><b>120+</b> projects done</span></div>
+            <div class="wl-feat"><div><i>01</i>Sketch</div><div><i>02</i>Line-art</div><div><i>03</i>Full render</div></div>
+            <div class="wl-karya"><h5>Featured artworks</h5><p>The artworks that best represent ILUZTAR.</p><div class="wl-kisi"><i class="wl-k" data-act="link" data-karya="clip-studio-paint-contest-30" title="Clip Studio Paint Contest 30"><img src="aset/web/art-bendera-480.webp" decoding="async" alt="Clip Studio Paint Contest 30"><em>Honorable Mention</em><b>Clip Studio Paint Contest 30<span>Digital Art</span></b></i><i class="wl-k" data-act="link" data-karya="ilustrasi-sarah-sherlya" title="Sarah Sherlya Contest"><img src="aset/web/art-sarah-480.webp" decoding="async" alt="Sarah Sherlya Contest"><em>Contest</em><b>Sarah Sherlya Contest<span>Digital Art</span></b></i><i class="wl-k" data-act="link" data-karya="harisun-dtiys" title="Harisun DTIYS"><img src="aset/web/art-harisun-480.webp" decoding="async" alt="Harisun DTIYS"><em>DTIYS</em><b>Harisun DTIYS<span>Digital Art</span></b></i><i class="wl-k" data-act="link" data-karya="valorant-omen" title="Valorant Omen"><img src="aset/web/art-omen-480.webp" decoding="async" alt="Valorant Omen"><em>Fanart</em><b>Valorant Omen<span>Digital Art</span></b></i><i class="wl-k" data-act="link" data-karya="fantasy-cavern" title="Fantasy Cavern"><img src="aset/web/art-gua-480.webp" decoding="async" alt="Fantasy Cavern"><em>Background</em><b>Fantasy Cavern<span>Digital Art</span></b></i><i class="wl-k" data-act="link" data-karya="fanart-draco" title="Fanart Draco"><img src="aset/web/art-draco-480.webp" decoding="async" alt="Fanart Draco"><em>Fanart</em><b>Fanart Draco<span>Digital Art</span></b></i></div></div>
+          </div></div>
         </div>
         <div class="wlab">I want a Website!</div>
       </div>
@@ -761,7 +806,7 @@ body:not(.scrollmode) #stag,body:not(.scrollmode) #sgo,body:not(.scrollmode) #sp
           <div class="pi"><div class="pname"><a data-act="link" data-link="ig" data-text="name" href="#">ILUZTAR</a></div>
             <div class="pstats"><div><span class="ig-num" data-k="posts" data-v="56">56</span><small>posts</small></div><div><span class="ig-num" data-k="followers" data-v="1397">1397</span><small>followers</small></div><div><span class="ig-num" data-k="following" data-v="1032">1032</span><small>following</small></div></div></div></div>
         <div class="pbio"><div class="r" data-text="role">Artist</div><div class="b" data-text="bio">Let's shine together through art</div></div>
-        <div class="pgrid" aria-label="Recent posts"><i data-act="zoom"><img data-slot="ART0" src="aset/web/art-bendera-480.webp" data-besar="aset/web/art-bendera.webp" decoding="async" alt=""></i><i data-act="zoom"><img data-slot="ART1" src="aset/web/art-sarah-480.webp" data-besar="aset/web/art-sarah.webp" decoding="async" alt=""></i><i data-act="zoom"><img data-slot="ART2" src="aset/web/art-harisun-480.webp" data-besar="aset/web/art-harisun.webp" decoding="async" alt=""></i><i data-act="zoom"><img data-slot="ART3" src="aset/web/art-persona-480.webp" data-besar="aset/web/art-persona.webp" decoding="async" alt=""></i><i data-act="zoom"><img data-slot="ART4" src="aset/web/art-draco-480.webp" data-besar="aset/web/art-draco.webp" decoding="async" alt=""></i><i data-act="zoom"><img data-slot="ART5" src="aset/web/art-huion-480.webp" data-besar="aset/web/art-huion.webp" decoding="async" alt=""></i></div>
+        <div class="pgrid" aria-label="Recent posts"><i data-act="zoom"><img data-slot="ART0" src="aset/web/art-bendera-480.webp" data-besar="aset/web/art-bendera.webp" decoding="async" alt=""></i><i data-act="zoom"><img data-slot="ART1" src="aset/web/art-sarah-480.webp" data-besar="aset/web/art-sarah.webp" decoding="async" alt=""></i><i data-act="zoom"><img data-slot="ART2" src="aset/web/art-harisun-480.webp" data-besar="aset/web/art-harisun.webp" decoding="async" alt=""></i><i data-act="zoom"><img data-slot="ART3" src="aset/web/art-ilustrasi-480.webp" data-besar="aset/web/art-ilustrasi.webp" decoding="async" alt=""></i><i data-act="zoom"><img data-slot="ART4" src="aset/web/art-draco-480.webp" data-besar="aset/web/art-draco.webp" decoding="async" alt=""></i><i data-act="zoom"><img data-slot="ART5" src="aset/web/art-omen-480.webp" data-besar="aset/web/art-omen.webp" decoding="async" alt=""></i></div>
         <div class="pbtns"><a class="f" data-act="link" data-link="ig" href="#">Follow</a><a data-act="link" data-link="dm" href="#">Message</a><a data-act="link" data-link="contact" data-text="contactLabel" href="#">Contact</a></div>
       </div>
     </div>
@@ -1285,11 +1330,14 @@ function S2(tl) {
     if (i) tl.to(sheets, { x: cx[i], duration: .32, ease: E.inOut }, t); else tl.set(sheets, { x: cx[0] }, t);
   });
 
-  // D — "Plate.file" swings in from the left, papers peek out, then the camera pushes in
+  // D — "Commission" folder swings in from the left, papers peek out, then the camera pushes in
   const d = $('#s2d'), hz = $('.hz', d), pw = $('.pwrap', d); show(tl, d, 17.47, 20.1, { in: 0, out: 0 });
   tl.fromTo(hz, { scale: .78 }, { scale: 1.28, duration: 1.1, ease: 'power3.inOut' }, 18.5);   // satu dorongan kamera sampai diam (tanpa gerak susulan)
   tl.fromTo(pw, { x: -420, y: 80, rotation: -32, opacity: 0 }, { x: 0, y: 0, rotation: 0, opacity: 1, duration: .25, ease: 'power2.out' }, 17.47);
   $$('.psh', d).forEach((s, i) => tl.fromTo(s, { y: 70, opacity: 0 }, { y: 0, opacity: 1, duration: .25, ease: E.out }, 17.67 + i * .05));
+  // 13 Nov 2026 (permintaan pemilik): folder "Commission" — jumlah proyek naik selama kamera mendorong (dibaca dari timeline, sama saat digulir mundur)
+  const pn = $('.pnum b', d), pc = { v: 0 };
+  tl.fromTo(pc, { v: 0 }, { v: 120, duration: 1.1, ease: 'power2.out', onUpdate: () => { pn.textContent = Math.round(pc.v); } }, 18.5);
 }
 
 function S3(tl, end, cut) {
@@ -1467,7 +1515,7 @@ function S6(tl) {
   tl.to(knob, { opacity: 0, duration: .15, ease: 'power1.in' }, 45.6);
 
   // D — "I want a Website!" grows into the website itself
-  const d = $('#s6d'), wp = $('#wpill'), lbl = $('.wlab', wp), kids = [...$('.wfc', wp).children];
+  const d = $('#s6d'), wp = $('#wpill'), lbl = $('.wlab', wp), kids = [$('.wfc .wl-bar', wp), ...$$('.wl-isi > *', wp).slice(0, 4)];
   show(tl, d, 45.8, 49.45, { in: 0, out: .15 });
   // elemen bersama: kapsul "Refine" (gelap) berganti warna jadi kapsul terang di ukuran & radius yang sama, teks bersilang
   const BS = '0 1px 2px rgba(0,20,90,.08),0 18px 36px -12px rgba(0,20,90,.28),0 50px 90px -30px rgba(0,20,90,.35)';
@@ -1480,6 +1528,8 @@ function S6(tl) {
   tl.to(d, { '--k6d': .55, duration: .8, ease: 'power3.inOut' }, 47.35);
   tl.fromTo(kids, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: .3, stagger: .03, ease: E.out }, 47.85);
   tl.fromTo(wp, { scale: 1 }, { scale: 1.03, duration: 1.4, ease: bE(47.85, 1.4), immediateRender: false }, 47.85);
+  // 13 Nov 2026: halaman website digulir ke Featured artworks (kartu karya bisa diklik) sebelum adegan berpindah
+  tl.fromTo($('.wl-isi', wp), { y: 0 }, { y: -560, duration: .95, ease: 'power2.inOut', immediateRender: false }, 48.25);
   tl.to(wp, { x: -260, duration: .2, ease: E.in }, 49.25);
   bg(tl, false, 49.3, .5);
 }
@@ -2062,6 +2112,8 @@ document.addEventListener('click', e => {
   const el = e.target.closest('#film [data-act]'); if (!el) return;
   const act = el.dataset.act;
   if (act === 'zoom') { const img = el.tagName === 'IMG' ? el : $('img', el); if (img && img.src) lightbox(img.dataset.besar || img.src, img.alt); e.preventDefault(); }
+  // 13 Nov 2026: kartu karya di website adegan 6 membuka halaman karyanya di situs (alamat situs dari pengaturan, default iluztar.com)
+  else if (act === 'link' && el.dataset.karya) { const u = (siteUrl(settings.website) || 'https://iluztar.com').replace(/\/+$/, '') + '/work/' + encodeURIComponent(el.dataset.karya); window.open(u, '_blank', 'noopener'); if (playingNow) toggle(); e.preventDefault(); }
   else if (act === 'link' && el.dataset.link) { const u = linkFor(el.dataset.link); if (u) window.open(u, u.startsWith('mailto:') ? '_self' : '_blank', 'noopener'); if (playingNow) toggle(); e.preventDefault(); }
   else if (act === 'toggle') { if (playingNow) toggle(); toggleItem(el); e.preventDefault(); }
   else if (act === 'order') {
