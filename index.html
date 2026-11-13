@@ -1,5 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-2gvS2on1O97mmJrBX4poePoq5HxNbyUX2UXxxnKrR0A=' 'sha256-Z9uez7M+5sTabozz7U7IQrAVuMAb3yEIw+xIBHcBkYA=' 'sha256-+yXoJVG4nBn5MAJTZfNB6Ty2hd+qYdkIfHo82pQJYv8='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://iluztar.com; media-src 'self' blob: https://iluztar.com; connect-src 'self' https://iluztar.com; object-src 'none'; base-uri 'self'; form-action 'self'"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>ILUZTAR - Motion Graphic</title>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-2gvS2on1O97mmJrBX4poePoq5HxNbyUX2UXxxnKrR0A=' 'sha256-H9u9KPiCH7zSa1a7HUug/4niq/wqs7DOo5mkjpBU0HY=' 'sha256-+yXoJVG4nBn5MAJTZfNB6Ty2hd+qYdkIfHo82pQJYv8='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://iluztar.com; media-src 'self' blob: https://iluztar.com; connect-src 'self' https://iluztar.com; object-src 'none'; base-uri 'self'; form-action 'self'"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>ILUZTAR - Motion Graphic</title>
 <meta name="description" content="Company profile digital ILUZTAR Studio berbasis motion graphic interaktif. Dibuat oleh artist ILUZTAR untuk skripsi “Pengembangan Company Profile Digital Studio Kreatif ILUZTAR dengan Menggunakan Motion Graphic sebagai Media Promosi”, dikonversi dari video motion menjadi website dengan bantuan Claude AI (Opus 5.5).">
 <meta property="og:title" content="ILUZTAR - Motion Graphic">
 <meta property="og:description" content="Company profile digital ILUZTAR Studio berbasis motion graphic interaktif. Dibuat oleh artist ILUZTAR untuk skripsi “Pengembangan Company Profile Digital Studio Kreatif ILUZTAR dengan Menggunakan Motion Graphic sebagai Media Promosi”, dikonversi dari video motion menjadi website dengan bantuan Claude AI (Opus 5.5).">
@@ -46,7 +46,7 @@ if (window.parent !== window) setTimeout(() => { if (!window.gsap || !window.__r
   --ink:#ECECF0;--sub:#A9A9B2;--muted:#7E7E88;
   --surface:#1F2026;--surface-2:#2B2C33;--border:#34353D;--line:#2E2F36;
   --bub2:#34353C;--bub2-ink:#ECECF0;
-  --dcard:#23242A;--dcard-line:#34353D;--dcard-border:#34353D;
+  --dcard:#FFFFFF;--dcard-line:#E6E7EC;--dcard-border:transparent;
   --shadow:rgba(0,0,0,.45);
   --ui:rgba(30,31,36,.66);--ui-border:rgba(255,255,255,.08);--ui-ink:#ECECF0;--ui-seg:#2B2C33;--ui-muted:#9a9aa3;--chip:rgba(30,31,36,.85);--chip-border:#34353D;
   --vt-from:0 0 100% 0;
@@ -138,18 +138,18 @@ body:not(.playing) .hero{visibility:visible}
 .blob{position:absolute;left:800px;top:450px;width:0;height:0;background:var(--blue);opacity:0;pointer-events:none}
 .net{position:absolute;inset:0;width:1600px;height:900px;overflow:visible}
 .net .ln{stroke:#4D72FF;stroke-width:1.6;opacity:.8}
-.net .nbg{fill:var(--surface);stroke:var(--border);stroke-width:1.5}
+.net .nbg{fill:#fff;stroke:#E3E5EC;stroke-width:1.5}   /* 13 Nov 2026: lingkaran profil tetap putih di tema gelap */
 .calw{position:relative;width:640px;height:470px}
 .playing #s1e .calw{will-change:transform}   /* kalender hanya mengecil (2.2 → .58): dirasterkan sekali di ukuran terbesar, tidak dilukis ulang tiap frame (bayangan blur 70px) */
-.cal{position:absolute;inset:0;padding:44px 50px 54px;background:var(--surface);border-radius:38px;border:3px solid #8AA6FF;box-shadow:0 0 0 1px rgba(255,255,255,.3) inset,0 -18px 70px 4px rgba(0,71,255,.28),0 30px 60px -20px rgba(0,20,90,.3)}
+.cal{position:absolute;inset:0;padding:44px 50px 54px;background:#fff;color:#1F1F21;border-radius:38px;border:3px solid #8AA6FF;box-shadow:0 0 0 1px rgba(255,255,255,.3) inset,0 -18px 70px 4px rgba(0,71,255,.28),0 30px 60px -20px rgba(0,20,90,.3)}
 .cal.half{box-shadow:none}.cal.half.L{clip-path:inset(-4% 50% -4% -4%)}.cal.half.R{clip-path:inset(-4% -4% -4% 50%)}
 .cal .shade{position:absolute;inset:-3px;border-radius:38px;background:#000;opacity:0;pointer-events:none}
 .chead{display:flex;align-items:center;justify-content:space-between}
 .cbtn{width:66px;height:66px;border-radius:50%;background:#C6D3FF;color:var(--blue);display:grid;place-items:center;font-size:30px;font-weight:500}
 .yr{font-weight:700;font-size:54px;letter-spacing:-.025em;font-variant-numeric:tabular-nums}
-.days{display:grid;grid-template-columns:repeat(7,1fr);text-align:center;margin:34px 0 22px;color:var(--muted);font-size:22px;letter-spacing:.04em}
+.days{display:grid;grid-template-columns:repeat(7,1fr);text-align:center;margin:34px 0 22px;color:#8A8A8F;font-size:22px;letter-spacing:.04em}
 .dots{display:grid;grid-template-columns:repeat(7,1fr);row-gap:20px;justify-items:center}
-.dots i{width:40px;height:40px;border-radius:50%;background:var(--surface-2)}
+.dots i{width:40px;height:40px;border-radius:50%;background:#EDEEF2}   /* 13 Nov 2026: kalender tetap putih (warna tetap) di tema gelap */
 .dots i.e{background:transparent}
 .dots i.on{background:var(--blue);box-shadow:0 0 0 8px rgba(0,71,255,.18)}
 
@@ -177,7 +177,10 @@ body:not(.playing) .intext{display:none!important}
 .tdots{display:flex;gap:6px;margin-top:30px}.tdots i{width:16px;height:16px;border-radius:50%;background:var(--surface-2)}.tdots i:first-child{background:var(--blue)}
 .sheets{position:relative;width:1060px;height:593px}
 .sheet{position:absolute}
-.sheet .kertas{width:100%;height:100%;background:#fff;padding:10px;box-shadow:0 1px 2px rgba(20,20,40,.08),0 12px 26px -12px rgba(20,20,60,.28)}
+.sheet .kertas{position:relative;width:100%;height:100%;padding:12px 12px 24px;border-radius:2px;background:linear-gradient(168deg,#fff 0%,#fcfbf8 55%,#f2efe8 100%);box-shadow:0 0 0 1px rgba(20,20,40,.05),0 1px 1px rgba(20,20,40,.14),0 5px 10px -3px rgba(20,20,40,.14),0 20px 36px -16px rgba(20,20,60,.42)}
+.sheet .kertas::after{content:"";position:absolute;right:10px;bottom:12px;width:46%;height:20px;z-index:-1;box-shadow:0 14px 14px rgba(20,20,40,.24);rotate:3deg}
+.sheet:nth-child(odd) .kertas::before{content:"";position:absolute;top:-11px;left:50%;width:86px;height:24px;translate:-50% 0;rotate:-3deg;background:rgba(236,221,184,.78);box-shadow:0 1px 2px rgba(20,20,40,.10);z-index:1}
+.sheet:nth-child(even) .kertas::before{content:"";position:absolute;top:-9px;right:18px;width:70px;height:22px;rotate:24deg;background:rgba(236,221,184,.78);box-shadow:0 1px 2px rgba(20,20,40,.10);z-index:1}
 .sheet img{width:100%;height:100%;object-fit:contain;display:block}
 .plate{width:380px;height:340px;overflow:visible}
 .plab{font-size:44px;font-weight:500;letter-spacing:-.01em;margin-top:6px}
@@ -245,6 +248,10 @@ body:not(.playing) .cf{opacity:1}
 .tile .tt{font-size:30px;font-weight:700;position:relative;z-index:1}
 .tile .ts{font-size:17px;opacity:.72;margin-top:4px;position:relative;z-index:1}
 .tile .wm{position:absolute;right:-26px;bottom:-26px;width:150px;opacity:.1}
+/* 13 Nov 2026: tema gelap — folder Single Task (gelap) dan kartu "With the same" jadi putih + teks gelap agar terlihat di latar gelap */
+:root[data-theme="dark"] .tile.st{--tb:#D9DCE4;--tf:linear-gradient(180deg,#FFFFFF 0%,#F1F2F5 60%);color:#1F1F21}
+:root[data-theme="dark"] .tile.st .pp{--pa:#262626}
+:root[data-theme="dark"] .dcard{color:#1F1F21}
 .dcard{position:relative;width:620px;height:440px;border-radius:24px;background:var(--dcard);border:1px solid var(--dcard-border);color:#fff;padding:0 34px;box-shadow:0 1px 2px rgba(20,20,40,.06),0 14px 30px -10px var(--shadow),0 40px 70px -30px var(--shadow)}
 .dhead{display:flex;align-items:center;gap:22px;height:92px;border-bottom:1px solid var(--dcard-line);font-size:32px;font-weight:500}
 .dhead .dm{margin-left:auto;font-size:34px;letter-spacing:-2px;transform:rotate(90deg)}
@@ -321,8 +328,9 @@ body:not(.playing) .cf{opacity:1}
 @media (prefers-reduced-motion:reduce){#r3 .dots i{animation:none}}
 .prof{position:absolute;left:165px;top:105px;width:1270px;height:690px;border-radius:64px;background:var(--surface);border:2px solid var(--border);padding:64px 76px;overflow:hidden;box-shadow:0 1px 2px rgba(20,20,40,.06),0 14px 30px -10px var(--shadow),0 40px 70px -30px var(--shadow)}
 .ptop{display:flex;gap:40px;align-items:center}
-.pav{width:200px;height:200px;border-radius:50%;background:#fff;box-shadow:0 0 0 6px rgba(255,255,255,.6),0 10px 30px -8px rgba(20,20,60,.25);flex:none}
-.pav svg{width:100%;height:100%;display:block}
+.pav{width:200px;height:200px;border-radius:50%;padding:12px;background:conic-gradient(from 200deg,#FEDA75,#FA7E1E,#D62976,#962FBF,#4F5BD5,#FEDA75);box-shadow:0 10px 30px -8px rgba(20,20,60,.25);flex:none;box-sizing:border-box}
+/* cincin story Instagram aktif: gradasi + celah warna kartu di antara cincin dan foto */
+.pav svg{width:100%;height:100%;display:block;border-radius:50%;background:#fff;box-shadow:0 0 0 8px var(--surface)}
 .pname{font-size:56px;font-weight:700;letter-spacing:-.01em}
 .pstats{display:flex;gap:44px;margin-top:12px;font-size:44px;line-height:1}
 .pstats small{display:block;font-size:30px;margin-top:6px;color:var(--muted)}
@@ -427,7 +435,7 @@ body.scrollmode.sc-active #bar{opacity:0;pointer-events:none;transform:translate
 .portrait #s1d{scale:.52}
 .portrait #s1e{scale:var(--k1e,.54)}   /* HP: kalender menghitung mundur di .54, lalu kartu "Since 2023!" membesar (--k1e ditween ke 1.25) */
 .portrait #s2c{scale:.55}
-.portrait #s5a{scale:.6}
+.portrait #s5a{scale:.78}   /* HP: Big Project / Single Task lebih besar (dulu .6 = ±60% lebar layar), tetap berjarak dari tepi */
 .portrait #s5c{scale:.8}   /* HP: kartu "With the same" (puncak skala 1.32) tetap berjarak dari tepi layar */
 .portrait #s4b{scale:1.4}   /* HP: kartu tengah ±66% lebar layar, kartu samping mengintip dari belakang (jarak slot x.6 di S3) */
 .portrait #s6d{scale:var(--k6d,.55)}   /* HP: kapsul mulai seukuran kapsul Refine (1), mengecil ke .55 saat tumbuh jadi website */
@@ -1455,25 +1463,31 @@ function S6(tl) {
   //     then it holds; video: hard cut to the small request pill at 45.8 (no white swipe/collapse)
   const c = $('#s6c'), tog = $('.tog', c), knob = $('.knob', c), lab = $('.tlabel', c);
   show(tl, c, 44.4, 45.8, { in: .12, out: 0 });
-  tl.set(lab, { x: -100 }, 44.4);   // label at the left, knob ends at the right
+  // 13 Nov 2026 (permintaan pemilik): kenop bergeser kiri→kanan seperti tombol geser; jejak putih (.tfill) tumbuh di belakangnya
+  // sampai seluruh kapsul putih; kapsul putih itu langsung menjadi kapsul "I want a Website!" (tanpa menghilang)
+  const fill = $('.tfill', c);
   tl.fromTo(tog, { scaleX: .81, scaleY: .69 }, { scaleX: 1, scaleY: 1, duration: .32, ease: E.out }, 44.4);
   tl.fromTo(tog, { backgroundColor: '#C9CBD3' }, { backgroundColor: '#262626', duration: .3, ease: 'power1.out', immediateRender: false }, 44.42);
-  tl.fromTo(knob, { x: 230, backgroundColor: '#B9C8FF' }, { x: 512, backgroundColor: '#FFFFFF', duration: .36, ease: E.out, immediateRender: false }, 44.42);
+  tl.fromTo(knob, { x: 0, backgroundColor: '#B9C8FF' }, { x: 0, backgroundColor: '#FFFFFF', duration: .3, ease: E.out, immediateRender: false }, 44.42);
   tl.fromTo(lab, { opacity: 0 }, { opacity: 1, duration: .25, ease: E.out, immediateRender: false }, 44.55);
-  tl.to([knob, lab], { opacity: 0, duration: .18, ease: 'power1.in' }, 45.62);   // kapsul dikosongkan dulu, lalu kapsul yang sama berganti warna & teks
+  tl.fromTo(knob, { x: 0 }, { x: 512, duration: .55, ease: 'power2.inOut', immediateRender: false }, 45.0);
+  tl.fromTo(fill, { opacity: 0, width: 100 }, { opacity: 1, width: 612, duration: .55, ease: 'power2.inOut', immediateRender: false }, 45.0);
+  tl.to(lab, { opacity: 0, duration: .3, ease: 'power1.in' }, 45.15);   // teks Refine pudar saat jejak putih melewatinya
+  tl.to(tog, { backgroundColor: '#F7F7F8', duration: .2, ease: 'power1.out' }, 45.5);
+  tl.to(knob, { opacity: 0, duration: .15, ease: 'power1.in' }, 45.6);
 
   // D — "I want a Website!" grows into the website itself
   const d = $('#s6d'), wp = $('#wpill'), lbl = $('.wlab', wp), kids = [...$('.wfc', wp).children];
   show(tl, d, 45.8, 49.45, { in: 0, out: .15 });
   // elemen bersama: kapsul "Refine" (gelap) berganti warna jadi kapsul terang di ukuran & radius yang sama, teks bersilang
   const BS = '0 1px 2px rgba(0,20,90,.08),0 18px 36px -12px rgba(0,20,90,.28),0 50px 90px -30px rgba(0,20,90,.35)';
-  tl.fromTo(wp, { backgroundColor: '#262626', boxShadow: BS.replace(/,\.(08|28|35)\)/g, ',0)') }, { backgroundColor: '#F7F7F8', boxShadow: BS, duration: .32, ease: 'power1.out', immediateRender: false }, 45.8);
+  tl.fromTo(wp, { backgroundColor: '#F7F7F8', boxShadow: BS.replace(/,\.(08|28|35)\)/g, ',0)') }, { backgroundColor: '#F7F7F8', boxShadow: BS, duration: .32, ease: 'power1.out', immediateRender: false }, 45.8);
   tl.fromTo(lbl, { opacity: 0 }, { opacity: 1, duration: .25, ease: 'power1.out', immediateRender: false }, 45.9);
   tl.set(d, { '--k6d': 1 }, 45.8);   // HP tegak: kapsul seukuran kapsul Refine
   tl.to(lbl, { opacity: 0, duration: .1 }, 47.35);
-  tl.to(wp, { width: 1130, height: 625, borderRadius: 44, duration: .5, ease: 'power3.inOut' }, 47.35);
-  tl.to(d, { '--k6d': .55, duration: .5, ease: 'power3.inOut' }, 47.35);
-  tl.fromTo(kids, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: .3, stagger: .03, ease: E.out }, 47.45);
+  tl.to(wp, { width: 1130, height: 625, borderRadius: 44, duration: .8, ease: 'power3.inOut' }, 47.35);   // 13 Nov 2026: tumbuh terlihat (dulu .5 dtk)
+  tl.to(d, { '--k6d': .55, duration: .8, ease: 'power3.inOut' }, 47.35);
+  tl.fromTo(kids, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: .3, stagger: .03, ease: E.out }, 47.85);
   tl.fromTo(wp, { scale: 1 }, { scale: 1.03, duration: 1.4, ease: bE(47.85, 1.4), immediateRender: false }, 47.85);
   tl.to(wp, { x: -260, duration: .2, ease: E.in }, 49.25);
   bg(tl, false, 49.3, .5);
@@ -1500,7 +1514,7 @@ function S7(tl) {
   // screen just past the tip, and the two drift together — the arrow never pulls back
   // video: kamera berhenti dengan ujung panah di ±56% layar, lalu ikut bergeser kiri saat teks meluncur masuk
   tl.to(w, { x: OWN_W + 480, duration: .65, ease: E.inOut }, 54.75);
-  tl.to(w, { x: OWN_W + 230, duration: .9, ease: 'expo.out' }, 55.55);   // berhenti bersih (tanpa geser susulan)
+  tl.to(w, { x: OWN_W + 325, duration: .9, ease: 'expo.out' }, 55.55);   // berhenti bersih; 13 Nov 2026: ujung panah lebih dekat ke teks (dulu +230 = ±150 px celah)
   let aK = '';
   hooks.push(() => {
     const kk = A.d.toFixed(4) + (wave.getAttribute('d') || '').length + (wave.getAttribute('d') || '').slice(-40); if (kk === aK) return; aK = kk;
@@ -1660,13 +1674,14 @@ function syncAudio() {
   // di jaringan lambat). Selama suara memuat/mencari posisi, animasi jalan terus di kecepatan normal; setelah itu suara
   // disusulkan pelan-pelan (paling sering sekali per 2 detik), animasi hanya dilompatkan maju bila suara jauh di depan.
   if (audio.readyState < 3 || audio.seeking) { if (tl.timeScale() !== 1) tl.timeScale(1); if (tl.paused() && playingNow) tl.play(); return; }
+  // 13 Nov 2026: suara TIDAK dicari-ulang (currentTime) untuk selisih kecil/sedang — tiap pencarian saat diputar terdengar sebagai
+  // lompatan/klik ("glitch") dan memicu pemuatan ulang. Animasi yang menyesuaikan: lebih pelan bila mendahului suara,
+  // dilompatkan maju bila tertinggal jauh. Suara hanya dicari ulang bila selisih > 1,5 dtk (mis. sesudah macet lama), paling sering 5 dtk sekali.
   const a = Math.min(audio.currentTime, tl.duration()), d = a - tl.time(), now = performance.now();
-  if (Math.abs(d) > .35) {
-    if (d < 0) { if (now - (syncAudio.seekAt || 0) > 2000) { syncAudio.seekAt = now; try { audio.currentTime = tl.time(); } catch (er) {} } }
-    else tl.time(a);
-    tl.timeScale(1);
-  }
-  else tl.timeScale(1 + Math.max(-.06, Math.min(.06, d * 1.5)));
+  if (d < -1.5 && now - (syncAudio.seekAt || 0) > 5000) { syncAudio.seekAt = now; try { audio.currentTime = tl.time(); } catch (er) {} tl.timeScale(1); }
+  else if (d > .35) { tl.time(a); tl.timeScale(1); }
+  else if (d < -.35) tl.timeScale(.85);
+  else tl.timeScale(1 + Math.max(-.1, Math.min(.1, d * 2)));
   if (tl.paused() && playingNow) tl.play();
 }
 function setPlayIcon(p) { $('#cIcon').setAttribute('d', p ? 'M3 2h4v12H3zM9 2h4v12H9z' : 'M4 2l10 6-10 6z'); $('#cPlay').setAttribute('aria-label', p ? 'Pause' : 'Play'); }
