@@ -1,5 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-WPXtdFt7t9/WDgVKJLeDk4zXae1SbtY3KmaxUFGRn/g=' 'sha256-5yWPvZi/P+8Dr2wImVO8l2g3hTIePrxkQwoVU1AenzY=' 'sha256-+yXoJVG4nBn5MAJTZfNB6Ty2hd+qYdkIfHo82pQJYv8='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob: https://iluztar.com; media-src 'self' blob: https://iluztar.com; connect-src 'self' https://iluztar.com; object-src 'none'; base-uri 'self'; form-action 'self'"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>ILUZTAR - Motion Graphic</title>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-WPXtdFt7t9/WDgVKJLeDk4zXae1SbtY3KmaxUFGRn/g=' 'sha256-hdI2FsrlXADoe+vFe8yVMK27kF7I5mQcAOStbmASEE8=' 'sha256-+yXoJVG4nBn5MAJTZfNB6Ty2hd+qYdkIfHo82pQJYv8='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob: https://iluztar.com; media-src 'self' blob: https://iluztar.com; connect-src 'self' https://iluztar.com; object-src 'none'; base-uri 'self'; form-action 'self'"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>ILUZTAR - Motion Graphic</title>
 <meta name="description" content="Company profile digital ILUZTAR Studio berbasis motion graphic interaktif. Dibuat oleh artist ILUZTAR untuk skripsi “Pengembangan Company Profile Digital Studio Kreatif ILUZTAR dengan Menggunakan Motion Graphic sebagai Media Promosi”, dikonversi dari video motion menjadi website dengan bantuan Claude AI (Opus 5.5).">
 <meta property="og:title" content="ILUZTAR - Motion Graphic">
 <meta property="og:description" content="Company profile digital ILUZTAR Studio berbasis motion graphic interaktif. Dibuat oleh artist ILUZTAR untuk skripsi “Pengembangan Company Profile Digital Studio Kreatif ILUZTAR dengan Menggunakan Motion Graphic sebagai Media Promosi”, dikonversi dari video motion menjadi website dengan bantuan Claude AI (Opus 5.5).">
@@ -1990,7 +1990,7 @@ function ensureAudio() {
   // Dulu useSlots membuat Audio baru di sini, jadi musik intro terunduh dua kali (PageSpeed: 2 × 534 KB).
   const ada = audio || introAudio;
   if (ada ? ada.src === url : !url) { audioKey = key; return; }
-  const tunggu = !audio && introAudio;
+  const tunggu = INTRO && !introPenuh && !introMulai && !audio && introAudio;   // hanya saat intro MENUNGGU "Buka website" (bukan Watch full reel / sesudah mulai)
   setAudio(url); audioKey = key;
   if (tunggu) { introAudio.pause(); introAudio = audio; audio = null; }
 }
