@@ -1,5 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-WPXtdFt7t9/WDgVKJLeDk4zXae1SbtY3KmaxUFGRn/g=' 'sha256-64MLv9MRMZ2AWRd0LuvOzyIAX2aoThf9fh6qbNB5200=' 'sha256-+yXoJVG4nBn5MAJTZfNB6Ty2hd+qYdkIfHo82pQJYv8='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://iluztar.com; media-src 'self' blob: https://iluztar.com; connect-src 'self' https://iluztar.com; object-src 'none'; base-uri 'self'; form-action 'self'"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>ILUZTAR - Motion Graphic</title>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-WPXtdFt7t9/WDgVKJLeDk4zXae1SbtY3KmaxUFGRn/g=' 'sha256-5yWPvZi/P+8Dr2wImVO8l2g3hTIePrxkQwoVU1AenzY=' 'sha256-+yXoJVG4nBn5MAJTZfNB6Ty2hd+qYdkIfHo82pQJYv8='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob: https://iluztar.com; media-src 'self' blob: https://iluztar.com; connect-src 'self' https://iluztar.com; object-src 'none'; base-uri 'self'; form-action 'self'"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>ILUZTAR - Motion Graphic</title>
 <meta name="description" content="Company profile digital ILUZTAR Studio berbasis motion graphic interaktif. Dibuat oleh artist ILUZTAR untuk skripsi “Pengembangan Company Profile Digital Studio Kreatif ILUZTAR dengan Menggunakan Motion Graphic sebagai Media Promosi”, dikonversi dari video motion menjadi website dengan bantuan Claude AI (Opus 5.5).">
 <meta property="og:title" content="ILUZTAR - Motion Graphic">
 <meta property="og:description" content="Company profile digital ILUZTAR Studio berbasis motion graphic interaktif. Dibuat oleh artist ILUZTAR untuk skripsi “Pengembangan Company Profile Digital Studio Kreatif ILUZTAR dengan Menggunakan Motion Graphic sebagai Media Promosi”, dikonversi dari video motion menjadi website dengan bantuan Claude AI (Opus 5.5).">
@@ -20,10 +20,11 @@ try {
 // pustaka animasi tidak termuat (diblokir/terlalu lambat): beri tahu halaman induk (beranda) supaya langsung membuka situs
 if (window.parent !== window) setTimeout(() => { if (!window.gsap || !window.__reel) try { parent.postMessage({ iluztarReel: 'gagal' }, location.origin); } catch (e) {} }, 15000);   // 13 Nov 2026: 15 dtk (dulu 4) — jaringan HP lambat
 </script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=JetBrains+Mono:wght@500;600&display=swap">
+<!-- 14 Nov 2026: font di-host sendiri (dulu Google Fonts: 95 KB pihak ketiga + CSS penghambat render). Lisensi SIL OFL. -->
+<link rel="preload" href="aset/font/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
 <style>
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url(aset/font/dm-sans-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:500 600;font-display:swap;src:url(aset/font/jetbrains-mono-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
 /* ---------- theme tokens ----------
    Light is the default; dark only when the viewer picks it (html[data-theme="dark"]). */
 :root{
@@ -1985,8 +1986,13 @@ const defaultAudio = key => DEFAULT_AUDIO[key] ? new URL(DEFAULT_AUDIO[key], loc
 function ensureAudio() {
   if (audioURL) return;                                   // a local file picked by hand wins
   const key = trackKey(), url = slotMap[key] || defaultAudio(key);
-  if (audioKey === key && (audio ? audio.src === url : !url)) return;
+  // 14 Nov 2026: intro menyimpan pemutar di introAudio (menunggu "Buka website") — berkas sama → pakai yang ada.
+  // Dulu useSlots membuat Audio baru di sini, jadi musik intro terunduh dua kali (PageSpeed: 2 × 534 KB).
+  const ada = audio || introAudio;
+  if (ada ? ada.src === url : !url) { audioKey = key; return; }
+  const tunggu = !audio && introAudio;
   setAudio(url); audioKey = key;
+  if (tunggu) { introAudio.pause(); introAudio = audio; audio = null; }
 }
 function setAudio(url, label) {
   if (audio) audio.pause();
