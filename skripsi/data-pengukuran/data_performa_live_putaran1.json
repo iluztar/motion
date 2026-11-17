@@ -1,0 +1,360 @@
+{
+  "peramban": "Microsoft Edge 157.0.4341.42",
+  "tanggal": "2026-11-10T04:46:03.439Z",
+  "mode": "live",
+  "reel_github": {
+    "url": "https://iluztar.github.io/motion/",
+    "desktop": {
+      "rata_rata": {
+        "fcp_ms": 758,
+        "lcp_ms": 1948,
+        "cls": 0.003,
+        "tbt_ms": 230,
+        "load_ms": 1084,
+        "transfer_kb": 588,
+        "request": 22,
+        "per_jenis_kb": {
+          "html": 44,
+          "js": 46,
+          "css": 1,
+          "gambar": 404,
+          "font": 92
+        },
+        "lcp_elemen": "img.tex"
+      },
+      "per_percobaan": [
+        {
+          "fcp_ms": 1116,
+          "lcp_ms": 2148,
+          "lcp_elemen": "img.tex",
+          "cls": 0.003,
+          "tbt_ms": 298,
+          "load_ms": 1334,
+          "transfer_kb": 588,
+          "request": 22,
+          "per_jenis_kb": {
+            "html": 44,
+            "js": 47,
+            "css": 1,
+            "gambar": 404,
+            "font": 92
+          }
+        },
+        {
+          "fcp_ms": 568,
+          "lcp_ms": 1832,
+          "lcp_elemen": "img.tex",
+          "cls": 0.003,
+          "tbt_ms": 189,
+          "load_ms": 924,
+          "transfer_kb": 588,
+          "request": 22,
+          "per_jenis_kb": {
+            "html": 44,
+            "js": 46,
+            "css": 1,
+            "gambar": 404,
+            "font": 92
+          }
+        },
+        {
+          "fcp_ms": 744,
+          "lcp_ms": 1964,
+          "lcp_elemen": "img.tex",
+          "cls": 0.003,
+          "tbt_ms": 208,
+          "load_ms": 1059,
+          "transfer_kb": 588,
+          "request": 22,
+          "per_jenis_kb": {
+            "html": 44,
+            "gambar": 404,
+            "js": 47,
+            "css": 1,
+            "font": 92
+          }
+        },
+        {
+          "fcp_ms": 640,
+          "lcp_ms": 1856,
+          "lcp_elemen": "img.tex",
+          "cls": 0.003,
+          "tbt_ms": 175,
+          "load_ms": 934,
+          "transfer_kb": 588,
+          "request": 22,
+          "per_jenis_kb": {
+            "html": 44,
+            "gambar": 404,
+            "js": 46,
+            "css": 1,
+            "font": 92
+          }
+        },
+        {
+          "fcp_ms": 724,
+          "lcp_ms": 1940,
+          "lcp_elemen": "img.tex",
+          "cls": 0.003,
+          "tbt_ms": 282,
+          "load_ms": 1168,
+          "transfer_kb": 588,
+          "request": 22,
+          "per_jenis_kb": {
+            "html": 44,
+            "gambar": 404,
+            "js": 46,
+            "css": 1,
+            "font": 92
+          }
+        }
+      ]
+    }
+  },
+  "kontrol_video_github": {
+    "url": "https://iluztar.github.io/motion/__kontrol-video.html",
+    "desktop": {
+      "rata_rata": {
+        "fcp_ms": 86,
+        "lcp_ms": 0,
+        "cls": 0,
+        "tbt_ms": 0,
+        "load_ms": 612,
+        "transfer_kb": 2202,
+        "request": 2,
+        "per_jenis_kb": {
+          "html": 0,
+          "video": 2201
+        },
+        "lcp_elemen": ""
+      },
+      "per_percobaan": [
+        {
+          "fcp_ms": 88,
+          "lcp_ms": 0,
+          "lcp_elemen": "",
+          "cls": 0,
+          "tbt_ms": 0,
+          "load_ms": 1808,
+          "transfer_kb": 2202,
+          "request": 2,
+          "per_jenis_kb": {
+            "html": 0,
+            "video": 2201
+          },
+          "video": {
+            "diputar_detik": 8,
+            "buffer_detik": 71.5,
+            "lebar": 960
+          }
+        },
+        {
+          "fcp_ms": 96,
+          "lcp_ms": 0,
+          "lcp_elemen": "",
+          "cls": 0,
+          "tbt_ms": 0,
+          "load_ms": 762,
+          "transfer_kb": 2202,
+          "request": 2,
+          "per_jenis_kb": {
+            "html": 0,
+            "video": 2201
+          },
+          "video": {
+            "diputar_detik": 8,
+            "buffer_detik": 71.5,
+            "lebar": 960
+          }
+        },
+        {
+          "fcp_ms": 84,
+          "lcp_ms": 0,
+          "lcp_elemen": "",
+          "cls": 0,
+          "tbt_ms": 0,
+          "load_ms": 158,
+          "transfer_kb": 2202,
+          "request": 2,
+          "per_jenis_kb": {
+            "html": 0,
+            "video": 2201
+          },
+          "video": {
+            "diputar_detik": 8,
+            "buffer_detik": 71.5,
+            "lebar": 960
+          }
+        },
+        {
+          "fcp_ms": 84,
+          "lcp_ms": 0,
+          "lcp_elemen": "",
+          "cls": 0,
+          "tbt_ms": 0,
+          "load_ms": 165,
+          "transfer_kb": 2202,
+          "request": 2,
+          "per_jenis_kb": {
+            "html": 0,
+            "video": 2201
+          },
+          "video": {
+            "diputar_detik": 8,
+            "buffer_detik": 71.5,
+            "lebar": 960
+          }
+        },
+        {
+          "fcp_ms": 80,
+          "lcp_ms": 0,
+          "lcp_elemen": "",
+          "cls": 0,
+          "tbt_ms": 0,
+          "load_ms": 167,
+          "transfer_kb": 2202,
+          "request": 2,
+          "per_jenis_kb": {
+            "html": 0,
+            "video": 2201
+          },
+          "video": {
+            "diputar_detik": 8,
+            "buffer_detik": 71.5,
+            "lebar": 960
+          }
+        }
+      ]
+    }
+  },
+  "beranda_live_intro": {
+    "url": "https://iluztar.com/",
+    "desktop": {
+      "rata_rata": {
+        "fcp_ms": 526,
+        "lcp_ms": 1821,
+        "cls": 0.024,
+        "tbt_ms": 314,
+        "load_ms": 2054,
+        "transfer_kb": 1585,
+        "request": 44,
+        "gerbang_ms": 2196,
+        "transfer_setelah_mulai_kb": 1587,
+        "audio_setelah_mulai_kb": 214,
+        "per_jenis_kb": {
+          "html": 100,
+          "css": 70,
+          "gambar": 1112,
+          "js": 9,
+          "font": 80,
+          "audio": 214
+        },
+        "lcp_elemen": "img"
+      },
+      "per_percobaan": [
+        {
+          "fcp_ms": 460,
+          "lcp_ms": 1512,
+          "lcp_elemen": "img",
+          "cls": 0.008,
+          "tbt_ms": 120,
+          "load_ms": 992,
+          "transfer_kb": 1431,
+          "request": 45,
+          "per_jenis_kb": {
+            "html": 93,
+            "css": 70,
+            "gambar": 1182,
+            "js": 9,
+            "font": 77
+          },
+          "gerbang_ms": 1024,
+          "transfer_setelah_mulai_kb": 1433,
+          "audio_setelah_mulai_kb": 0
+        },
+        {
+          "fcp_ms": 356,
+          "lcp_ms": 1440,
+          "lcp_elemen": "img",
+          "cls": 0.008,
+          "tbt_ms": 150,
+          "load_ms": 965,
+          "transfer_kb": 1083,
+          "request": 37,
+          "per_jenis_kb": {
+            "html": 93,
+            "css": 70,
+            "gambar": 834,
+            "js": 9,
+            "font": 77
+          },
+          "gerbang_ms": 1051,
+          "transfer_setelah_mulai_kb": 1085,
+          "audio_setelah_mulai_kb": 0
+        },
+        {
+          "fcp_ms": 596,
+          "lcp_ms": 2296,
+          "lcp_elemen": "img",
+          "cls": 0.008,
+          "tbt_ms": 640,
+          "load_ms": 3327,
+          "transfer_kb": 1965,
+          "request": 46,
+          "per_jenis_kb": {
+            "html": 93,
+            "css": 70,
+            "gambar": 1182,
+            "js": 9,
+            "font": 77,
+            "audio": 534
+          },
+          "gerbang_ms": 3713,
+          "transfer_setelah_mulai_kb": 1967,
+          "audio_setelah_mulai_kb": 534
+        },
+        {
+          "fcp_ms": 844,
+          "lcp_ms": 2412,
+          "lcp_elemen": "img",
+          "cls": 0.09,
+          "tbt_ms": 518,
+          "load_ms": 3751,
+          "transfer_kb": 2016,
+          "request": 48,
+          "per_jenis_kb": {
+            "css": 70,
+            "html": 129,
+            "gambar": 1182,
+            "js": 9,
+            "font": 92,
+            "audio": 534
+          },
+          "gerbang_ms": 3935,
+          "transfer_setelah_mulai_kb": 2018,
+          "audio_setelah_mulai_kb": 534
+        },
+        {
+          "fcp_ms": 376,
+          "lcp_ms": 1444,
+          "lcp_elemen": "img",
+          "cls": 0.008,
+          "tbt_ms": 143,
+          "load_ms": 1234,
+          "transfer_kb": 1431,
+          "request": 45,
+          "per_jenis_kb": {
+            "html": 93,
+            "css": 70,
+            "gambar": 1182,
+            "js": 9,
+            "font": 77
+          },
+          "gerbang_ms": 1258,
+          "transfer_setelah_mulai_kb": 1433,
+          "audio_setelah_mulai_kb": 0
+        }
+      ]
+    }
+  }
+}

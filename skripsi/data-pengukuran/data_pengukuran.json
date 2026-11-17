@@ -1,15 +1,37 @@
 {
   "muat": {
-    "dom_content_loaded_ms": 1461,
-    "load_ms": 1862,
-    "html_kb": 384,
-    "total_kb": 429,
-    "per_jenis_kb": {
-      "lain": 1,
-      "js": 42,
-      "gambar": 1
-    },
-    "jumlah_request": 8
+    "total_kb": 1891,
+    "jumlah_request": 25,
+    "per_jenis": {
+      "gambar": {
+        "kb": 411,
+        "request": 15
+      },
+      "css": {
+        "kb": 1,
+        "request": 1
+      },
+      "html": {
+        "kb": 149,
+        "request": 1
+      },
+      "js": {
+        "kb": 47,
+        "request": 4
+      },
+      "font": {
+        "kb": 92,
+        "request": 2
+      },
+      "lain": {
+        "kb": 1,
+        "request": 1
+      },
+      "media": {
+        "kb": 1189,
+        "request": 1
+      }
+    }
   },
   "dom": {
     "title": "ILUZTAR - Motion Graphic",
@@ -22,7 +44,7 @@
       "og:description"
     ],
     "canonical": false,
-    "noscript": 0,
+    "robots": null,
     "jsonld": 0,
     "scenes": [
       {
@@ -66,50 +88,21 @@
         "teks": "Ready to bring your next project to life? Find us on Instagram at iluztar, or visit iluztar.com."
       }
     ],
-    "kata_di_dom": 18,
-    "svg": 58,
+    "svg": 59,
+    "img": 30,
     "canvas": 0,
     "video": 0
   },
   "durasi_reel": 71.51,
   "tanpa_js": {
     "kata": 311,
-    "contoh": "01 · INTRO 00:00 ▶ PLAY SCENE A creative studio This is Iluztar, a creative studio based in Bandar Lampung, Indonesia, built by artists, for artists, since 2023. 02 · THE PROBLEM 00:10 ▶ PLAY SCENE Got a project that's– Growing faster than you– Can handle? Yeah :( Got a project that's growing faster than you can handle? Tight deadlines, unfinished sketches, and too many things on your plate? 03 · "
+    "teks": "01 · INTRO 00:00 ▶ PLAY SCENE A creative studio This is Iluztar, a creative studio based in Bandar Lampung, Indonesia, built by artists, for artists, since 2023. 02 · THE PROBLEM 00:10 ▶ PLAY SCENE Got a project that's– Growing faster than you– Can handle? Yeah :( Got a project that's growing faster than you can handle? Tight deadlines, unfinished sketches, and too many things on your plate? 03 · WE GOT YOU 00:19 ▶ PLAY SCENE we got you! We got you. 04 · SERVICES 00:21 ▶ PLAY SCENE iluztar Bandar Lampung ··· 01 · Sketch 1,204 likes iluztar Rough poses, locked in. iluztar Bandar Lampung ··· 02 · Line-art 2,381 likes iluztar Clean lines, ready for color. iluztar Bandar Lampung ··· 03 · Base Color 3,057 likes iluztar Flat colors, ready to render. Whether it's a full commission or just an extra pair of hands (sketch, lineart, or base color), we've got you covered. 05 · SAME CARE 00:31 ▶ PLAY SCENE Single Task This is the Single Task Big Project Many files are inside the folder Big project or a single task, we treat every piece with the same care, precision, and attention to detail. 06 · YOU & WE 00:39 ▶ PLAY SCENE You keep the we handle the workload You keep the vision, we handle the workload. You create, we refine. You dream, we help you build it. 07 · OWNERSHIP 00:49 ▶ PLAY SCENE And every stays true to your style Your ownership. And every piece stays true to your style, your direction, and most importantly, your ownership. 08 · LET'S TALK 00:57 ▶ PLAY SCENE ILUZTAR 56 posts 1397 followers 1032 following Artist Let's shine together through art Follow Message Contact Ready to bring your next project to life? Find us on Instagram at iluztar, or visit iluztar.com. PLAY FULL 71S CUT 30S"
   },
-  "video_baru": {
+  "video": {
     "durasi_detik": 71.52,
-    "titik": [
-      3,
-      13.72,
-      20.85,
-      24.62,
-      34.3,
-      42.5,
-      52.4,
-      61.3
-    ],
-    "ukuran_mb": 2.1
-  },
-  "video_baru_lima": {
-    "durasi_detik": 71.52,
-    "titik": [
-      5.72,
-      21.46,
-      35.76,
-      50.06,
-      65.8
-    ]
-  },
-  "video_lama": {
-    "durasi_detik": 82.07,
-    "titik": [
-      6.57,
-      24.62,
-      41.03,
-      57.45,
-      75.5
-    ],
-    "ukuran_mb": 129.9
+    "lebar": 960,
+    "tinggi": 540,
+    "ukuran_kb": 2200
   },
   "titik_banding": [
     3,

@@ -16,9 +16,9 @@
       "x_robots_tag": "-"
     },
     "performa": {
-      "lcp_ms": 996,
-      "load_ms": 393,
-      "transfer_kb": 377,
+      "lcp_ms": 1261,
+      "load_ms": 636,
+      "transfer_kb": 369,
       "elemen_video": 0,
       "iframe_video": 0,
       "respons_video": 0
@@ -30,20 +30,20 @@
       "title": "ILUZTAR - Creative Studio",
       "meta_description": "103 karakter",
       "canonical": true,
-      "hreflang": 3,
+      "hreflang": 4,
       "open_graph": 8,
       "twitter_card": true,
       "json_ld": "ProfilePage",
       "h1": 1,
       "lang": "en",
-      "kata_tanpa_js": 1096,
+      "kata_tanpa_js": 1110,
       "img_tanpa_alt": 1,
       "x_robots_tag": "noindex, nofollow"
     },
     "performa": {
-      "lcp_ms": 944,
-      "load_ms": 1055,
-      "transfer_kb": 1857,
+      "lcp_ms": 2839,
+      "load_ms": 2540,
+      "transfer_kb": 1766,
       "elemen_video": 0,
       "iframe_video": 0,
       "respons_video": 0

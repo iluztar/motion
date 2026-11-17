@@ -1,40 +1,127 @@
 {
-  "alur_penuh": {
-    "reel_siap_detik": 2.8,
-    "tertutup_otomatis_detik": 35,
+  "peramban": "Chromium 153.0.8010.12",
+  "tanggal": "2026-11-10T04:38:33.383Z",
+  "alur": {
+    "tombol_muncul": true,
+    "tombol_muncul_detik": 2.8,
+    "posisi_animasi_sebelum_klik": 0,
+    "audio_berjalan_sebelum_klik": 0,
+    "posisi_animasi_3s_setelah_klik": 2.94,
+    "audio_3s_setelah_klik": [
+      {
+        "berkas": "Soundtrack_30s.m4a",
+        "berjalan": true,
+        "posisi": 3,
+        "bisu": false
+      }
+    ],
+    "audio_diminta": [
+      "Soundtrack_30s.m4a"
+    ],
+    "suara_gagal": false,
+    "tertutup_otomatis": true,
+    "tertutup_detik_setelah_klik": 33,
     "sessionStorage": "1",
     "halaman_bisa_digulir": true,
     "kunjungan_ulang_tanpa_intro": true,
     "galat": []
   },
-  "lewati": {
-    "fokus_awal": "ilz-intro__lewati",
-    "tertutup_ms": 706,
+  "lewati_di_tombol": {
+    "fokus_awal": "ilz-intro__mulai",
+    "tertutup": true,
+    "tertutup_ms": 735,
     "galat": []
   },
-  "esc": "tertutup",
+  "lewati_saat_berjalan": {
+    "tertutup": true,
+    "tertutup_ms": 645,
+    "galat": []
+  },
+  "esc": {
+    "tertutup": true,
+    "tertutup_ms": 1544
+  },
   "reduced_motion_tanpa_intro": true,
   "intro_0_tanpa_intro": true,
   "hp": {
+    "tombol_muncul": true,
+    "tombol_mulai": {
+      "lebar": 183,
+      "tinggi": 48,
+      "di_layar": true
+    },
+    "posisi_animasi_setelah_ketuk": 3.49,
+    "iframe_selayar_penuh": true,
+    "tombol_lewati": {
+      "lebar": 92,
+      "tinggi": 40,
+      "di_layar": true
+    },
+    "tertutup": true,
     "galat": []
   },
-  "suara": {
-    "tombol_aktif": "true",
-    "audio_dimuat": [
-      "Soundtrack_30s.m4a"
-    ],
-    "putar_gagal": false,
+  "pengaman_muat": {
+    "tertutup": true,
+    "tertutup_detik": 11.9,
+    "halaman_bisa_digulir": true
+  },
+  "tombol_suara": {
+    "awal": {
+      "tombol": "true",
+      "audio": [
+        {
+          "berkas": "Soundtrack_30s.m4a",
+          "berjalan": true,
+          "posisi": 3,
+          "bisu": false
+        }
+      ]
+    },
+    "setelah_dibisukan": {
+      "tombol": "false",
+      "audio": [
+        {
+          "berkas": "Soundtrack_30s.m4a",
+          "berjalan": true,
+          "posisi": 4.6,
+          "bisu": true
+        }
+      ],
+      "posisi_animasi": 4.59
+    },
+    "setelah_dinyalakan": {
+      "tombol": "true",
+      "audio": [
+        {
+          "berkas": "Soundtrack_30s.m4a",
+          "berjalan": true,
+          "posisi": 6.2,
+          "bisu": false
+        }
+      ],
+      "posisi_animasi": 6.14
+    },
+    "suara_gagal": false,
     "galat": []
   },
   "versi_lengkap": {
     "tab_baru": 0,
-    "audio_dimuat": [
+    "audio_diminta": [
       "Soundtrack_30s.m4a",
       "Soundtrack_71s.m4a"
     ],
-    "posisi_detik_setelah_48s": 48.9,
+    "posisi_animasi_setelah_48s": 47.91,
+    "audio": [
+      {
+        "berkas": "Soundtrack_71s.m4a",
+        "berjalan": true,
+        "posisi": 47.9,
+        "bisu": false
+      }
+    ],
     "lapisan_masih_tampil": true,
-    "reel_aktif": true,
+    "suara_gagal": false,
     "galat": []
-  }
+  },
+  "galat_total": []
 }

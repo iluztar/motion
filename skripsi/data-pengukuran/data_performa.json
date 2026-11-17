@@ -1,118 +1,1182 @@
 {
-  "desktop": {
-    "rata_rata": {
-      "fcp_ms": 973,
-      "lcp_ms": 973,
-      "cls": 0.003,
-      "tbt_ms": 366,
-      "dcl_ms": 1365,
-      "load_ms": 1368,
-      "transfer_kb": 527
-    },
-    "per_percobaan": [
-      {
-        "fcp_ms": 1256,
-        "lcp_ms": 1256,
-        "cls": 0.003,
-        "tbt_ms": 448,
-        "dcl_ms": 1380,
-        "load_ms": 1383,
-        "transfer_kb": 528
-      },
-      {
-        "fcp_ms": 920,
-        "lcp_ms": 920,
-        "cls": 0.003,
-        "tbt_ms": 368,
-        "dcl_ms": 1445,
-        "load_ms": 1447,
-        "transfer_kb": 527
-      },
-      {
-        "fcp_ms": 1060,
-        "lcp_ms": 1060,
-        "cls": 0.003,
-        "tbt_ms": 443,
-        "dcl_ms": 1585,
-        "load_ms": 1588,
-        "transfer_kb": 527
-      },
-      {
+  "peramban": "Microsoft Edge 157.0.4341.42",
+  "tanggal": "2026-11-10T08:52:40.075Z",
+  "mode": "lokal",
+  "reel": {
+    "url": "http://localhost/iluztar/hostinger/dev/motion/",
+    "desktop": {
+      "rata_rata": {
         "fcp_ms": 804,
-        "lcp_ms": 804,
+        "lcp_ms": 1977,
         "cls": 0.003,
-        "tbt_ms": 332,
-        "dcl_ms": 1229,
-        "load_ms": 1231,
-        "transfer_kb": 527
+        "tbt_ms": 493,
+        "load_ms": 1409,
+        "transfer_kb": 1886,
+        "request": 24,
+        "per_jenis_kb": {
+          "gambar": 411,
+          "html": 157,
+          "js": 47,
+          "css": 1,
+          "font": 79,
+          "lain": 1,
+          "audio": 1189
+        },
+        "lcp_elemen": "img.tex"
       },
-      {
-        "fcp_ms": 824,
-        "lcp_ms": 824,
-        "cls": 0.003,
-        "tbt_ms": 240,
-        "dcl_ms": 1186,
-        "load_ms": 1192,
-        "transfer_kb": 527
-      }
-    ]
-  },
-  "hp": {
-    "rata_rata": {
-      "fcp_ms": 1614,
-      "lcp_ms": 1614,
-      "cls": 0.002,
-      "tbt_ms": 913,
-      "dcl_ms": 2655,
-      "load_ms": 2659,
-      "transfer_kb": 527
+      "per_percobaan": [
+        {
+          "fcp_ms": 1072,
+          "lcp_ms": 2008,
+          "lcp_elemen": "img.tex",
+          "cls": 0.003,
+          "tbt_ms": 451,
+          "load_ms": 1399,
+          "transfer_kb": 1891,
+          "request": 24,
+          "per_jenis_kb": {
+            "gambar": 411,
+            "html": 149,
+            "js": 47,
+            "css": 1,
+            "font": 92,
+            "lain": 1,
+            "audio": 1189
+          }
+        },
+        {
+          "fcp_ms": 636,
+          "lcp_ms": 1848,
+          "lcp_elemen": "img.tex",
+          "cls": 0.003,
+          "tbt_ms": 415,
+          "load_ms": 1207,
+          "transfer_kb": 1891,
+          "request": 24,
+          "per_jenis_kb": {
+            "gambar": 411,
+            "html": 149,
+            "js": 47,
+            "css": 1,
+            "font": 92,
+            "lain": 1,
+            "audio": 1189
+          }
+        },
+        {
+          "fcp_ms": 696,
+          "lcp_ms": 1912,
+          "lcp_elemen": "img.tex",
+          "cls": 0.003,
+          "tbt_ms": 629,
+          "load_ms": 1519,
+          "transfer_kb": 1891,
+          "request": 24,
+          "per_jenis_kb": {
+            "gambar": 411,
+            "html": 149,
+            "js": 47,
+            "css": 1,
+            "font": 92,
+            "lain": 1,
+            "audio": 1189
+          }
+        },
+        {
+          "fcp_ms": 704,
+          "lcp_ms": 1920,
+          "lcp_elemen": "img.tex",
+          "cls": 0.003,
+          "tbt_ms": 511,
+          "load_ms": 1364,
+          "transfer_kb": 1866,
+          "request": 24,
+          "per_jenis_kb": {
+            "gambar": 411,
+            "html": 188,
+            "js": 47,
+            "css": 1,
+            "font": 29,
+            "lain": 1,
+            "audio": 1189
+          }
+        },
+        {
+          "fcp_ms": 912,
+          "lcp_ms": 2196,
+          "lcp_elemen": "img.tex",
+          "cls": 0.003,
+          "tbt_ms": 461,
+          "load_ms": 1556,
+          "transfer_kb": 1891,
+          "request": 24,
+          "per_jenis_kb": {
+            "gambar": 411,
+            "html": 149,
+            "js": 47,
+            "css": 1,
+            "font": 92,
+            "lain": 1,
+            "audio": 1189
+          }
+        }
+      ]
     },
-    "per_percobaan": [
-      {
-        "fcp_ms": 1484,
-        "lcp_ms": 1484,
-        "cls": 0.001,
-        "tbt_ms": 893,
-        "dcl_ms": 2461,
+    "hp": {
+      "rata_rata": {
+        "fcp_ms": 1358,
+        "lcp_ms": 2664,
+        "cls": 0.002,
+        "tbt_ms": 797,
         "load_ms": 2463,
-        "transfer_kb": 527
+        "transfer_kb": 1891,
+        "request": 24,
+        "per_jenis_kb": {
+          "html": 149,
+          "gambar": 411,
+          "js": 47,
+          "css": 1,
+          "lain": 1,
+          "font": 92,
+          "audio": 1189
+        },
+        "lcp_elemen": "img.tex"
       },
-      {
-        "fcp_ms": 1572,
-        "lcp_ms": 1572,
+      "per_percobaan": [
+        {
+          "fcp_ms": 1376,
+          "lcp_ms": 2608,
+          "lcp_elemen": "img.tex",
+          "cls": 0.002,
+          "tbt_ms": 753,
+          "load_ms": 2375,
+          "transfer_kb": 1891,
+          "request": 24,
+          "per_jenis_kb": {
+            "html": 149,
+            "gambar": 411,
+            "js": 47,
+            "css": 1,
+            "lain": 1,
+            "font": 92,
+            "audio": 1189
+          }
+        },
+        {
+          "fcp_ms": 1224,
+          "lcp_ms": 2508,
+          "lcp_elemen": "img.tex",
+          "cls": 0.002,
+          "tbt_ms": 707,
+          "load_ms": 2207,
+          "transfer_kb": 1891,
+          "request": 24,
+          "per_jenis_kb": {
+            "html": 149,
+            "js": 47,
+            "css": 1,
+            "gambar": 411,
+            "lain": 1,
+            "font": 92,
+            "audio": 1189
+          }
+        },
+        {
+          "fcp_ms": 1268,
+          "lcp_ms": 2652,
+          "lcp_elemen": "img.tex",
+          "cls": 0,
+          "tbt_ms": 1099,
+          "load_ms": 2648,
+          "transfer_kb": 1891,
+          "request": 24,
+          "per_jenis_kb": {
+            "html": 149,
+            "js": 47,
+            "gambar": 411,
+            "css": 1,
+            "lain": 1,
+            "font": 92,
+            "audio": 1189
+          }
+        },
+        {
+          "fcp_ms": 1460,
+          "lcp_ms": 2792,
+          "lcp_elemen": "img.tex",
+          "cls": 0.002,
+          "tbt_ms": 793,
+          "load_ms": 2502,
+          "transfer_kb": 1891,
+          "request": 24,
+          "per_jenis_kb": {
+            "html": 149,
+            "gambar": 411,
+            "js": 47,
+            "css": 1,
+            "lain": 1,
+            "font": 92,
+            "audio": 1189
+          }
+        },
+        {
+          "fcp_ms": 1464,
+          "lcp_ms": 2760,
+          "lcp_elemen": "img.tex",
+          "cls": 0.003,
+          "tbt_ms": 632,
+          "load_ms": 2581,
+          "transfer_kb": 1891,
+          "request": 24,
+          "per_jenis_kb": {
+            "html": 149,
+            "js": 47,
+            "css": 1,
+            "gambar": 411,
+            "lain": 1,
+            "font": 92,
+            "audio": 1189
+          }
+        }
+      ]
+    }
+  },
+  "reel_intro": {
+    "url": "http://localhost/iluztar/hostinger/dev/motion/?intro=1",
+    "desktop": {
+      "rata_rata": {
+        "fcp_ms": 490,
+        "lcp_ms": 490,
+        "cls": 0,
+        "tbt_ms": 145,
+        "load_ms": 812,
+        "transfer_kb": 1235,
+        "request": 24,
+        "per_jenis_kb": {
+          "gambar": 411,
+          "html": 149,
+          "js": 47,
+          "css": 1,
+          "lain": 1,
+          "audio": 534,
+          "font": 92
+        },
+        "lcp_elemen": "img"
+      },
+      "per_percobaan": [
+        {
+          "fcp_ms": 468,
+          "lcp_ms": 468,
+          "lcp_elemen": "img",
+          "cls": 0,
+          "tbt_ms": 99,
+          "load_ms": 730,
+          "transfer_kb": 1235,
+          "request": 24,
+          "per_jenis_kb": {
+            "gambar": 411,
+            "html": 149,
+            "js": 47,
+            "css": 1,
+            "lain": 1,
+            "audio": 534,
+            "font": 92
+          }
+        },
+        {
+          "fcp_ms": 544,
+          "lcp_ms": 544,
+          "lcp_elemen": "img",
+          "cls": 0,
+          "tbt_ms": 184,
+          "load_ms": 922,
+          "transfer_kb": 1235,
+          "request": 24,
+          "per_jenis_kb": {
+            "gambar": 411,
+            "html": 149,
+            "js": 47,
+            "css": 1,
+            "lain": 1,
+            "audio": 534,
+            "font": 92
+          }
+        },
+        {
+          "fcp_ms": 424,
+          "lcp_ms": 424,
+          "lcp_elemen": "img",
+          "cls": 0,
+          "tbt_ms": 92,
+          "load_ms": 695,
+          "transfer_kb": 1235,
+          "request": 24,
+          "per_jenis_kb": {
+            "gambar": 411,
+            "html": 149,
+            "js": 47,
+            "css": 1,
+            "lain": 1,
+            "audio": 534,
+            "font": 92
+          }
+        },
+        {
+          "fcp_ms": 516,
+          "lcp_ms": 516,
+          "lcp_elemen": "img",
+          "cls": 0,
+          "tbt_ms": 172,
+          "load_ms": 861,
+          "transfer_kb": 1235,
+          "request": 24,
+          "per_jenis_kb": {
+            "gambar": 411,
+            "html": 149,
+            "js": 47,
+            "css": 1,
+            "lain": 1,
+            "audio": 534,
+            "font": 92
+          }
+        },
+        {
+          "fcp_ms": 500,
+          "lcp_ms": 500,
+          "lcp_elemen": "img",
+          "cls": 0,
+          "tbt_ms": 177,
+          "load_ms": 853,
+          "transfer_kb": 1235,
+          "request": 24,
+          "per_jenis_kb": {
+            "gambar": 411,
+            "html": 149,
+            "js": 47,
+            "css": 1,
+            "lain": 1,
+            "font": 92,
+            "audio": 534
+          }
+        }
+      ]
+    },
+    "hp": {
+      "rata_rata": {
+        "fcp_ms": 1202,
+        "lcp_ms": 1202,
+        "cls": 0.001,
+        "tbt_ms": 851,
+        "load_ms": 2753,
+        "transfer_kb": 1235,
+        "request": 24,
+        "per_jenis_kb": {
+          "html": 149,
+          "gambar": 411,
+          "css": 1,
+          "js": 47,
+          "font": 92,
+          "lain": 1,
+          "audio": 534
+        },
+        "lcp_elemen": "p.vo"
+      },
+      "per_percobaan": [
+        {
+          "fcp_ms": 1320,
+          "lcp_ms": 1320,
+          "lcp_elemen": "p.vo",
+          "cls": 0,
+          "tbt_ms": 445,
+          "load_ms": 2249,
+          "transfer_kb": 1235,
+          "request": 24,
+          "per_jenis_kb": {
+            "html": 149,
+            "gambar": 411,
+            "css": 1,
+            "js": 47,
+            "font": 92,
+            "lain": 1,
+            "audio": 534
+          }
+        },
+        {
+          "fcp_ms": 1472,
+          "lcp_ms": 1472,
+          "lcp_elemen": "img",
+          "cls": 0,
+          "tbt_ms": 811,
+          "load_ms": 2693,
+          "transfer_kb": 1235,
+          "request": 24,
+          "per_jenis_kb": {
+            "html": 149,
+            "gambar": 411,
+            "js": 47,
+            "css": 1,
+            "lain": 1,
+            "font": 92,
+            "audio": 534
+          }
+        },
+        {
+          "fcp_ms": 1748,
+          "lcp_ms": 1748,
+          "lcp_elemen": "p.vo",
+          "cls": 0,
+          "tbt_ms": 885,
+          "load_ms": 2943,
+          "transfer_kb": 1235,
+          "request": 24,
+          "per_jenis_kb": {
+            "html": 149,
+            "css": 1,
+            "gambar": 411,
+            "js": 47,
+            "lain": 1,
+            "font": 92,
+            "audio": 534
+          }
+        },
+        {
+          "fcp_ms": 716,
+          "lcp_ms": 716,
+          "lcp_elemen": "p.vo",
+          "cls": 0.002,
+          "tbt_ms": 1079,
+          "load_ms": 2970,
+          "transfer_kb": 1235,
+          "request": 24,
+          "per_jenis_kb": {
+            "gambar": 411,
+            "css": 1,
+            "html": 149,
+            "js": 47,
+            "font": 92,
+            "lain": 1,
+            "audio": 534
+          }
+        },
+        {
+          "fcp_ms": 752,
+          "lcp_ms": 752,
+          "lcp_elemen": "p.vo",
+          "cls": 0.002,
+          "tbt_ms": 1037,
+          "load_ms": 2911,
+          "transfer_kb": 1235,
+          "request": 24,
+          "per_jenis_kb": {
+            "gambar": 411,
+            "css": 1,
+            "html": 149,
+            "js": 47,
+            "font": 92,
+            "lain": 1,
+            "audio": 534
+          }
+        }
+      ]
+    }
+  },
+  "beranda_intro": {
+    "url": "http://localhost/iluztar/hostinger/dev/iluztar-personal/public_html/",
+    "desktop": {
+      "rata_rata": {
+        "fcp_ms": 589,
+        "lcp_ms": 1884,
+        "cls": 0.03,
+        "tbt_ms": 565,
+        "load_ms": 2004,
+        "transfer_kb": 3097,
+        "request": 66,
+        "gerbang_ms": 2057,
+        "transfer_setelah_mulai_kb": 3099,
+        "audio_setelah_mulai_kb": 534,
+        "per_jenis_kb": {
+          "css": 352,
+          "html": 343,
+          "gambar": 1628,
+          "js": 70,
+          "font": 169,
+          "lain": 1,
+          "audio": 534
+        },
+        "lcp_elemen": "img"
+      },
+      "per_percobaan": [
+        {
+          "fcp_ms": 1108,
+          "lcp_ms": 2172,
+          "lcp_elemen": "img",
+          "cls": 0.014,
+          "tbt_ms": 624,
+          "load_ms": 2117,
+          "transfer_kb": 3012,
+          "request": 64,
+          "per_jenis_kb": {
+            "css": 352,
+            "html": 343,
+            "gambar": 1543,
+            "js": 70,
+            "font": 169,
+            "lain": 1,
+            "audio": 534
+          },
+          "gerbang_ms": 2154,
+          "transfer_setelah_mulai_kb": 3014,
+          "audio_setelah_mulai_kb": 534
+        },
+        {
+          "fcp_ms": 592,
+          "lcp_ms": 1960,
+          "lcp_elemen": "img",
+          "cls": 0.014,
+          "tbt_ms": 659,
+          "load_ms": 2131,
+          "transfer_kb": 3118,
+          "request": 67,
+          "per_jenis_kb": {
+            "html": 343,
+            "css": 352,
+            "gambar": 1649,
+            "js": 70,
+            "font": 169,
+            "lain": 1,
+            "audio": 534
+          },
+          "gerbang_ms": 2203,
+          "transfer_setelah_mulai_kb": 3120,
+          "audio_setelah_mulai_kb": 534
+        },
+        {
+          "fcp_ms": 276,
+          "lcp_ms": 1756,
+          "lcp_elemen": "img",
+          "cls": 0.094,
+          "tbt_ms": 683,
+          "load_ms": 2283,
+          "transfer_kb": 3118,
+          "request": 67,
+          "per_jenis_kb": {
+            "html": 343,
+            "css": 352,
+            "gambar": 1649,
+            "js": 70,
+            "font": 169,
+            "lain": 1,
+            "audio": 534
+          },
+          "gerbang_ms": 2389,
+          "transfer_setelah_mulai_kb": 3120,
+          "audio_setelah_mulai_kb": 534
+        },
+        {
+          "fcp_ms": 508,
+          "lcp_ms": 1808,
+          "lcp_elemen": "img",
+          "cls": 0.014,
+          "tbt_ms": 482,
+          "load_ms": 1746,
+          "transfer_kb": 3118,
+          "request": 67,
+          "per_jenis_kb": {
+            "css": 352,
+            "html": 343,
+            "gambar": 1649,
+            "js": 69,
+            "font": 169,
+            "lain": 1,
+            "audio": 534
+          },
+          "gerbang_ms": 1778,
+          "transfer_setelah_mulai_kb": 3120,
+          "audio_setelah_mulai_kb": 534
+        },
+        {
+          "fcp_ms": 460,
+          "lcp_ms": 1724,
+          "lcp_elemen": "img",
+          "cls": 0.014,
+          "tbt_ms": 378,
+          "load_ms": 1742,
+          "transfer_kb": 3118,
+          "request": 67,
+          "per_jenis_kb": {
+            "html": 343,
+            "css": 352,
+            "gambar": 1649,
+            "js": 70,
+            "font": 169,
+            "lain": 1,
+            "audio": 534
+          },
+          "gerbang_ms": 1762,
+          "transfer_setelah_mulai_kb": 3120,
+          "audio_setelah_mulai_kb": 534
+        }
+      ]
+    },
+    "hp": {
+      "rata_rata": {
+        "fcp_ms": 1171,
+        "lcp_ms": 1171,
         "cls": 0.004,
-        "tbt_ms": 1067,
-        "dcl_ms": 2830,
-        "load_ms": 2832,
-        "transfer_kb": 527
+        "tbt_ms": 1324,
+        "load_ms": 5267,
+        "transfer_kb": 2101,
+        "request": 54,
+        "gerbang_ms": 5353,
+        "transfer_setelah_mulai_kb": 2103,
+        "audio_setelah_mulai_kb": 534,
+        "per_jenis_kb": {
+          "html": 343,
+          "css": 352,
+          "gambar": 632,
+          "js": 70,
+          "font": 169,
+          "lain": 1,
+          "audio": 534
+        },
+        "lcp_elemen": "img"
       },
-      {
-        "fcp_ms": 1676,
-        "lcp_ms": 1676,
-        "cls": 0.001,
-        "tbt_ms": 828,
-        "dcl_ms": 2701,
-        "load_ms": 2707,
-        "transfer_kb": 527
+      "per_percobaan": [
+        {
+          "fcp_ms": 1236,
+          "lcp_ms": 1236,
+          "lcp_elemen": "img",
+          "cls": 0.002,
+          "tbt_ms": 1411,
+          "load_ms": 5191,
+          "transfer_kb": 2101,
+          "request": 54,
+          "per_jenis_kb": {
+            "html": 343,
+            "css": 352,
+            "gambar": 632,
+            "js": 70,
+            "font": 169,
+            "lain": 1,
+            "audio": 534
+          },
+          "gerbang_ms": 5318,
+          "transfer_setelah_mulai_kb": 2103,
+          "audio_setelah_mulai_kb": 534
+        },
+        {
+          "fcp_ms": 1116,
+          "lcp_ms": 1116,
+          "lcp_elemen": "img",
+          "cls": 0.002,
+          "tbt_ms": 1147,
+          "load_ms": 4945,
+          "transfer_kb": 2102,
+          "request": 54,
+          "per_jenis_kb": {
+            "html": 343,
+            "css": 352,
+            "gambar": 632,
+            "js": 70,
+            "font": 170,
+            "lain": 1,
+            "audio": 534
+          },
+          "gerbang_ms": 5083,
+          "transfer_setelah_mulai_kb": 2104,
+          "audio_setelah_mulai_kb": 534
+        },
+        {
+          "fcp_ms": 1116,
+          "lcp_ms": 1116,
+          "lcp_elemen": "img",
+          "cls": 0.007,
+          "tbt_ms": 939,
+          "load_ms": 4893,
+          "transfer_kb": 2101,
+          "request": 54,
+          "per_jenis_kb": {
+            "html": 343,
+            "css": 352,
+            "gambar": 632,
+            "js": 70,
+            "font": 169,
+            "lain": 1,
+            "audio": 534
+          },
+          "gerbang_ms": 4937,
+          "transfer_setelah_mulai_kb": 2103,
+          "audio_setelah_mulai_kb": 534
+        },
+        {
+          "fcp_ms": 1196,
+          "lcp_ms": 1196,
+          "lcp_elemen": "img",
+          "cls": 0.007,
+          "tbt_ms": 1563,
+          "load_ms": 5698,
+          "transfer_kb": 2101,
+          "request": 54,
+          "per_jenis_kb": {
+            "html": 343,
+            "css": 352,
+            "gambar": 632,
+            "js": 70,
+            "font": 169,
+            "lain": 1,
+            "audio": 534
+          },
+          "gerbang_ms": 5757,
+          "transfer_setelah_mulai_kb": 2103,
+          "audio_setelah_mulai_kb": 534
+        },
+        {
+          "fcp_ms": 1192,
+          "lcp_ms": 1192,
+          "lcp_elemen": "img",
+          "cls": 0.002,
+          "tbt_ms": 1560,
+          "load_ms": 5606,
+          "transfer_kb": 2101,
+          "request": 54,
+          "per_jenis_kb": {
+            "html": 343,
+            "css": 352,
+            "gambar": 632,
+            "js": 70,
+            "font": 169,
+            "lain": 1,
+            "audio": 534
+          },
+          "gerbang_ms": 5669,
+          "transfer_setelah_mulai_kb": 2103,
+          "audio_setelah_mulai_kb": 534
+        }
+      ]
+    }
+  },
+  "beranda_tanpa_intro": {
+    "url": "http://localhost/iluztar/hostinger/dev/iluztar-personal/public_html/?intro=0",
+    "desktop": {
+      "rata_rata": {
+        "fcp_ms": 418,
+        "lcp_ms": 1548,
+        "cls": 0.013,
+        "tbt_ms": 264,
+        "load_ms": 962,
+        "transfer_kb": 1863,
+        "request": 43,
+        "per_jenis_kb": {
+          "html": 194,
+          "css": 351,
+          "gambar": 1219,
+          "js": 23,
+          "font": 77
+        },
+        "lcp_elemen": "img"
       },
-      {
-        "fcp_ms": 1380,
-        "lcp_ms": 1380,
-        "cls": 0.001,
-        "tbt_ms": 518,
-        "dcl_ms": 1909,
-        "load_ms": 1913,
-        "transfer_kb": 527
+      "per_percobaan": [
+        {
+          "fcp_ms": 664,
+          "lcp_ms": 1680,
+          "lcp_elemen": "img",
+          "cls": 0.013,
+          "tbt_ms": 259,
+          "load_ms": 1134,
+          "transfer_kb": 1884,
+          "request": 44,
+          "per_jenis_kb": {
+            "html": 194,
+            "css": 351,
+            "gambar": 1240,
+            "js": 23,
+            "font": 77
+          }
+        },
+        {
+          "fcp_ms": 504,
+          "lcp_ms": 1552,
+          "lcp_elemen": "img",
+          "cls": 0.013,
+          "tbt_ms": 281,
+          "load_ms": 976,
+          "transfer_kb": 1884,
+          "request": 44,
+          "per_jenis_kb": {
+            "html": 194,
+            "css": 351,
+            "gambar": 1240,
+            "js": 23,
+            "font": 77
+          }
+        },
+        {
+          "fcp_ms": 240,
+          "lcp_ms": 1540,
+          "lcp_elemen": "img",
+          "cls": 0.015,
+          "tbt_ms": 258,
+          "load_ms": 917,
+          "transfer_kb": 1884,
+          "request": 44,
+          "per_jenis_kb": {
+            "html": 194,
+            "css": 351,
+            "gambar": 1240,
+            "js": 23,
+            "font": 77
+          }
+        },
+        {
+          "fcp_ms": 456,
+          "lcp_ms": 1472,
+          "lcp_elemen": "img",
+          "cls": 0.013,
+          "tbt_ms": 307,
+          "load_ms": 912,
+          "transfer_kb": 1779,
+          "request": 41,
+          "per_jenis_kb": {
+            "html": 194,
+            "css": 351,
+            "gambar": 1134,
+            "js": 23,
+            "font": 77
+          }
+        },
+        {
+          "fcp_ms": 228,
+          "lcp_ms": 1496,
+          "lcp_elemen": "img",
+          "cls": 0.013,
+          "tbt_ms": 216,
+          "load_ms": 870,
+          "transfer_kb": 1884,
+          "request": 44,
+          "per_jenis_kb": {
+            "css": 351,
+            "html": 194,
+            "gambar": 1240,
+            "js": 23,
+            "font": 77
+          }
+        }
+      ]
+    },
+    "hp": {
+      "rata_rata": {
+        "fcp_ms": 1200,
+        "lcp_ms": 1257,
+        "cls": 0.006,
+        "tbt_ms": 560,
+        "load_ms": 2835,
+        "transfer_kb": 867,
+        "request": 31,
+        "per_jenis_kb": {
+          "html": 194,
+          "css": 351,
+          "gambar": 222,
+          "js": 23,
+          "font": 77
+        },
+        "lcp_elemen": "img"
       },
-      {
-        "fcp_ms": 1960,
-        "lcp_ms": 1960,
-        "cls": 0.001,
-        "tbt_ms": 1258,
-        "dcl_ms": 3372,
-        "load_ms": 3381,
-        "transfer_kb": 527
-      }
-    ]
+      "per_percobaan": [
+        {
+          "fcp_ms": 1228,
+          "lcp_ms": 1228,
+          "lcp_elemen": "img",
+          "cls": 0.006,
+          "tbt_ms": 635,
+          "load_ms": 3007,
+          "transfer_kb": 867,
+          "request": 31,
+          "per_jenis_kb": {
+            "html": 194,
+            "css": 351,
+            "gambar": 222,
+            "js": 23,
+            "font": 77
+          }
+        },
+        {
+          "fcp_ms": 1308,
+          "lcp_ms": 1308,
+          "lcp_elemen": "img",
+          "cls": 0.007,
+          "tbt_ms": 730,
+          "load_ms": 2953,
+          "transfer_kb": 867,
+          "request": 31,
+          "per_jenis_kb": {
+            "html": 194,
+            "css": 351,
+            "gambar": 222,
+            "js": 23,
+            "font": 77
+          }
+        },
+        {
+          "fcp_ms": 1028,
+          "lcp_ms": 1312,
+          "lcp_elemen": "img",
+          "cls": 0.011,
+          "tbt_ms": 656,
+          "load_ms": 2454,
+          "transfer_kb": 867,
+          "request": 31,
+          "per_jenis_kb": {
+            "html": 194,
+            "css": 351,
+            "gambar": 222,
+            "js": 23,
+            "font": 77
+          }
+        },
+        {
+          "fcp_ms": 1196,
+          "lcp_ms": 1196,
+          "lcp_elemen": "img",
+          "cls": 0.006,
+          "tbt_ms": 303,
+          "load_ms": 2902,
+          "transfer_kb": 867,
+          "request": 31,
+          "per_jenis_kb": {
+            "html": 194,
+            "css": 351,
+            "gambar": 222,
+            "js": 23,
+            "font": 77
+          }
+        },
+        {
+          "fcp_ms": 1240,
+          "lcp_ms": 1240,
+          "lcp_elemen": "img",
+          "cls": 0,
+          "tbt_ms": 477,
+          "load_ms": 2859,
+          "transfer_kb": 867,
+          "request": 31,
+          "per_jenis_kb": {
+            "html": 194,
+            "css": 351,
+            "gambar": 222,
+            "js": 23,
+            "font": 77
+          }
+        }
+      ]
+    }
+  },
+  "beranda_lama": {
+    "url": "http://localhost/iluztar/hostinger/",
+    "desktop": {
+      "rata_rata": {
+        "fcp_ms": 368,
+        "lcp_ms": 936,
+        "cls": 0,
+        "tbt_ms": 97,
+        "load_ms": 381,
+        "transfer_kb": 361,
+        "request": 19,
+        "per_jenis_kb": {
+          "html": 90,
+          "css": 48,
+          "js": 33,
+          "font": 190
+        },
+        "lcp_elemen": "h1.font-display.text-4xl"
+      },
+      "per_percobaan": [
+        {
+          "fcp_ms": 372,
+          "lcp_ms": 988,
+          "lcp_elemen": "h1.font-display.text-4xl",
+          "cls": 0,
+          "tbt_ms": 99,
+          "load_ms": 430,
+          "transfer_kb": 361,
+          "request": 19,
+          "per_jenis_kb": {
+            "html": 90,
+            "css": 48,
+            "js": 33,
+            "font": 190
+          }
+        },
+        {
+          "fcp_ms": 340,
+          "lcp_ms": 908,
+          "lcp_elemen": "h1.font-display.text-4xl",
+          "cls": 0,
+          "tbt_ms": 68,
+          "load_ms": 330,
+          "transfer_kb": 361,
+          "request": 19,
+          "per_jenis_kb": {
+            "html": 90,
+            "css": 48,
+            "js": 33,
+            "font": 190
+          }
+        },
+        {
+          "fcp_ms": 332,
+          "lcp_ms": 884,
+          "lcp_elemen": "h1.font-display.text-4xl",
+          "cls": 0,
+          "tbt_ms": 64,
+          "load_ms": 330,
+          "transfer_kb": 361,
+          "request": 19,
+          "per_jenis_kb": {
+            "html": 90,
+            "css": 48,
+            "js": 33,
+            "font": 190
+          }
+        },
+        {
+          "fcp_ms": 320,
+          "lcp_ms": 872,
+          "lcp_elemen": "h1.font-display.text-4xl",
+          "cls": 0,
+          "tbt_ms": 71,
+          "load_ms": 332,
+          "transfer_kb": 361,
+          "request": 19,
+          "per_jenis_kb": {
+            "html": 90,
+            "css": 48,
+            "js": 33,
+            "font": 190
+          }
+        },
+        {
+          "fcp_ms": 476,
+          "lcp_ms": 1028,
+          "lcp_elemen": "h1.font-display.text-4xl",
+          "cls": 0,
+          "tbt_ms": 181,
+          "load_ms": 482,
+          "transfer_kb": 361,
+          "request": 19,
+          "per_jenis_kb": {
+            "html": 90,
+            "css": 48,
+            "js": 33,
+            "font": 190
+          }
+        }
+      ]
+    },
+    "hp": {
+      "rata_rata": {
+        "fcp_ms": 1062,
+        "lcp_ms": 1062,
+        "cls": 0,
+        "tbt_ms": 473,
+        "load_ms": 1354,
+        "transfer_kb": 409,
+        "request": 20,
+        "per_jenis_kb": {
+          "html": 90,
+          "css": 48,
+          "font": 173,
+          "js": 33,
+          "gambar": 65
+        },
+        "lcp_elemen": "p.mt-6.text-xl"
+      },
+      "per_percobaan": [
+        {
+          "fcp_ms": 1188,
+          "lcp_ms": 1188,
+          "lcp_elemen": "p.mt-6.text-xl",
+          "cls": 0,
+          "tbt_ms": 621,
+          "load_ms": 1398,
+          "transfer_kb": 409,
+          "request": 20,
+          "per_jenis_kb": {
+            "html": 90,
+            "css": 48,
+            "font": 173,
+            "js": 33,
+            "gambar": 65
+          }
+        },
+        {
+          "fcp_ms": 972,
+          "lcp_ms": 972,
+          "lcp_elemen": "p.mt-6.text-xl",
+          "cls": 0,
+          "tbt_ms": 479,
+          "load_ms": 1448,
+          "transfer_kb": 409,
+          "request": 20,
+          "per_jenis_kb": {
+            "html": 90,
+            "css": 48,
+            "font": 173,
+            "js": 33,
+            "gambar": 65
+          }
+        },
+        {
+          "fcp_ms": 1052,
+          "lcp_ms": 1052,
+          "lcp_elemen": "p.mt-6.text-xl",
+          "cls": 0,
+          "tbt_ms": 377,
+          "load_ms": 1253,
+          "transfer_kb": 409,
+          "request": 20,
+          "per_jenis_kb": {
+            "html": 90,
+            "css": 48,
+            "font": 173,
+            "js": 33,
+            "gambar": 65
+          }
+        },
+        {
+          "fcp_ms": 1056,
+          "lcp_ms": 1056,
+          "lcp_elemen": "p.mt-6.text-xl",
+          "cls": 0,
+          "tbt_ms": 567,
+          "load_ms": 1467,
+          "transfer_kb": 409,
+          "request": 20,
+          "per_jenis_kb": {
+            "html": 90,
+            "css": 48,
+            "font": 173,
+            "js": 33,
+            "gambar": 65
+          }
+        },
+        {
+          "fcp_ms": 1040,
+          "lcp_ms": 1040,
+          "lcp_elemen": "h1.font-display.text-4xl",
+          "cls": 0,
+          "tbt_ms": 323,
+          "load_ms": 1206,
+          "transfer_kb": 409,
+          "request": 20,
+          "per_jenis_kb": {
+            "html": 90,
+            "css": 48,
+            "font": 173,
+            "js": 33,
+            "gambar": 65
+          }
+        }
+      ]
+    }
   }
 }

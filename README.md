@@ -65,12 +65,15 @@ Browsers only autoplay embedded video (an MP4 file or a YouTube player) when it 
 narration loses its message until the visitor clicks the sound icon. The studio's earlier site had exactly this
 problem, and some survey respondents mentioned it. A code-based reel avoids it:
 
-- it starts as soon as the page is ready, with no third-party player;
-- the narration is on screen as animated text, so the message works without sound
-  (the intro mode is silent on purpose; the sound version is behind the Play button);
-- the page transfers about 527 KB and stays sharp at any resolution;
+- on the homepage it starts only after the visitor presses **Open website**, so picture and narration begin together from second 0;
+- the narration is also on screen as animated text, so the message works without sound;
+- the visual part transfers 588 KB (1,122 KB with the short soundtrack, 1,777 KB with the full one), smaller than the
+  1080p and 1440p comparison videos; text and vector shapes stay sharp at any resolution (raster artwork uses 480 px / 1,400 px WebP);
 - it adapts to the screen: a 1600×900 stage scaled by `fit()`, with a separate phone layout;
-- the text is real HTML that search engines can read, and the elements are clickable.
+- the narration is real HTML text in the reel document, and the elements are clickable.
+
+Trade-offs measured in the thesis: estimated Total Blocking Time is still above 200 ms on most profiles, and the narration
+lives in the reel document loaded through an iframe, not in the homepage HTML (indexing was not tested).
 
 ## Features
 
@@ -92,10 +95,13 @@ Keys in Play mode: `Space` play/pause · `→`/`←` next/previous scene · `H` 
 
 ### Intro mode (`?intro=1`)
 
-Used since 8 Nov 2026 as the opening animation of the Iluztar homepage. The page loads the reel in an iframe;
-the reel plays the 30-second cut silently with no controls and reports `postMessage({ iluztarReel: 'siap' | 'selesai' })`
-so the parent can hide its loader and close the overlay. The homepage shows it once per session, offers **Skip**/`Esc`,
-skips it for `prefers-reduced-motion` or `?intro=0`, and falls back to the main page if loading stalls for 10 s.
+Used as the opening animation of the Iluztar homepage. The page loads the reel in an iframe and the reel reports
+`postMessage({ iluztarReel: 'siap' | 'selesai' })`. In the tested version (iluztar.com 0.14.5, reel `ab8bca2`, 10 Nov 2026)
+the overlay showed once per session: a loader, then **Open website**, which starts the ~32-second cut together with its
+soundtrack; **Sound**, **Watch full reel** and **Skip intro**/`Esc` were available, `prefers-reduced-motion` and `?intro=0`
+skip it, and a 10-second safety closes the overlay if the reel cannot load. Since 12 Nov 2026 the gate appears only on the
+first visit, the button is labelled **Close**, a **Pause/Play** control was added, and the reel is loaded from
+iluztar.com/dev/motion instead of GitHub Pages.
 
 ## Scenes
 
@@ -168,33 +174,48 @@ to [`skripsi/riwayat-iterasi.md`](skripsi/riwayat-iterasi.md).
 | 5 | #12–#25 | Per-scene polish: typed chat, folders, website mock, toggle, ownership arrow, network hop, scroll cue, Instagram card, image pre-decode, Cut soundtrack |
 | 6 | intro commit (8 Nov) | `?intro=1` homepage opening animation |
 
+The thesis groups the whole history into 12 iterations (9 up to the tested version, 3 after publication); see Table 4.9 and Appendix 10 of the thesis.
+
 ## Test results
 
-Measured on 8 Nov 2026 on a local server; raw data in [`skripsi/data-pengukuran/`](skripsi/data-pengukuran).
+**Main thesis tests: 10 Nov 2026**, iluztar.com 0.14.5 + reel commit `ab8bca2`, local server (XAMPP), Microsoft Edge 157
+for performance, Chromium 153 and Edge 157 for functional tests. Raw data: [`skripsi/data-pengukuran/`](skripsi/data-pengukuran).
 
-| Metric (mean of 5, cold cache) | Desktop | Phone (4× CPU, 4G) |
-|---|---|---|
-| FCP / LCP | 0.97 s | 1.61 s |
-| CLS | 0.003 | 0.002 |
-| TBT (estimate) | 366 ms | 913 ms |
-| Transfer | 527 KB | 527 KB |
+| Page (mean of 5, cold cache) | FCP | LCP | CLS* | TBT (estimate)** | Transfer |
+|---|---|---|---|---|---|
+| Reel, full (desktop / phone) | 0.80 / 1.36 s | 1.98 / 2.66 s | 0.003 / 0.002 | 493 / 797 ms | 1,886 / 1,891 KB |
+| Reel, intro cut (desktop / phone) | 0.49 / 1.20 s | 0.49 / 1.20 s | 0.000 / 0.001 | 145 / 851 ms | 1,235 / 1,235 KB |
+| Homepage with intro (desktop / phone) | 0.59 / 1.17 s | 1.88 / 1.17 s | 0.030 / 0.004 | 565 / 1,324 ms | 3,097 / 2,101 KB |
+| Homepage without intro (desktop / phone) | 0.42 / 1.20 s | 1.55 / 1.26 s | 0.013 / 0.006 | 264 / 560 ms | 1,863 / 867 KB |
 
-Intro mode passed 10/10 functional scenarios in Chromium and Edge with no CSP violations. Lighthouse: Accessibility 100,
-Best Practices 100/96, SEO 63 (the only failing audit is `is-crawlable`, caused by the `noindex` header on the test folder).
-With JavaScript off, the HTML still carries 311 words, including all scene narration.
+Phone profile: 390×844, CPU 4× slower, 4G-like network (150 ms, 9 / 1.5 Mbps). Desktop: 1440×810, no throttling.
+\* Sum of all layout shifts without recent input (always ≥ standard session-window CLS).
+\*\* Long tasks from navigation start until 3 s after load (or after the Open website button appears); not identical to Lighthouse TBT.
+
+All 14 functional scenarios passed in Chromium and Edge with no CSP violations or console errors
+([`data_uji_intro.json`](skripsi/data-pengukuran/data_uji_intro.json), [`data_uji_intro_edge.json`](skripsi/data-pengukuran/data_uji_intro_edge.json));
+scenario 11 passes if the overlay closes by itself within 16 s of navigation. Lighthouse on the public reel: Accessibility,
+Best Practices and SEO 100; the homepage scored Best Practices 96 because of one missing stylesheet, fixed in 0.14.7.
+With JavaScript off, the reel HTML still carries 311 words, including all scene narration.
+
+Earlier development measurements from 8 Nov 2026 are kept in
+[`skripsi/data-pengukuran/awal-2026-11-08/`](skripsi/data-pengukuran/awal-2026-11-08) and are **not** used for the thesis conclusions.
+Later versions (after 10 Nov) have not been re-measured with this procedure.
 
 ## Re-running the tests
 
-Scripts in [`skripsi/skrip-pengujian/`](skripsi/skrip-pengujian) use Node.js and `playwright-core` with Chromium:
-`perf.mjs` (Web Vitals, 5 runs per profile), `banding_situs.mjs` (SEO fields from raw HTML, old vs new homepage),
-`uji-beranda-intro.mjs` / `uji-intro-edge.mjs` (intro scenarios), `video.mjs` (frame capture for comparisons).
+Scripts in [`skripsi/skrip-pengujian/`](skripsi/skrip-pengujian) use Node.js and `playwright-core` 1.47:
+`perf2.mjs` (Web Vitals and transfer per file type, 5 runs per profile, Microsoft Edge; `node perf2.mjs lokal` or `live`),
+`uji-intro2.mjs` (the 14 intro scenarios; set the browser path for Chromium or Edge), and `banding_situs.mjs`
+(SEO fields from raw HTML, old vs new homepage). Scripts used for the 8 Nov measurements are in `awal-2026-11-08/`.
 
 ```bash
-npm i playwright-core && npx playwright install chromium
-node skripsi/skrip-pengujian/perf.mjs
+npm i playwright-core@1.47
+node skripsi/skrip-pengujian/perf2.mjs lokal
+node skripsi/skrip-pengujian/uji-intro2.mjs
 ```
 
-The `URL`/`OUT` constants at the top of each script point to the author's machine; change them first.
+The URL and browser-path constants at the top of each script point to the author's machine; change them first.
 
 ## Privacy of the appendix data
 
